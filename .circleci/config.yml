@@ -9,6 +9,8 @@ jobs:
           command: |  # create whl and use pipenv to install dependencies
             python setup.py sdist bdist_wheel
             pip install pipenv
+            pip install pytest
+            pip install -r requirements.txt
             pipenv install dist/southpaw-0.0.6-py3-none-any.whl
             pipenv install pytest
             python -m pytest     
