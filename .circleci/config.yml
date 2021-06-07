@@ -11,7 +11,7 @@ jobs:
             pip install pipenv
             pip install pytest
             pip install -r requirements.txt
-            pipenv install dist/southpaw-0.0.8-py3-none-any.whl
+            pipenv install dist/southpaw-0.0.9-py3-none-any.whl
             pipenv install pytest
             python -m pytest     
   test_pypi_publish:
