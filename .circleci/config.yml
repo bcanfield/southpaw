@@ -11,7 +11,7 @@ jobs:
             pip install pipenv
             pipenv install dist/southpaw-0.0.6-py3-none-any.whl
             pipenv install pytest
-            pipenv run pytest      
+            python -m pytest     
   test_pypi_publish:
     docker:
       - image: circleci/python:3.9.5
