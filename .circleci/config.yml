@@ -9,7 +9,7 @@ jobs:
           command: |  # create whl and use pipenv to install dependencies
             python setup.py sdist bdist_wheel
             sudo pip install pipenv
-            pipenv install dist/southpaw-0.0.3-py3-none-any.whl
+            pipenv install dist/southpaw-0.0.4-py3-none-any.whl
             pipenv install pytest
       - run:
           command: |  # Run test suite
