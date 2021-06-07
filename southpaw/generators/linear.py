@@ -31,7 +31,7 @@ class LinearGenerator():
         start_time = time.monotonic()
 
         manySolutions = []
-        for i in range(1, self.numLineupsToGenerate):
+        for i in range(0, self.numLineupsToGenerate):
             problem.solve()
             selected_vars = []
             for p in problem.variables():
