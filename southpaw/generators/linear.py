@@ -7,6 +7,7 @@ class LinearGenerator():
     def __init__(self, jsonDataFilePath, salaryCap, scoreColumnName, playersPerLineup, numLineupsToGenerate):
         self.jsonDataFilePath = jsonDataFilePath
         self.salaryCap = salaryCap
+        self.scoreColumnName = scoreColumnName
         self.playersPerLineup = playersPerLineup
         self.numLineupsToGenerate = numLineupsToGenerate
 
@@ -30,7 +31,7 @@ class LinearGenerator():
         start_time = time.monotonic()
 
         manySolutions = []
-        for i in range(1, numLineupsToGenerate):
+        for i in range(1, self.numLineupsToGenerate):
             problem.solve()
             selected_vars = []
             for p in problem.variables():
