@@ -6,7 +6,7 @@ LONG_DESCRIPTION = 'MMA DFS Toolkit written in Python'
 
 # Setting up
 setup(
-    name="fightbender",
+    name="jab",
     version=VERSION,
     author="Brandin Canfield",
     author_email="<brandincanfield@gmail.com>",
