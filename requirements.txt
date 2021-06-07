@@ -1,5 +1,6 @@
 amply==0.1.4
 certifi==2021.5.30
+convrsn==0.0.3
 docutils==0.17.1
 numpy==1.20.3
 pandas==1.2.4
