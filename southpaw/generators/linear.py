@@ -4,14 +4,14 @@ import time
 
 
 class LinearGenerator():
-    def __init__(self, jsonDataFilePath, salaryCap, scoreColumnName, playersPerLineup, numLineupsToGenerate):
+    def __init__(self, jsonDataFilePath, salaryCap, playersPerLineup, scoreColumnName, numLineupsToGenerate):
         self.jsonDataFilePath = jsonDataFilePath
         self.salaryCap = salaryCap
         self.scoreColumnName = scoreColumnName
         self.playersPerLineup = playersPerLineup
         self.numLineupsToGenerate = numLineupsToGenerate
 
-    def generate(self):
+    def run(self):
         data = pd.read_json(self.jsonDataFilePath)
         players = list(data['name'])
 
