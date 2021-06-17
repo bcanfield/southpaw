@@ -15,8 +15,8 @@ jobs:
             pipenv install pytest
             python -m pytest
             pip install pdoc3   
-            mkdir documentation
-            pdoc --html --output-dir southpaw /documentation
+            mkdir /tmp/documentation
+            pdoc --html --output-dir southpaw /tmp/documentation
       - store_artifacts:
           path: /tmp/documentation
 
