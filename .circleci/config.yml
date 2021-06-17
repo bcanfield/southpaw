@@ -14,9 +14,9 @@ jobs:
             pipenv install dist/southpaw-0.0.9-py3-none-any.whl
             pipenv install pytest
             python -m pytest
-            pip install pdoc 
+            pip install pdoc3   
             mkdir /tmp/documentation;
-            pdoc --html ./ --output-dir /tmp/documentation
+            pdoc3 --html ./ --output-dir /tmp/documentation
       - store_artifacts:
           path: /tmp/documentation
 
