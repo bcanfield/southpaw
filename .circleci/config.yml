@@ -16,7 +16,7 @@ jobs:
             python -m pytest
             pip install pdoc3   
             mkdir /tmp/documentation;
-            echo "my artifact files in a dir" > /tmp/documentation/art-2;
+            pdoc --html ./ --output-dir /tmp/documentation
       - store_artifacts:
           path: /tmp/documentation
 
