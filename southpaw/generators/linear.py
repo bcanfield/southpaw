@@ -1,6 +1,7 @@
 from pulp import *
 import pandas as pd
 import time
+import json
 
 
 class LinearGenerator():
@@ -12,9 +13,12 @@ class LinearGenerator():
         self.numLineupsToGenerate = numLineupsToGenerate
 
     def run(self):
+        # with open(self.jsonDataFilePath, 'r') as myfile:
+        #     data = myfile.read()
+        # players = json.loads(data)
+
         data = pd.read_json(self.jsonDataFilePath)
         players = list(data['name'])
-
         salaries = dict(zip(players, data['salary']))
         scores = dict(zip(players, data[self.scoreColumnName]))
         player_vars = LpVariable.dicts(
