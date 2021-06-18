@@ -22,7 +22,7 @@ def get_all_fighters(dates_to_search=get_dates_of_saturday_and_sunday()):
         If there is no sportsbook data, an empty array will be returned
     """
 
-    response = requests.get(fanduel_sportsbook_url)
+    response = requests.get(fanduel_sportsbook_url, headers = {'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'}, verify=False)
     results = []
 
     for event in response.json()['events']:
