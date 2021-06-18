@@ -5,7 +5,7 @@
 
 
 # Southpaw
-## _MMA Daily Fantasy Sports Toolkit_
+## _MMA Betting Toolkit_
 
 
 
