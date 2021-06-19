@@ -13,7 +13,6 @@ class GeneticGenerator:
 
         self.all_lineups = []
         self.top_150 = []
-        self.sportsbook_data = []
         self.lineupsGenerated = 0
 
     def __add_lineup_to_top_150(self, lineup):
@@ -142,9 +141,8 @@ class GeneticGenerator:
     # Run the genetic algorithm
     def run(self):
         runtime = time.time() + self.duration
-        # self.sportsbook_data = pd.read_json(self.jsonDataFilePath)
         while time.time() < runtime:
-            self.get_lineups(self.fighterData)
+            self.__get_lineups(self.fighterData)
             # Sort top 150
             sorted_top_150 = self.__sortLineups(self.top_150)
             sorted_top_150.reverse()
