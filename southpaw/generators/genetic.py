@@ -5,8 +5,8 @@ import json
 
 
 class GeneticGenerator:
-    def __init__(self, jsonDataFilePath, playersPerLineup, salaryCap, duration=20):
-        self.jsonDataFilePath = jsonDataFilePath
+    def __init__(self, fighterData, playersPerLineup, salaryCap, duration=20):
+        self.fighterData = fighterData
         self.playersPerLineup = playersPerLineup
         self.salaryCap = salaryCap
         self.duration = duration
@@ -143,10 +143,8 @@ class GeneticGenerator:
     def run(self):
         runtime = time.time() + self.duration
         # self.sportsbook_data = pd.read_json(self.jsonDataFilePath)
-        f = open(self.jsonDataFilePath,)
-        self.sportsbook_data = json.load(f)
         while time.time() < runtime:
-            self.get_lineups(self.sportsbook_data)
+            self.get_lineups(self.fighterData)
             # Sort top 150
             sorted_top_150 = self.sortLineups(self.top_150)
             sorted_top_150.reverse()
