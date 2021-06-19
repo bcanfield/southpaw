@@ -7,7 +7,6 @@ def test_genetic():
     f = open(jsonDataFilePath,)
     fighterData = json.load(f)
     salaryCap = 100
-    scoreColumnName = 'score'
     playersPerLineup = 6
     numLineupsToGenerate = 10
     geneticGenerator = GeneticGenerator(fighterData, playersPerLineup, salaryCap, 20)
