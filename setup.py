@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.11'
+VERSION = '0.0.12'
 DESCRIPTION = 'MMA DFS Toolkit'
 LONG_DESCRIPTION = 'MMA DFS Toolkit written in Python'
 
