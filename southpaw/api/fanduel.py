@@ -1,12 +1,21 @@
 import requests
 
 
-def get_fanduel_headers(xAuthToken, authorizationToken):
+def get_fanduel_headers(x_auth_token, basic_auth_token):
+    """Create valid headers for the fanduel api.
+
+    Args:
+        x_auth_token: The x_auth_token used to verify each user connecting to the fanduel api
+        basic_auth_token: The bearer token used to verify each user connecting to the fanduel api
+
+    Returns:
+        The headers object to be used in all requests to the fanduel api
+    """
     headers = {'authority': 'api.fanduel.com',
                'accept': 'application/json',
-               'x-auth-token': xAuthToken,
+               'x-auth-token': x_auth_token,
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
-               'authorization': authorizationToken,
+               'authorization': basic_auth_token,
                'content-type': 'application/json',
                'origin': 'https://www.fanduel.com',
                'sec-fetch-site': 'same-site',
@@ -18,50 +27,71 @@ def get_fanduel_headers(xAuthToken, authorizationToken):
     return headers
 
 
-def get_players_in_contest(contest, xAuthToken, authorizationToken):
-    fixtureListIds = contest['fixture_list']['_members']
-    if len(fixtureListIds) > 0:
-        fixtureListId = fixtureListIds[0]
-        response = requests.get(
-            "https://api.fanduel.com/fixture-lists/" + fixtureListId + "/players",
-            headers=get_fanduel_headers(xAuthToken, authorizationToken))
-        jsonData = response.json()
-        return jsonData['players']
+def get_players_in_contest(contest, fanduel_headers):
+    """Get a list of players that are in a given contest.
+
+    Args:
+        contest: A contest object retrieved from the fanduel api
+        fanduel_headers: Valid headers for the fanduel api
+
+    Returns:
+        A list of players in the contest
+    """
+    fixture_list_ids = contest['fixture_list']['_members']
+    if len(fixture_list_ids) > 0:
+        fixture_list_id = fixture_list_ids[0]
+        players_response = requests.get(
+            "https://api.fanduel.com/fixture-lists/" + fixture_list_id + "/players",
+            headers=fanduel_headers).json()
+        return players_response['players']
 
 
-def get_upcoming_contests(userId, xAuthToken, authorization):
+def get_upcoming_contests(user_id, fanduel_headers):
+    """Get a list of upcoming contests for a given user.
+
+    Args:
+        user_id: Fanduel user id
+        fanduel_headers: Valid headers for the fanduel api
+
+    Returns:
+        A list of upcoming contests for the user
+    """
     # Get all upcoming rosters (duplicate/blank entries are grouped into one roster)
-    headers = get_fanduel_headers(xAuthToken, authorization)
-    response = requests.get(
-        'https://api.fanduel.com/users/' + userId + '/rosters?status=upcoming',
-        headers=headers)
-    jsonData = response.json()
-    upcomingContests = []
+    rosters_response = requests.get(
+        'https://api.fanduel.com/users/' + user_id + '/rosters?status=upcoming',
+        headers=fanduel_headers).json()
+    upcoming_contests = []
     # Dig through rosters to check if it is for correct sport
-    for roster in jsonData['rosters']:
-        rosterFixtureLists = roster['fixture_list']['_members']
-        if len(rosterFixtureLists) > 0:
-            rosterFixtureListId = rosterFixtureLists[0]
-            for fixtureList in jsonData['fixture_lists']:
-                if fixtureList['id'] == rosterFixtureListId:
-                    if fixtureList['sport'] == 'UFC':
+    for roster in rosters_response['rosters']:
+        roster_fixture_lists = roster['fixture_list']['_members']
+        if len(roster_fixture_lists) > 0:
+            roster_fixture_list_id = roster_fixture_lists[0]
+            for fixture_list in rosters_response['fixture_lists']:
+                if fixture_list['id'] == roster_fixture_list_id:
+                    if fixture_list['sport'] == 'UFC':
                         # Get all entries belonging to this roster
-                        response = requests.get(
-                            roster['grouped_entries']['_url'], headers=headers)
-                        jsonDataNew = response.json()
-                        for contest in jsonDataNew['contests']:
-                            if not contest in upcomingContests:
-                                upcomingContests.append(contest)
-    return upcomingContests
+                        entries_response = requests.get(
+                            roster['grouped_entries']['_url'], headers=fanduel_headers).json()
+                        for contest in entries_response['contests']:
+                            if not contest in upcoming_contests:
+                                upcoming_contests.append(contest)
+    return upcoming_contests
 
 
-def get_fighter_salaries(userId, xAuthToken, authorization):
-    salary_list = []
-    contests = get_upcoming_contests(userId, xAuthToken, authorization)
-    # Use first ufc contest
-    contest = contests[0]
-    playerList = get_players_in_contest(contest, xAuthToken, authorization)
-    for player in playerList:
-        salary_list.append({'name': player['known_name'], 'salary': player['salary'],
-                            'id': player['id'], 'imageUrl': player['images']['default']['url']})
+def get_fighter_salaries(user_id, x_auth_token, basic_auth_token):
+    """Get a list of fighters in a user's upcoming fanduel contest with their fanduel salaries
+
+    Args:
+        user_id: Fanduel user id
+        x_auth_token: The x_auth_token used to verify each user connecting to the fanduel api
+        basic_auth_token: The bearer token used to verify each user connecting to the fanduel api
+
+    Returns:
+        A list of fighters containing salaries
+    """
+    fanduel_headers = get_fanduel_headers(x_auth_token, basic_auth_token)
+    contests = get_upcoming_contests(user_id, fanduel_headers)
+    player_list = get_players_in_contest(contests[0], fanduel_headers)
+    salary_list = [{'name': player['known_name'], 'salary': player['salary'],
+                    'id': player['id'], 'imageUrl': player['images']['default']['url']} for player in player_list]
     return salary_list
