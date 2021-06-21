@@ -5,10 +5,10 @@ fanduel_sportsbook_url = 'https://sportsbook.fanduel.com/cache/psmg/UK/50361.3.j
 
 
 def get_all_fighters(dates_to_search=get_dates_of_saturday_and_sunday()):
-    """Retrieve a list of fighters and some additional provided data from fanduel sportsbook.
+    """Retrieve a list of fighters and their available data from fanduel sportsbook.
 
     Args:
-        dates_to_search (optional): A list of dates to search in the format: %Y-%m-%d. This will default to this saturday and sunday
+        dates_to_search (optional): A list of dates to search in the format: %Y-%m-%d. This will default to this Saturday and Sunday.
 
     Returns:
         A list of fighters from the sportsbook and some other provided data.
@@ -22,7 +22,8 @@ def get_all_fighters(dates_to_search=get_dates_of_saturday_and_sunday()):
         If there is no sportsbook data, an empty array will be returned
     """
 
-    response = requests.get(fanduel_sportsbook_url, headers = {'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'}, verify=False)
+    response = requests.get(fanduel_sportsbook_url, headers={
+                            'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'}, verify=False)
     results = []
 
     for event in response.json()['events']:
@@ -44,17 +45,25 @@ def get_all_fighters(dates_to_search=get_dates_of_saturday_and_sunday()):
 
 
 def get_finish_odds(fighter_list):
+    """Retrieve finish odds for each fighter in a list.
+
+    Args:
+        fighter_list: A list of fighters, with each fighter containing at minimum 'eventNumber' and 'name'.
+
+    Returns:
+        The original list passed in, with each fighter object now containing 'finishOdds'.
+    """
     for fighter in fighter_list:
         if(fighter['eventNumber']):
             # Create url to method odds
-            mUrl = 'https://sportsbook.fanduel.com/cache/psevent/UK/1/false/' + \
+            method_odds_url = 'https://sportsbook.fanduel.com/cache/psevent/UK/1/false/' + \
                 str(fighter['eventNumber']) + '.json'
             # Send method odds request
-            mJson = requests.get(mUrl).json()
+            method_response = requests.get(method_odds_url).json()
             # Extract data from method of victory json data
-            if(mJson):
-                if(mJson['eventmarketgroups']):
-                    for event in mJson['eventmarketgroups']:
+            if(method_response):
+                if(method_response['eventmarketgroups']):
+                    for event in method_response['eventmarketgroups']:
                         if event['name'] == 'All':
                             for method in event['markets']:
                                 if method['name'] == 'Double Chance':
