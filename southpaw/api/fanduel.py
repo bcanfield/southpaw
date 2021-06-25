@@ -1,8 +1,57 @@
 import requests
 
 
-def get_fanduel_headers(x_auth_token, basic_auth_token):
-    """Create valid headers for the fanduel api.
+def get_x_auth_token_and_user_id(fanduel_email, fanduel_password):
+    """Get x-auth-token and user id from the fanduel auth api
+
+    Args:
+        fanduel_email: Your fanduel email address
+        fanduel_password: Your fanduel password
+
+    Returns:
+        An object with the format {'x-auth-token': 'YOUR AUTH TOKEN', 'userID': 'YOUR USER ID}
+    """
+    body = {"email": fanduel_email,
+            "password": fanduel_password, "product": "DFS"}
+    response = requests.post(
+        'https://api.fanduel.com/sessions',
+        headers=get_fanduel_headers_without_x_auth(fanduel_email, fanduel_password), json=body)
+    jsonData = response.json()
+    if len(jsonData['sessions']) > 0:
+        # Succesfully grabbed token from response
+        token = jsonData['sessions'][0]['id']
+        userId = jsonData['sessions'][0]['user']['_members'][0]
+        return {'x-auth-token': token, 'userId': userId}
+    else:
+        return None
+
+
+def get_fanduel_headers_without_x_auth(basic_auth_token):
+    """Create valid headers for the fanduel api, without x-auth-token
+
+    Args:
+        basic_auth_token: The bearer token used to verify each user connecting to the fanduel api
+
+    Returns:
+        The headers object to be used in the initial request to get the x-auth-token
+    """
+    headers = {'authority': 'api.fanduel.com',
+               'accept': 'application/json',
+               'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+               'authorization': basic_auth_token,
+               'content-type': 'application/json',
+               'origin': 'https://www.fanduel.com',
+               'sec-fetch-site': 'same-site',
+               'sec-fetch-mode': 'cors',
+               'sec-fetch-dest': 'empty',
+               'referer': 'https://www.fanduel.com/',
+               'accept-language': 'en-US,en;q=0.9'
+               }
+    return headers
+
+
+def get_fanduel_headers_with_x_auth(x_auth_token, basic_auth_token):
+    """Create valid headers for the fanduel api, including x-auth-token
 
     Args:
         x_auth_token: The x_auth_token used to verify each user connecting to the fanduel api
@@ -89,7 +138,8 @@ def get_fighter_salaries(user_id, x_auth_token, basic_auth_token):
     Returns:
         A list of fighters containing salaries
     """
-    fanduel_headers = get_fanduel_headers(x_auth_token, basic_auth_token)
+    fanduel_headers = get_fanduel_headers_with_x_auth(
+        x_auth_token, basic_auth_token)
     contests = get_upcoming_contests(user_id, fanduel_headers)
     player_list = get_players_in_contest(contests[0], fanduel_headers)
     salary_list = [{'name': player['known_name'], 'salary': player['salary'],
