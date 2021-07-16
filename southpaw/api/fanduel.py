@@ -95,12 +95,13 @@ def get_players_in_contest(contest, fanduel_headers):
         return players_response['players']
 
 
-def get_upcoming_contests(user_id, fanduel_headers):
+def get_upcoming_contests(user_id, fanduel_headers, sport='any'):
     """Get a list of upcoming contests for a given user.
 
     Args:
         user_id: Fanduel user id
         fanduel_headers: Valid headers for the fanduel api
+        sport (optional): Specify sport to get contests for. Default is 'any'
 
     Returns:
         A list of upcoming contests for the user
@@ -117,7 +118,7 @@ def get_upcoming_contests(user_id, fanduel_headers):
             roster_fixture_list_id = roster_fixture_lists[0]
             for fixture_list in rosters_response['fixture_lists']:
                 if fixture_list['id'] == roster_fixture_list_id:
-                    if fixture_list['sport'] == 'UFC':
+                    if fixture_list['sport'] == sport or sport == 'any':
                         # Get all entries belonging to this roster
                         entries_response = requests.get(
                             roster['grouped_entries']['_url'], headers=fanduel_headers).json()
@@ -125,6 +126,37 @@ def get_upcoming_contests(user_id, fanduel_headers):
                             if not contest in upcoming_contests:
                                 upcoming_contests.append(contest)
     return upcoming_contests
+
+
+def get_entries_in_contest(user_id, contest_id, fanduel_headers):
+    """Get a list of entries in an upcoming contest
+
+    Args:
+        user_id: Fanduel user id
+        contest_id: The id of the contest to get entries for
+        fanduel_headers: Valid headers for the fanduel api
+
+    Returns:
+        A list of entries
+    """
+    entries_response = requests.get(
+        "https://api.fanduel.com/contests/" + contest_id +
+        "/entries?user=" + user_id + "&page=1&page_size=250",
+        headers=fanduel_headers).json()
+    entries = entries_response['entries']
+
+    for entry in entries:
+        roster = []
+        try:
+            rosterId = entry['roster']['_members'][0]
+        except Exception as e:
+            rosterId = ''
+        if rosterId != '':
+            roster_response = requests.get(
+                'https://api.fanduel.com/users/' + user_id + '/rosters/' + rosterId,
+                headers=fanduel_headers).json()
+        entry['rosterDetails'] = roster_response['rosters'][0]['name']
+    return entries
 
 
 def get_fighter_salaries(user_id, x_auth_token, basic_auth_token):
