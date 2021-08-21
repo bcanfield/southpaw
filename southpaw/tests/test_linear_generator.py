@@ -1,10 +1,12 @@
 from southpaw.generators.linear import LinearGenerator
 from southpaw.tests import test_data_file_path
-import pandas as pd
+import json
 
 def test_linear():
     jsonDataFilePath = 'southpaw/tests/testData/linearTestData.json'
-    inputData = pd.read_json(jsonDataFilePath)
+    with open(jsonDataFilePath, 'r') as myfile:
+        data=myfile.read()
+    inputData = json.loads(data)
     salaryCap = 100
     scoreColumnName = 'score'
     playersPerLineup = 6
