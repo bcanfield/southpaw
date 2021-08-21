@@ -5,8 +5,8 @@ import json
 
 
 class LinearGenerator():
-    def __init__(self, jsonDataFilePath, salaryCap, playersPerLineup, scoreColumnName, numLineupsToGenerate):
-        self.jsonDataFilePath = jsonDataFilePath
+    def __init__(self, pandasDataframe, salaryCap, playersPerLineup, scoreColumnName, numLineupsToGenerate):
+        self.pandasDataframe = pandasDataframe
         self.salaryCap = salaryCap
         self.scoreColumnName = scoreColumnName
         self.playersPerLineup = playersPerLineup
@@ -17,10 +17,9 @@ class LinearGenerator():
         #     data = myfile.read()
         # players = json.loads(data)
 
-        data = pd.read_json(self.jsonDataFilePath)
-        players = list(data['name'])
-        salaries = dict(zip(players, data['salary']))
-        scores = dict(zip(players, data[self.scoreColumnName]))
+        players = list(self.pandasDataframe['name'])
+        salaries = dict(zip(players, self.pandasDataframe['salary']))
+        scores = dict(zip(players, self.pandasDataframe[self.scoreColumnName]))
         player_vars = LpVariable.dicts(
             "", players, lowBound=0, upBound=1, cat='Integer')
 
