@@ -1,25 +1,23 @@
 from pulp import *
-import pandas as pd
 import time
 import json
 
 
 class LinearGenerator():
-    def __init__(self, pandasDataframe, salaryCap, playersPerLineup, scoreColumnName, numLineupsToGenerate):
-        self.pandasDataframe = pandasDataframe
+    def __init__(self, fighterList, salaryCap, playersPerLineup, scoreColumnName, numLineupsToGenerate):
+        self.fighterList = fighterList
         self.salaryCap = salaryCap
         self.scoreColumnName = scoreColumnName
         self.playersPerLineup = playersPerLineup
         self.numLineupsToGenerate = numLineupsToGenerate
 
     def run(self):
-        # with open(self.jsonDataFilePath, 'r') as myfile:
-        #     data = myfile.read()
-        # players = json.loads(data)
+        players = [fighter['name'] for fighter in self.fighterList]
 
-        players = list(self.pandasDataframe['name'])
-        salaries = dict(zip(players, self.pandasDataframe['salary']))
-        scores = dict(zip(players, self.pandasDataframe[self.scoreColumnName]))
+        salaries = dict(zip(players, [fighter['salary'] for fighter in self.fighterList]))
+
+        scores = dict(zip(players, [fighter[self.scoreColumnName] for fighter in self.fighterList]))
+
         player_vars = LpVariable.dicts(
             "", players, lowBound=0, upBound=1, cat='Integer')
 
