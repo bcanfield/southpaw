@@ -21,6 +21,8 @@ class LinearGenerator():
         player_vars = LpVariable.dicts(
             "", players, lowBound=0, upBound=1, cat='Integer')
 
+        print('player_vars')
+        print(player_vars)
         problem = LpProblem("UFC_Odds_Maximizer", LpMaximize)
 
         problem += lpSum([scores[i] * player_vars[i] for i in player_vars])
