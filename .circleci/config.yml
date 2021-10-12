@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  build_test:
     docker:
       - image: circleci/python:3.9.5
     steps:
