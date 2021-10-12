@@ -97,144 +97,131 @@ class UserAuth():
         self.basic_auth_token = basic_auth_token
 
 
-def login(fanduel_email, fanduel_password, basic_auth_token):
-    """Get session token and user id from the fanduel auth api
+class Fanduel():
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+        self.fanduel_email = fanduel_email
+        self.fanduel_password = fanduel_password
+        self.basic_auth_token = basic_auth_token
+        self.user_auth = None
+        self.fanduel_headers = self.refresh_fanduel_headers()
 
-    Args:
-        fanduel_email: Your fanduel email address
-        fanduel_password: Your fanduel password
-        basic_auth_token: Your static authorization header from Fanduel
+    def login(self):
+        """Create UserAuth object to use when communicating with Fanduel API
+        """
+        body = {"email": self.fanduel_email,
+                "password": self.fanduel_password, "product": "DFS"}
+        sessions_response_json = requests.post(
+            'https://api.fanduel.com/sessions',
+            headers=self.fanduel_headers, json=body).json()
+        if len(sessions_response_json['sessions']) > 0:
+            # Succesfully grabbed token from response
+            session_token = sessions_response_json['sessions'][0]['id']
+            user_id = sessions_response_json['sessions'][0]['user']['_members'][0]
+            self.user_auth = UserAuth(
+                user_id, session_token, self.basic_auth_token)
+            # Refresh our headers to include the session token
+            self.fanduel_headers = self.refresh_fanduel_headers()
+        else:
+            raise Exception('Error Logging in: ',
+                            sessions_response_json['error']['description'])
 
-    Returns:
-        An UserAuth object to use on requests to the Fanduel API
-    """
-    body = {"email": fanduel_email,
-            "password": fanduel_password, "product": "DFS"}
-    sessions_response_json = requests.post(
-        'https://api.fanduel.com/sessions',
-        headers=get_fanduel_headers(basic_auth_token=basic_auth_token), json=body).json()
-    if len(sessions_response_json['sessions']) > 0:
-        # Succesfully grabbed token from response
-        session_token = sessions_response_json['sessions'][0]['id']
-        user_id = sessions_response_json['sessions'][0]['user']['_members'][0]
-        return UserAuth(user_id, session_token, basic_auth_token)
-    else:
-        print('Error Logging in: ',
-              sessions_response_json['error']['description'])
-        return None
+    def refresh_fanduel_headers(self):
+        """Refreshes headers for the Fanduel API
+        """
+        headers = {'authority': 'api.fanduel.com',
+                   'accept': 'application/json',
+                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+                   'content-type': 'application/json',
+                   'origin': 'https://www.fanduel.com',
+                   'sec-fetch-site': 'same-site',
+                   'sec-fetch-mode': 'cors',
+                   'sec-fetch-dest': 'empty',
+                   'referer': 'https://www.fanduel.com/',
+                   'accept-language': 'en-US,en;q=0.9'
+                   }
 
+        if(self.user_auth):
+            headers['x-auth-token'] = self.user_auth.session_token
+            headers['authorization'] = self.user_auth.basic_auth_token
+        elif(self.basic_auth_token):
+            headers['authorization'] = self.basic_auth_token
+        else:
+            raise Exception('Error refreshing fanduel headers')
+        return headers
 
-def get_fanduel_headers(user_auth=None, basic_auth_token=None):
-    """Create headers for the fanduel api
+    def get_players_in_contest(self, contest):
+        """Get a list of players that are in a given contest.
 
-    Args:
-        user_auth (optional): Pass in a UserAuth object to create headers that have a session token (Necessary for almost all requests to the Fanduel API)
-        basic_auth_token (optional): Pass in just a bearer token to create headers without a session token (This is used for logging in and getting the session token)
+        Args:
+            contest: A contest object
 
-    Returns:
-        The headers object to be used in all requests to the fanduel api
-    """
-    headers = {'authority': 'api.fanduel.com',
-               'accept': 'application/json',
-               'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
-               'content-type': 'application/json',
-               'origin': 'https://www.fanduel.com',
-               'sec-fetch-site': 'same-site',
-               'sec-fetch-mode': 'cors',
-               'sec-fetch-dest': 'empty',
-               'referer': 'https://www.fanduel.com/',
-               'accept-language': 'en-US,en;q=0.9'
-               }
+        Returns:
+            A list of players in the contest
+        """
+        fixture_list_ids = contest.fixture_list['_members']
 
-    if(user_auth):
-        headers['x-auth-token'] = user_auth.session_token
-        headers['authorization'] = user_auth.basic_auth_token
-    elif(basic_auth_token):
-        headers['authorization'] = basic_auth_token
-    return headers
+        if len(fixture_list_ids) > 0:
+            fixture_list_id = fixture_list_ids[0]
+            players_response = requests.get(
+                "https://api.fanduel.com/fixture-lists/" + fixture_list_id + "/players",
+                headers=self.fanduel_headers).json()
+            return [Player(player) for player in players_response['players']]
 
+    def get_upcoming_contests(self, sport='any'):
+        """Get a list of upcoming contests for a given user.
 
-def get_players_in_contest(user_auth, contest):
-    """Get a list of players that are in a given contest.
+        Args:
+            sport (optional): Specify sport to get contests for. Default is 'any'
 
-    Args:
-        user_auth: UserAuth object to authenticate with Fanduel API
-        contest: A contest object retrieved from the fanduel api
+        Returns:
+            A list of upcoming contests for the user
+        """
 
-    Returns:
-        A list of players in the contest
-    """
-    fixture_list_ids = contest.fixture_list['_members']
+        # Get all upcoming rosters (duplicate/blank entries are grouped into one roster)
+        rosters_response = requests.get(
+            'https://api.fanduel.com/users/' +
+            self.user_auth.user_id + '/rosters?status=upcoming',
+            headers=self.fanduel_headers).json()
+        upcoming_contests = []
+        # Dig through rosters to check if it is for correct sport
+        for roster in rosters_response['rosters']:
+            roster_fixture_lists = roster['fixture_list']['_members']
+            if len(roster_fixture_lists) > 0:
+                roster_fixture_list_id = roster_fixture_lists[0]
+                for fixture_list in rosters_response['fixture_lists']:
+                    if fixture_list['id'] == roster_fixture_list_id:
+                        if fixture_list['sport'] == sport or sport == 'any':
+                            # Get all entries belonging to this roster
+                            entries_response = requests.get(
+                                roster['grouped_entries']['_url'], headers=self.fanduel_headers).json()
+                            for contest in entries_response['contests']:
+                                if not contest in upcoming_contests:
+                                    upcoming_contests.append(Contest(contest))
+        return upcoming_contests
 
-    if len(fixture_list_ids) > 0:
-        fixture_list_id = fixture_list_ids[0]
-        players_response = requests.get(
-            "https://api.fanduel.com/fixture-lists/" + fixture_list_id + "/players",
-            headers=get_fanduel_headers(user_auth=user_auth)).json()
-        return [Player(player) for player in players_response['players']]
+    def get_entries_in_contest(self, contest):
+        """Get a list of entries in an upcoming contest
 
+        Args:
+            contest: The contest to get entries for
 
-def get_upcoming_contests(user_auth, sport='any'):
-    """Get a list of upcoming contests for a given user.
+        Returns:
+            A list of entries
+        """
+        entries_response = requests.get(
+            "https://api.fanduel.com/contests/" + contest.id +
+            "/entries?user=" + self.user_auth.user_id + "&page=1&page_size=250",
+            headers=self.fanduel_headers).json()
+        entries = [Entry(entry) for entry in entries_response['entries']]
 
-    Args:
-        user_id: Fanduel user id
-        fanduel_headers: Valid headers for the fanduel api
-        sport (optional): Specify sport to get contests for. Default is 'any'
-
-    Returns:
-        A list of upcoming contests for the user
-    """
-
-    fanduel_headers = get_fanduel_headers(user_auth=user_auth)
-    # Get all upcoming rosters (duplicate/blank entries are grouped into one roster)
-    rosters_response = requests.get(
-        'https://api.fanduel.com/users/' + user_auth.user_id + '/rosters?status=upcoming',
-        headers=fanduel_headers).json()
-    upcoming_contests = []
-    # Dig through rosters to check if it is for correct sport
-    for roster in rosters_response['rosters']:
-        roster_fixture_lists = roster['fixture_list']['_members']
-        if len(roster_fixture_lists) > 0:
-            roster_fixture_list_id = roster_fixture_lists[0]
-            for fixture_list in rosters_response['fixture_lists']:
-                if fixture_list['id'] == roster_fixture_list_id:
-                    if fixture_list['sport'] == sport or sport == 'any':
-                        # Get all entries belonging to this roster
-                        entries_response = requests.get(
-                            roster['grouped_entries']['_url'], headers=fanduel_headers).json()
-                        for contest in entries_response['contests']:
-                            if not contest in upcoming_contests:
-                                upcoming_contests.append(Contest(contest))
-    return upcoming_contests
-
-
-def get_entries_in_contest(user_auth, contest_id):
-    """Get a list of entries in an upcoming contest
-
-    Args:
-        user_id: Fanduel user id
-        contest_id: The id of the contest to get entries for
-        fanduel_headers: Valid headers for the fanduel api
-
-    Returns:
-        A list of entries
-    """
-    fanduel_headers = get_fanduel_headers(user_auth=user_auth)
-    entries_response = requests.get(
-        "https://api.fanduel.com/contests/" + contest_id +
-        "/entries?user=" + user_auth.user_id + "&page=1&page_size=250",
-        headers=fanduel_headers).json()
-    entries = [Entry(entry) for entry in entries_response['entries']]
-
-    for entry in entries:
-        try:
-            rosterId = entry['roster']['_members'][0]
-        except Exception as e:
-            rosterId = ''
-        if rosterId != '':
-            roster_response = requests.get(
-                'https://api.fanduel.com/users/' + user_auth.user_id + '/rosters/' + rosterId,
-                headers=fanduel_headers).json()
-            entry.rosterDetails = roster_response['rosters'][0]['name']
-    return entries
+        for entry in entries:
+            try:
+                rosterId = entry['roster']['_members'][0]
+            except Exception as e:
+                rosterId = ''
+            if rosterId != '':
+                roster_response = requests.get(
+                    'https://api.fanduel.com/users/' + self.user_auth.user_id + '/rosters/' + rosterId,
+                    headers=self.fanduel_headers).json()
+                entry.rosterDetails = roster_response['rosters'][0]['name']
+        return entries
