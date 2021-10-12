@@ -4,14 +4,14 @@ jobs:
     docker:
       - image: circleci/python:3.9.5
     steps:
-      - checkout  # checkout source code to working directory
+      - checkout # checkout source code to working directory
       - run:
-          command: |  # create whl and use pipenv to install dependencies
+          command: | # create whl and use pipenv to install dependencies
             python setup.py sdist bdist_wheel
             pip install pipenv
             pip install pytest
             pip install -r requirements.txt
-            pipenv install dist/southpaw-0.0.24-py3-none-any.whl
+            pipenv install dist/southpaw-1.0.0-py3-none-any.whl
             pipenv install pytest
             python -m pytest
             pip install pdoc3   
@@ -24,9 +24,9 @@ jobs:
     docker:
       - image: circleci/python:3.9.5
     steps:
-      - checkout  # checkout source code to working directory
+      - checkout # checkout source code to working directory
       - run:
-          command: |  # create whl, install twine and publish to Test PyPI
+          command: | # create whl, install twine and publish to Test PyPI
             python setup.py sdist bdist_wheel
             pip install pipenv
             pipenv install twine
@@ -35,9 +35,9 @@ jobs:
     docker:
       - image: circleci/python:3.9.5
     steps:
-      - checkout  # checkout source code to working directory
+      - checkout # checkout source code to working directory
       - run:
-          command: |  # create whl, install twine and publish to PyPI
+          command: | # create whl, install twine and publish to PyPI
             python setup.py sdist bdist_wheel
             sudo pip install pipenv
             pipenv install twine
