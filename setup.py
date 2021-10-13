@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 DESCRIPTION = 'MMA DFS Toolkit'
 LONG_DESCRIPTION = 'MMA DFS Toolkit written in Python'
 
@@ -14,7 +14,8 @@ setup(
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
     install_requires=['PuLP==2.4'],
-    keywords=['mma', 'dfs', 'lineup', 'optimizer', 'generator'],
+    keywords=['fanduel', 'api', 'mma', 'dfs',
+              'lineup', 'optimizer', 'generator'],
     classifiers=[
         "Programming Language :: Python :: 3",
     ]

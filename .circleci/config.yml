@@ -9,11 +9,8 @@ jobs:
           command: | # create whl and use pipenv to install dependencies
             python setup.py sdist bdist_wheel
             pip install pipenv
-            pip install pytest
             pip install -r requirements.txt
-            pipenv install dist/southpaw-1.0.0-py3-none-any.whl
-            pipenv install pytest
-            python -m pytest
+            pipenv install dist/southpaw-1.0.1-py3-none-any.whl
             pip install pdoc3   
             mkdir /tmp/documentation
             pdoc --html southpaw --force -o  /tmp/documentation
