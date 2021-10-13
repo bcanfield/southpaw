@@ -1,5 +1,5 @@
 amply==0.1.4
-certifi==2021.5.30
+certifi==2021.10.8
 docutils==0.17.1
 numpy==1.19.5
 PuLP==2.4
