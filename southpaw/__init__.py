@@ -1,1 +1,1 @@
-from .southpaw import *
+from .fanduel import *
