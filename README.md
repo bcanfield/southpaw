@@ -42,6 +42,8 @@ Retrieve your basic auth token by logging into the Fanduel UI
 Initialize your Fanduel object using your Fanduel email, password, and auth token.
 
 ```
+import southpaw
+
 basic_auth_token = 'Basic GBGskzdmGLKOP5EwMDNkNGUaLkFdM2VjKJHDNmY1Mjc6'
 fanduel_email = 'fakeFanduelEmail@gmail.com'
 fanduel_password = 'fakeFanduelPassword'
@@ -59,7 +61,7 @@ fd.login()
 Get all upcoming contests
 
 ```
-contests = fd.get_upcoming_contests()
+fd.get_upcoming_contests()
 ```
 
 Get all players in a contest
@@ -73,3 +75,8 @@ Get all entries in a contest
 ```
 fd.get_entries_in_contest(contest)
 ```
+
+## Disclaimer
+This project is for educational use only. 
+Accumulating Fanduel points or prizes through unauthorized methods such as unauthorized scripts or other automated means is against the Fanduel terms and may result in account disqualification. 
+The contributors of Southpaw shall not be held responsible for any actions taken using this tool.

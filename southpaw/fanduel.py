@@ -103,7 +103,7 @@ class Fanduel():
         self.fanduel_password = fanduel_password
         self.basic_auth_token = basic_auth_token
         self.user_auth = None
-        self.fanduel_headers = self.refresh_fanduel_headers()
+        self.fanduel_headers = self.__refresh_fanduel_headers()
 
     def login(self):
         """Create UserAuth object to use when communicating with Fanduel API
@@ -120,12 +120,12 @@ class Fanduel():
             self.user_auth = UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
-            self.fanduel_headers = self.refresh_fanduel_headers()
+            self.fanduel_headers = self.__refresh_fanduel_headers()
         else:
             raise Exception('Error Logging in: ',
                             sessions_response_json['error']['description'])
 
-    def refresh_fanduel_headers(self):
+    def __refresh_fanduel_headers(self):
         """Refreshes headers for the Fanduel API
         """
         headers = {'authority': 'api.fanduel.com',

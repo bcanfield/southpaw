@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "00:00"
+    commit-message:
+      prefix: "dependency:"
+      include: "scope"
