@@ -81,6 +81,17 @@ class Contest():
         self.draft_specification = object['draft_specification']
 
 
+class UpdateEntryInput():
+    '''
+    Data to update an entry
+    '''
+
+    def __init__(self, object):
+        self.id = object["id"]
+        self.roster = object["roster"]
+        self.lineup = object["lineup"]
+
+
 class Entry():
     '''
     An entry in a Fanduel contest
@@ -93,12 +104,12 @@ class Entry():
         self.cancelable = object["cancelable"]
         self.index = object["index"]
         self.rank = object["rank"]
-        self.user = object["user"]
+        self.user_id = object["user"]["_members"][0]
         self.has_lineup = object["has_lineup"]
-        self.fixture_list = object["fixture_list"]
-        self.contest = object["contest"]
+        self.fixture_list_id = object["fixture_list"]["_members"][0]
+        self.contest_id = object["contest"]["_members"][0]
         self.prizes = object["prizes"]
-        self.roster = object["roster"]
+        self.roster_id = object["roster"]["_members"][0]
         self.code = object["code"]
 
     def __str__(self):
@@ -215,6 +226,16 @@ class UpdateEntryInput():
         self.roster = {"lineup": object.lineup}
 
 
+class PlayerList():
+    '''
+    List of players mapped to a fixture list id
+    '''
+
+    def __init__(self, object):
+        self.fixture_list_id = object['fixture_list_id']
+        self.players = object['players']
+
+
 class Upcoming():
     '''
     All of the upcoming data for a user
@@ -227,17 +248,17 @@ class Upcoming():
         self.fixtures: list[Fixture] = object['fixtures']
         self.fixture_lists: list[FixtureList] = object['fixture_lists']
         self.game_descriptions: list[GameDescription] = object['game_descriptions']
-        self.players: list[Player] = object['players']
+        self.player_lists: list[PlayerList] = object['player_lists']
 
     def __str__(self):
-        return 'Upcoming Summary:\nEntries: {0}\nRosters: {1}\nContests: {2}\nFixtures: {3}\nFixtureLists: {4}\nGameDescriptions: {5}\nPlayer Lists: {6}'.format(len(self.entries), len(self.rosters), len(self.contests), len(self.fixtures), len(self.fixture_lists), len(self.game_descriptions), len(self.players))
+        return 'Upcoming Summary:\nEntries: {0}\nRosters: {1}\nContests: {2}\nFixtures: {3}\nFixtureLists: {4}\nGameDescriptions: {5}\nPlayer Lists: {6}'.format(len(self.entries), len(self.rosters), len(self.contests), len(self.fixtures), len(self.fixture_lists), len(self.game_descriptions), len(self.player_lists))
 
 
 class Fanduel():
     def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
         # Use json data instead of fetching data from Fanduel
         if json_data is not None:
-            self.upcoming = Upcoming(json_data)
+            self.upcoming = self.__create_upcoming_data_from_json(json_data)
         else:
             self.fanduel_email = fanduel_email
             self.fanduel_password = fanduel_password
@@ -257,35 +278,77 @@ class Fanduel():
         """
         return self.upcoming.entries
 
+    def get_entry(self, entry_id):
+        """Retrieve entry by id
+        """
+        return next((entry for entry in self.upcoming.entries if entry.id == entry_id), None)
+
     def get_rosters(self):
         """Retrieve all upcoming rosters
         """
         return self.upcoming.rosters
+
+    def get_roster(self, roster_id):
+        """Retrieve roster by id
+        """
+        return next((roster for roster in self.upcoming.rosters if roster.id == roster_id), None)
 
     def get_contests(self):
         """Retrieve all upcoming contests
         """
         return self.upcoming.contests
 
+    def get_contest(self, contest_id):
+        """Retrieve contest by id
+        """
+        return next((contest for contest in self.upcoming.contests if contest.id == contest_id), None)
+
     def get_fixtures(self):
         """Retrieve all upcoming fixtures
         """
         return self.upcoming.fixtures
+
+    def get_fixture(self, fixture_id):
+        """Retrieve fixture by id
+        """
+        return next((fixture for fixture in self.upcoming.fixtures if fixture.id == fixture_id), None)
 
     def get_fixture_lists(self):
         """Retrieve all upcoming fixture lists
         """
         return self.upcoming.fixture_lists
 
+    def get_fixture_list(self, fixture_list_id):
+        """Retrieve fixture list by id
+        """
+        return next((fixture_list for fixture_list in self.upcoming.fixture_lists if fixture_list.id == fixture_list_id), None)
+
     def get_game_descriptions(self):
         """Retrieve all upcoming game descriptions
         """
         return self.upcoming.game_descriptions
 
-    def get_players(self):
-        """Retrieve all upcoming game descriptions
+    def get_game_description(self, game_description_id):
+        """Retrieve game description by id
         """
-        return self.upcoming.players
+        return next((game_description for game_description in self.upcoming.game_descriptions if game_description.id == game_description_id), None)
+
+    def get_player_lists(self):
+        """Retrieve all upcoming player lists
+        """
+        return self.upcoming.fixture_lists
+
+    def get_player_list(self, fixture_list_id):
+        """Retrieve player list given a fixture list id
+        """
+        return next((player_list for player_list in self.upcoming.player_lists if player_list.fixture_list_id == fixture_list_id), None)
+
+    def get_players_in_entry(self, entry_id):
+        """Retrieve all players available to use in a given entry
+        """
+        entry = self.get_entry(entry_id)
+        fixture_list_id = entry.fixture_list_id
+        return self.get_player_list(fixture_list_id)
 
     def __authenticate(self):
         """Create UserAuth object to use when communicating with Fanduel API
@@ -340,15 +403,12 @@ class Fanduel():
         print('entries response: ', entries_response)
         # Get list of players for each fixture list
         player_lists = []
-        player_jsons = []
         for i in entries_response['fixture_lists']:
             players_response = requests.get(
                 i['players']['_url'],
                 headers=self.fanduel_headers).json()
-            player_jsons.append([player
-                                 for player in players_response['players']])
-            player_lists.append([Player(player)
-                                 for player in players_response['players']])
+            player_lists.append(PlayerList({"fixture_list_id": i["id"], "players": [Player(player)
+                                                                                    for player in players_response['players']]}))
         return Upcoming({"entries": [Entry(entry)
                                      for entry in entries_response['entries']],
                         "contests": [Contest(contest)
@@ -361,7 +421,25 @@ class Fanduel():
                                                for game_description in entries_response['game_descriptions']],
                          "fixture_lists": [FixtureList(fixture_list)
                                            for fixture_list in entries_response['fixture_lists']],
-                         "players": player_lists
+                         "player_lists": player_lists
+                         })
+
+    def __create_upcoming_data_from_json(self, json_data):
+        """Create Upcoming object from json data
+        """
+        return Upcoming({"entries": [Entry(entry)
+                                     for entry in json_data['entries']],
+                        "contests": [Contest(contest)
+                                     for contest in json_data['contests']],
+                         "fixtures": [Fixture(fixture)
+                                      for fixture in json_data['fixtures']],
+                         "rosters": [Roster(roster)
+                                     for roster in json_data['rosters']],
+                         "game_descriptions": [GameDescription(game_description)
+                                               for game_description in json_data['game_descriptions']],
+                         "fixture_lists": [FixtureList(fixture_list)
+                                           for fixture_list in json_data['fixture_lists']],
+                         "player_lists": [PlayerList(playerList) for playerList in json_data['player_lists']]
                          })
 
     def get_entries_in_contest(self, contest):

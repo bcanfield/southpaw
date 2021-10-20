@@ -11,15 +11,15 @@ def test_fanduel():
         'southpaw/tests/testData/testPlayers.json',)
     players_data = json.load(players_file)
 
-    entries_data['players'] = players_data['players']
+    entries_data['player_lists'] = players_data['player_lists']
     fd = Fanduel('fakeEmail', 'fakePassword',
                  'fakeAuthToken', entries_data)
 
     fd.get_upcoming()
-    assert len(fd.get_entries()) == 5
-    assert len(fd.get_rosters()) == 5
-    assert len(fd.get_contests()) == 5
-    assert len(fd.get_fixtures()) == 16
-    assert len(fd.get_fixture_lists()) == 5
-    assert len(fd.get_game_descriptions()) == 5
-    assert len(fd.get_players()) == 5
+    assert len(fd.get_entries()) == 1
+    assert len(fd.get_rosters()) == 1
+    assert len(fd.get_contests()) == 1
+    assert len(fd.get_fixtures()) == 1
+    assert len(fd.get_fixture_lists()) == 1
+    assert len(fd.get_game_descriptions()) == 1
+    assert len(fd.get_player_lists()) == 1
