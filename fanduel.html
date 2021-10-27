@@ -30,110 +30,359 @@
 
 
 class Player():
-    def __init__(self, player_json):
-        self.dvp_rank = player_json[&#39;first_name&#39;]
-        self.first_name = player_json[&#39;first_name&#39;]
-        self.fppg = player_json[&#39;fppg&#39;]
-        self.id = player_json[&#39;id&#39;]
-        self.fixture = player_json[&#39;fixture&#39;]
-        self.images = player_json[&#39;images&#39;]
-        self.injured = player_json[&#39;injured&#39;]
-        self.injury_details = player_json[&#39;injury_details&#39;]
-        self.injury_severity = player_json[&#39;injury_severity&#39;]
-        self.injury_status = player_json[&#39;injury_status&#39;]
-        self.jersey_number = player_json[&#39;jersey_number&#39;]
-        self.known_name = player_json[&#39;known_name&#39;]
-        self.last_name = player_json[&#39;last_name&#39;]
-        self.max_rank = player_json[&#39;max_rank&#39;]
-        self.news = player_json[&#39;news&#39;]
-        self.played = player_json[&#39;played&#39;]
-        self.news = player_json[&#39;news&#39;]
-        self.player_card_url = player_json[&#39;player_card_url&#39;]
-        self.player_info = player_json[&#39;player_info&#39;]
-        self.position = player_json[&#39;position&#39;]
-        self.positions = player_json[&#39;positions&#39;]
-        self.projected_fantasy_points = player_json[&#39;projected_fantasy_points&#39;]
-        self.projected_starting_order = player_json[&#39;projected_starting_order&#39;]
-        self.rank = player_json[&#39;rank&#39;]
-        self.recent_games_played_stats = player_json[&#39;recent_games_played_stats&#39;]
-        self.removed = player_json[&#39;removed&#39;]
-        self.roster_position_stats = player_json[&#39;roster_position_stats&#39;]
-        self.salary = player_json[&#39;salary&#39;]
-        self.sport_specific = player_json[&#39;sport_specific&#39;]
-        self.starting_order = player_json[&#39;starting_order&#39;]
-        self.swappable = player_json[&#39;swappable&#39;]
-        self.team = player_json[&#39;team&#39;]
-        self.tier = player_json[&#39;tier&#39;]
-        self.videos = player_json[&#39;videos&#39;]
+    &#39;&#39;&#39;
+    A player in a fixture
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.dvp_rank = object[&#39;first_name&#39;]
+        self.first_name = object[&#39;first_name&#39;]
+        self.fppg = object[&#39;fppg&#39;]
+        self.id = object[&#39;id&#39;]
+        self.fixture = object[&#39;fixture&#39;]
+        self.images = object[&#39;images&#39;]
+        self.injured = object[&#39;injured&#39;]
+        self.injury_details = object[&#39;injury_details&#39;]
+        self.injury_severity = object[&#39;injury_severity&#39;]
+        self.injury_status = object[&#39;injury_status&#39;]
+        self.jersey_number = object[&#39;jersey_number&#39;]
+        self.known_name = object[&#39;known_name&#39;]
+        self.last_name = object[&#39;last_name&#39;]
+        self.max_rank = object[&#39;max_rank&#39;]
+        self.news = object[&#39;news&#39;]
+        self.played = object[&#39;played&#39;]
+        self.news = object[&#39;news&#39;]
+        self.player_card_url = object[&#39;player_card_url&#39;]
+        self.player_info = object[&#39;player_info&#39;]
+        self.position = object[&#39;position&#39;]
+        self.positions = object[&#39;positions&#39;]
+        self.projected_fantasy_points = object[&#39;projected_fantasy_points&#39;]
+        self.projected_starting_order = object[&#39;projected_starting_order&#39;]
+        self.rank = object[&#39;rank&#39;]
+        self.recent_games_played_stats = object[&#39;recent_games_played_stats&#39;]
+        self.removed = object[&#39;removed&#39;]
+        self.roster_position_stats = object[&#39;roster_position_stats&#39;]
+        self.salary = object[&#39;salary&#39;]
+        self.sport_specific = object[&#39;sport_specific&#39;]
+        self.starting_order = object[&#39;starting_order&#39;]
+        self.swappable = object[&#39;swappable&#39;]
+        self.team = object[&#39;team&#39;]
+        self.tier = object[&#39;tier&#39;]
+        self.videos = object[&#39;videos&#39;]
 
 
 class Contest():
-    def __init__(self, contest_json):
-        self.id = contest_json[&#34;id&#34;]
-        self._url = contest_json[&#34;_url&#34;]
-        self.invite_url = contest_json[&#34;invite_url&#34;]
-        self.sport = contest_json[&#34;sport&#34;]
-        self.name = contest_json[&#39;name&#39;]
-        self.display_name = contest_json[&#39;display_name&#39;]
-        self.label = contest_json[&#39;label&#39;]
-        self.salary_cap = contest_json[&#39;salary_cap&#39;]
-        self.start_date = contest_json[&#39;start_date&#39;]
-        self.entry_fee = contest_json[&#39;entry_fee&#39;]
-        self.entry_fee_fdp = contest_json[&#39;entry_fee_fdp&#39;]
-        self.guaranteed = contest_json[&#39;guaranteed&#39;]
-        self.max_entries_per_user = contest_json[&#39;max_entries_per_user&#39;]
-        self.private = contest_json[&#39;private&#39;]
-        self.made_free = contest_json[&#39;made_free&#39;]
-        self.prizes = contest_json[&#39;prizes&#39;]
-        self.fixture_list = contest_json[&#39;fixture_list&#39;]
-        self.entries = contest_json[&#39;entries&#39;]
-        self.size = contest_json[&#39;size&#39;]
-        self.user_created = contest_json[&#39;user_created&#39;]
-        self.h2h = contest_json[&#39;h2h&#39;]
-        self.started = contest_json[&#39;started&#39;]
-        self.final = contest_json[&#39;final&#39;]
-        self.cancellation = contest_json[&#39;cancellation&#39;]
-        self.features = contest_json[&#39;features&#39;]
-        self.notice = contest_json[&#39;notice&#39;]
-        self.score_to_beat = contest_json[&#39;score_to_beat&#39;]
-        self.score_to_beat_pot = contest_json[&#39;score_to_beat_pot&#39;]
-        self.season_long_info = contest_json[&#39;season_long_info&#39;]
-        self.draft_specification = contest_json[&#39;draft_specification&#39;]
+    &#39;&#39;&#39;
+    A Fanduel contest
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;_url&#34;]
+        self.invite_url = object[&#34;invite_url&#34;]
+        self.sport = object[&#34;sport&#34;]
+        self.name = object[&#39;name&#39;]
+        self.display_name = object[&#39;display_name&#39;]
+        self.label = object[&#39;label&#39;]
+        self.salary_cap = object[&#39;salary_cap&#39;]
+        self.start_date = object[&#39;start_date&#39;]
+        self.entry_fee = object[&#39;entry_fee&#39;]
+        self.entry_fee_fdp = object[&#39;entry_fee_fdp&#39;]
+        self.guaranteed = object[&#39;guaranteed&#39;]
+        self.max_entries_per_user = object[&#39;max_entries_per_user&#39;]
+        self.private = object[&#39;private&#39;]
+        self.made_free = object[&#39;made_free&#39;]
+        self.prizes = object[&#39;prizes&#39;]
+        self.fixture_list = object[&#39;fixture_list&#39;]
+        self.entries = object[&#39;entries&#39;]
+        self.size = object[&#39;size&#39;]
+        self.user_created = object[&#39;user_created&#39;]
+        self.h2h = object[&#39;h2h&#39;]
+        self.started = object[&#39;started&#39;]
+        self.final = object[&#39;final&#39;]
+        self.cancellation = object[&#39;cancellation&#39;]
+        self.features = object[&#39;features&#39;]
+        self.notice = object[&#39;notice&#39;]
+        self.score_to_beat = object[&#39;score_to_beat&#39;]
+        self.score_to_beat_pot = object[&#39;score_to_beat_pot&#39;]
+        self.season_long_info = object[&#39;season_long_info&#39;]
+        self.draft_specification = object[&#39;draft_specification&#39;]
+
+
+class UpdateEntryInput():
+    &#39;&#39;&#39;
+    Data to update an entry
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self.roster = object[&#34;roster&#34;]
+        self.lineup = object[&#34;lineup&#34;]
 
 
 class Entry():
-    def __init__(self, entry_json):
-        self.id = entry_json[&#34;id&#34;]
-        self._url = entry_json[&#34;id&#34;]
-        self.entry_currency = entry_json[&#34;entry_currency&#34;]
-        self.cancelable = entry_json[&#34;cancelable&#34;]
-        self.index = entry_json[&#34;index&#34;]
-        self.rank = entry_json[&#34;rank&#34;]
-        self.user = entry_json[&#34;user&#34;]
-        self.has_lineup = entry_json[&#34;has_lineup&#34;]
-        self.fixture_list = entry_json[&#34;fixture_list&#34;]
-        self.contest = entry_json[&#34;contest&#34;]
-        self.prizes = entry_json[&#34;prizes&#34;]
-        self.roster = entry_json[&#34;roster&#34;]
-        self.code = entry_json[&#34;code&#34;]
+    &#39;&#39;&#39;
+    An entry in a Fanduel contest
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;id&#34;]
+        self.entry_currency = object[&#34;entry_currency&#34;]
+        self.cancelable = object[&#34;cancelable&#34;]
+        self.index = object[&#34;index&#34;]
+        self.rank = object[&#34;rank&#34;]
+        self.user_id = object[&#34;user&#34;][&#34;_members&#34;][0]
+        self.has_lineup = object[&#34;has_lineup&#34;]
+        self.fixture_list_id = object[&#34;fixture_list&#34;][&#34;_members&#34;][0]
+        self.contest_id = object[&#34;contest&#34;][&#34;_members&#34;][0]
+        self.prizes = object[&#34;prizes&#34;]
+        self.roster_id = object[&#34;roster&#34;][&#34;_members&#34;][0]
+        self.code = object[&#34;code&#34;]
+
+    def __str__(self):
+        return &#39;Entry: {self.id}&#39;.format(self=self)
 
 
-class UserAuth():
+class Fixture():
+    &#39;&#39;&#39;
+    An individual &#39;game&#39; in a Fanduel contest (i.e. NFL game, UFC fight)
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self.start_date = object[&#34;start_date&#34;]
+        self.sport = object[&#34;sport&#34;]
+        self.type = object[&#34;type&#34;]
+        self.home_team = object[&#34;home_team&#34;]
+        self.away_team = object[&#34;away_team&#34;]
+        self.weather = object[&#34;weather&#34;]
+        self.status = object[&#34;status&#34;]
+        self.name = object[&#34;name&#34;]
+        self.target_periods = object[&#34;target_periods&#34;]
+        self.home_player: object = object[&#39;home_player&#39;]
+        self.away_player: object = object[&#39;away_player&#39;]
+
+    def __str__(self):
+        return &#39;Fixture: {self.id}&#39;.format(self=self)
+
+
+class FixtureList():
+    &#39;&#39;&#39;
+    A list of the individual &#39;games&#39; that make up a Fanduel contest
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;_url&#34;]
+        self.sport = object[&#34;sport&#34;]
+        self.salary_cap = object[&#34;salary_cap&#34;]
+        self.start_date = object[&#34;start_date&#34;]
+        self.label = object[&#34;label&#34;]
+        self.status = object[&#34;status&#34;]
+        self.fixture_counts = object[&#34;fixture_counts&#34;]
+        self.players = object[&#34;players&#34;]
+        self.selection_priority = object[&#34;selection_priority&#34;]
+        self.notices = object[&#34;notices&#34;]
+        self.is_season_long = object[&#34;is_season_long&#34;]
+        self.game_description_name = object[&#34;game_description_name&#34;]
+        self.game_description = object[&#34;game_description&#34;]
+        self.late_swap = object[&#34;late_swap&#34;]
+
+    def __str__(self):
+        return &#39;FixtureList: {self.id}&#39;.format(self=self)
+
+
+class GameDescription():
+    &#39;&#39;&#39;
+    Details associated with a fixture list
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self.name = object[&#34;name&#34;]
+        self.short_description = object[&#34;short_description&#34;]
+        self.long_description = object[&#34;long_description&#34;]
+        self.image_url = object[&#34;image_url&#34;]
+        self.display_priority = object[&#34;display_priority&#34;]
+        self.display_label = object[&#34;display_label&#34;]
+        self.roster_format = object[&#34;roster_format&#34;]
+        self.tag = object[&#34;tag&#34;]
+        self.only_score_top = object[&#34;only_score_top&#34;]
+        self.roster_restrictions = object[&#34;roster_restrictions&#34;]
+
+    def __str__(self):
+        return &#39;GameDescription: {self.id}&#39;.format(self=self)
+
+
+class Roster():
+    &#39;&#39;&#39;
+    A collection of players as a lineup
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;_url&#34;]
+        self.score = object[&#34;score&#34;]
+        self.ppr = object[&#34;ppr&#34;]
+        self.total_periods = object[&#34;total_periods&#34;]
+        self.name = object[&#34;name&#34;]
+        self.fixture_list = object[&#34;fixture_list&#34;]
+        self.has_lineup = object[&#34;has_lineup&#34;]
+        self.draft_type = object[&#34;draft_type&#34;]
+        self.season_long_roster_info = object[&#34;season_long_roster_info&#34;]
+        self.last_used = object[&#34;last_used&#34;]
+        self.entries = object[&#34;entries&#34;]
+        self.grouped_entries = object[&#34;grouped_entries&#34;]
+        self.lineup = object[&#34;lineup&#34;]
+        self.best_ball_lineup = object[&#34;best_ball_lineup&#34;]
+
+    def __str__(self):
+        return &#39;Roster: {self.id}&#39;.format(self=self)
+
+
+class __UserAuth():
     def __init__(self, user_id, session_token, basic_auth_token):
         self.user_id = user_id
         self.session_token = session_token
         self.basic_auth_token = basic_auth_token
 
 
-class Fanduel():
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
-        self.fanduel_email = fanduel_email
-        self.fanduel_password = fanduel_password
-        self.basic_auth_token = basic_auth_token
-        self.user_auth = None
-        self.fanduel_headers = self.__refresh_fanduel_headers()
+class UpdateEntryInput():
+    def __init__(self, object):
+        self.id = object.id
+        self.roster = {&#34;lineup&#34;: object.lineup}
 
-    def login(self):
+
+class PlayerList():
+    &#39;&#39;&#39;
+    List of players mapped to a fixture list id
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.fixture_list_id = object[&#39;fixture_list_id&#39;]
+        self.players = object[&#39;players&#39;]
+
+
+class Upcoming():
+    &#39;&#39;&#39;
+    All of the upcoming data for a user
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.entries: list[Entry] = object[&#39;entries&#39;]
+        self.rosters: list[Roster] = object[&#39;rosters&#39;]
+        self.contests: list[Contest] = object[&#39;contests&#39;]
+        self.fixtures: list[Fixture] = object[&#39;fixtures&#39;]
+        self.fixture_lists: list[FixtureList] = object[&#39;fixture_lists&#39;]
+        self.game_descriptions: list[GameDescription] = object[&#39;game_descriptions&#39;]
+        self.player_lists: list[PlayerList] = object[&#39;player_lists&#39;]
+
+    def __str__(self):
+        return &#39;Upcoming Summary:\nEntries: {0}\nRosters: {1}\nContests: {2}\nFixtures: {3}\nFixtureLists: {4}\nGameDescriptions: {5}\nPlayer Lists: {6}&#39;.format(len(self.entries), len(self.rosters), len(self.contests), len(self.fixtures), len(self.fixture_lists), len(self.game_descriptions), len(self.player_lists))
+
+
+class Fanduel():
+    &#39;&#39;&#39;
+    The driver for accessing the Fanduel API
+    &#39;&#39;&#39;
+
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
+        # Use json data instead of fetching data from Fanduel
+        if json_data is not None:
+            self.upcoming = self.__create_upcoming_data_from_json(json_data)
+        else:
+            self.fanduel_email = fanduel_email
+            self.fanduel_password = fanduel_password
+            self.basic_auth_token = basic_auth_token
+            self.user_auth = None
+            self.fanduel_headers = self.__create_fanduel_headers()
+            self.__authenticate()
+            self.upcoming = self.__get_upcoming_data()
+
+    def get_upcoming(self):
+        &#34;&#34;&#34;Retrieve all upcoming data
+        &#34;&#34;&#34;
+        return self.upcoming
+
+    def get_entries(self):
+        &#34;&#34;&#34;Retrieve all upcoming entries
+        &#34;&#34;&#34;
+        return self.upcoming.entries
+
+    def get_entry(self, entry_id):
+        &#34;&#34;&#34;Retrieve entry by id
+        &#34;&#34;&#34;
+        return next((entry for entry in self.upcoming.entries if entry.id == entry_id), None)
+
+    def get_rosters(self):
+        &#34;&#34;&#34;Retrieve all upcoming rosters
+        &#34;&#34;&#34;
+        return self.upcoming.rosters
+
+    def get_roster(self, roster_id):
+        &#34;&#34;&#34;Retrieve roster by id
+        &#34;&#34;&#34;
+        return next((roster for roster in self.upcoming.rosters if roster.id == roster_id), None)
+
+    def get_contests(self):
+        &#34;&#34;&#34;Retrieve all upcoming contests
+        &#34;&#34;&#34;
+        return self.upcoming.contests
+
+    def get_contest(self, contest_id):
+        &#34;&#34;&#34;Retrieve contest by id
+        &#34;&#34;&#34;
+        return next((contest for contest in self.upcoming.contests if contest.id == contest_id), None)
+
+    def get_fixtures(self):
+        &#34;&#34;&#34;Retrieve all upcoming fixtures
+        &#34;&#34;&#34;
+        return self.upcoming.fixtures
+
+    def get_fixture(self, fixture_id):
+        &#34;&#34;&#34;Retrieve fixture by id
+        &#34;&#34;&#34;
+        return next((fixture for fixture in self.upcoming.fixtures if fixture.id == fixture_id), None)
+
+    def get_fixture_lists(self):
+        &#34;&#34;&#34;Retrieve all upcoming fixture lists
+        &#34;&#34;&#34;
+        return self.upcoming.fixture_lists
+
+    def get_fixture_list(self, fixture_list_id):
+        &#34;&#34;&#34;Retrieve fixture list by id
+        &#34;&#34;&#34;
+        return next((fixture_list for fixture_list in self.upcoming.fixture_lists if fixture_list.id == fixture_list_id), None)
+
+    def get_game_descriptions(self):
+        &#34;&#34;&#34;Retrieve all upcoming game descriptions
+        &#34;&#34;&#34;
+        return self.upcoming.game_descriptions
+
+    def get_game_description(self, game_description_id):
+        &#34;&#34;&#34;Retrieve game description by id
+        &#34;&#34;&#34;
+        return next((game_description for game_description in self.upcoming.game_descriptions if game_description.id == game_description_id), None)
+
+    def get_player_lists(self):
+        &#34;&#34;&#34;Retrieve all upcoming player lists
+        &#34;&#34;&#34;
+        return self.upcoming.fixture_lists
+
+    def get_player_list(self, fixture_list_id):
+        &#34;&#34;&#34;Retrieve player list given a fixture list id
+        &#34;&#34;&#34;
+        return next((player_list for player_list in self.upcoming.player_lists if player_list.fixture_list_id == fixture_list_id), None)
+
+    def get_players_in_entry(self, entry_id):
+        &#34;&#34;&#34;Retrieve all players available to use in a given entry
+        &#34;&#34;&#34;
+        entry = self.get_entry(entry_id)
+        fixture_list_id = entry.fixture_list_id
+        return self.get_player_list(fixture_list_id)
+
+    def __authenticate(self):
         &#34;&#34;&#34;Create UserAuth object to use when communicating with Fanduel API
         &#34;&#34;&#34;
         body = {&#34;email&#34;: self.fanduel_email,
@@ -145,17 +394,15 @@ class Fanduel():
             # Succesfully grabbed token from response
             session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
             user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-            self.user_auth = UserAuth(
+            self.user_auth = __UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
-            self.fanduel_headers = self.__refresh_fanduel_headers()
+            self.fanduel_headers = self.__create_fanduel_headers()
         else:
             raise Exception(&#39;Error Logging in: &#39;,
                             sessions_response_json[&#39;error&#39;][&#39;description&#39;])
 
-    def __refresh_fanduel_headers(self):
-        &#34;&#34;&#34;Refreshes headers for the Fanduel API
-        &#34;&#34;&#34;
+    def __create_fanduel_headers(self):
         headers = {&#39;authority&#39;: &#39;api.fanduel.com&#39;,
                    &#39;accept&#39;: &#39;application/json&#39;,
                    &#39;user-agent&#39;: &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36&#39;,
@@ -177,82 +424,55 @@ class Fanduel():
             raise Exception(&#39;Error refreshing fanduel headers&#39;)
         return headers
 
-    def get_players_in_contest(self, contest):
-        &#34;&#34;&#34;Get a list of players that are in a given contest.
-
-        Args:
-            contest: A contest object
-
-        Returns:
-            A list of players in the contest
+    def __get_upcoming_data(self):
+        &#34;&#34;&#34;Retrieve all of user&#39;s upcoming data from Fanduel API
         &#34;&#34;&#34;
-        fixture_list_ids = contest.fixture_list[&#39;_members&#39;]
-
-        if len(fixture_list_ids) &gt; 0:
-            fixture_list_id = fixture_list_ids[0]
-            players_response = requests.get(
-                &#34;https://api.fanduel.com/fixture-lists/&#34; + fixture_list_id + &#34;/players&#34;,
-                headers=self.fanduel_headers).json()
-            return [Player(player) for player in players_response[&#39;players&#39;]]
-
-    def get_upcoming_contests(self, sport=&#39;any&#39;):
-        &#34;&#34;&#34;Get a list of upcoming contests for a given user.
-
-        Args:
-            sport (optional): Specify sport to get contests for. Default is &#39;any&#39;
-
-        Returns:
-            A list of upcoming contests for the user
-        &#34;&#34;&#34;
-
-        # Get all upcoming rosters (duplicate/blank entries are grouped into one roster)
-        rosters_response = requests.get(
-            &#39;https://api.fanduel.com/users/&#39; +
-            self.user_auth.user_id + &#39;/rosters?status=upcoming&#39;,
-            headers=self.fanduel_headers).json()
-        upcoming_contests = []
-        # Dig through rosters to check if it is for correct sport
-        for roster in rosters_response[&#39;rosters&#39;]:
-            roster_fixture_lists = roster[&#39;fixture_list&#39;][&#39;_members&#39;]
-            if len(roster_fixture_lists) &gt; 0:
-                roster_fixture_list_id = roster_fixture_lists[0]
-                for fixture_list in rosters_response[&#39;fixture_lists&#39;]:
-                    if fixture_list[&#39;id&#39;] == roster_fixture_list_id:
-                        if fixture_list[&#39;sport&#39;] == sport or sport == &#39;any&#39;:
-                            # Get all entries belonging to this roster
-                            entries_response = requests.get(
-                                roster[&#39;grouped_entries&#39;][&#39;_url&#39;], headers=self.fanduel_headers).json()
-                            for contest in entries_response[&#39;contests&#39;]:
-                                if not contest in upcoming_contests:
-                                    upcoming_contests.append(Contest(contest))
-        return upcoming_contests
-
-    def get_entries_in_contest(self, contest):
-        &#34;&#34;&#34;Get a list of entries in an upcoming contest
-
-        Args:
-            contest: The contest to get entries for
-
-        Returns:
-            A list of entries
-        &#34;&#34;&#34;
+        # Get all upcoming entries
         entries_response = requests.get(
-            &#34;https://api.fanduel.com/contests/&#34; + contest.id +
-            &#34;/entries?user=&#34; + self.user_auth.user_id + &#34;&amp;page=1&amp;page_size=250&#34;,
+            &#39;https://api.fanduel.com/users/&#39; +
+            self.user_auth.user_id + &#39;/entries?status=upcoming&#39;,
             headers=self.fanduel_headers).json()
-        entries = [Entry(entry) for entry in entries_response[&#39;entries&#39;]]
+        print(&#39;entries response: &#39;, entries_response)
+        # Get list of players for each fixture list
+        player_lists = []
+        for i in entries_response[&#39;fixture_lists&#39;]:
+            players_response = requests.get(
+                i[&#39;players&#39;][&#39;_url&#39;],
+                headers=self.fanduel_headers).json()
+            player_lists.append(PlayerList({&#34;fixture_list_id&#34;: i[&#34;id&#34;], &#34;players&#34;: [Player(player)
+                                                                                    for player in players_response[&#39;players&#39;]]}))
+        return Upcoming({&#34;entries&#34;: [Entry(entry)
+                                     for entry in entries_response[&#39;entries&#39;]],
+                        &#34;contests&#34;: [Contest(contest)
+                                     for contest in entries_response[&#39;contests&#39;]],
+                         &#34;fixtures&#34;: [Fixture(fixture)
+                                      for fixture in entries_response[&#39;fixtures&#39;]],
+                         &#34;rosters&#34;: [Roster(roster)
+                                     for roster in entries_response[&#39;rosters&#39;]],
+                         &#34;game_descriptions&#34;: [GameDescription(game_description)
+                                               for game_description in entries_response[&#39;game_descriptions&#39;]],
+                         &#34;fixture_lists&#34;: [FixtureList(fixture_list)
+                                           for fixture_list in entries_response[&#39;fixture_lists&#39;]],
+                         &#34;player_lists&#34;: player_lists
+                         })
 
-        for entry in entries:
-            try:
-                rosterId = entry[&#39;roster&#39;][&#39;_members&#39;][0]
-            except Exception as e:
-                rosterId = &#39;&#39;
-            if rosterId != &#39;&#39;:
-                roster_response = requests.get(
-                    &#39;https://api.fanduel.com/users/&#39; + self.user_auth.user_id + &#39;/rosters/&#39; + rosterId,
-                    headers=self.fanduel_headers).json()
-                entry.rosterDetails = roster_response[&#39;rosters&#39;][0][&#39;name&#39;]
-        return entries</code></pre>
+    def __create_upcoming_data_from_json(self, json_data):
+        &#34;&#34;&#34;Create Upcoming object from json data
+        &#34;&#34;&#34;
+        return Upcoming({&#34;entries&#34;: [Entry(entry)
+                                     for entry in json_data[&#39;entries&#39;]],
+                        &#34;contests&#34;: [Contest(contest)
+                                     for contest in json_data[&#39;contests&#39;]],
+                         &#34;fixtures&#34;: [Fixture(fixture)
+                                      for fixture in json_data[&#39;fixtures&#39;]],
+                         &#34;rosters&#34;: [Roster(roster)
+                                     for roster in json_data[&#39;rosters&#39;]],
+                         &#34;game_descriptions&#34;: [GameDescription(game_description)
+                                               for game_description in json_data[&#39;game_descriptions&#39;]],
+                         &#34;fixture_lists&#34;: [FixtureList(fixture_list)
+                                           for fixture_list in json_data[&#39;fixture_lists&#39;]],
+                         &#34;player_lists&#34;: [PlayerList(playerList) for playerList in json_data[&#39;player_lists&#39;]]
+                         })</code></pre>
 </details>
 </section>
 <section>
@@ -266,94 +486,197 @@ class Fanduel():
 <dl>
 <dt id="southpaw.fanduel.Contest"><code class="flex name class">
 <span>class <span class="ident">Contest</span></span>
-<span>(</span><span>contest_json)</span>
+<span>(</span><span>object)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>A Fanduel contest</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Contest():
-    def __init__(self, contest_json):
-        self.id = contest_json[&#34;id&#34;]
-        self._url = contest_json[&#34;_url&#34;]
-        self.invite_url = contest_json[&#34;invite_url&#34;]
-        self.sport = contest_json[&#34;sport&#34;]
-        self.name = contest_json[&#39;name&#39;]
-        self.display_name = contest_json[&#39;display_name&#39;]
-        self.label = contest_json[&#39;label&#39;]
-        self.salary_cap = contest_json[&#39;salary_cap&#39;]
-        self.start_date = contest_json[&#39;start_date&#39;]
-        self.entry_fee = contest_json[&#39;entry_fee&#39;]
-        self.entry_fee_fdp = contest_json[&#39;entry_fee_fdp&#39;]
-        self.guaranteed = contest_json[&#39;guaranteed&#39;]
-        self.max_entries_per_user = contest_json[&#39;max_entries_per_user&#39;]
-        self.private = contest_json[&#39;private&#39;]
-        self.made_free = contest_json[&#39;made_free&#39;]
-        self.prizes = contest_json[&#39;prizes&#39;]
-        self.fixture_list = contest_json[&#39;fixture_list&#39;]
-        self.entries = contest_json[&#39;entries&#39;]
-        self.size = contest_json[&#39;size&#39;]
-        self.user_created = contest_json[&#39;user_created&#39;]
-        self.h2h = contest_json[&#39;h2h&#39;]
-        self.started = contest_json[&#39;started&#39;]
-        self.final = contest_json[&#39;final&#39;]
-        self.cancellation = contest_json[&#39;cancellation&#39;]
-        self.features = contest_json[&#39;features&#39;]
-        self.notice = contest_json[&#39;notice&#39;]
-        self.score_to_beat = contest_json[&#39;score_to_beat&#39;]
-        self.score_to_beat_pot = contest_json[&#39;score_to_beat_pot&#39;]
-        self.season_long_info = contest_json[&#39;season_long_info&#39;]
-        self.draft_specification = contest_json[&#39;draft_specification&#39;]</code></pre>
+    &#39;&#39;&#39;
+    A Fanduel contest
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;_url&#34;]
+        self.invite_url = object[&#34;invite_url&#34;]
+        self.sport = object[&#34;sport&#34;]
+        self.name = object[&#39;name&#39;]
+        self.display_name = object[&#39;display_name&#39;]
+        self.label = object[&#39;label&#39;]
+        self.salary_cap = object[&#39;salary_cap&#39;]
+        self.start_date = object[&#39;start_date&#39;]
+        self.entry_fee = object[&#39;entry_fee&#39;]
+        self.entry_fee_fdp = object[&#39;entry_fee_fdp&#39;]
+        self.guaranteed = object[&#39;guaranteed&#39;]
+        self.max_entries_per_user = object[&#39;max_entries_per_user&#39;]
+        self.private = object[&#39;private&#39;]
+        self.made_free = object[&#39;made_free&#39;]
+        self.prizes = object[&#39;prizes&#39;]
+        self.fixture_list = object[&#39;fixture_list&#39;]
+        self.entries = object[&#39;entries&#39;]
+        self.size = object[&#39;size&#39;]
+        self.user_created = object[&#39;user_created&#39;]
+        self.h2h = object[&#39;h2h&#39;]
+        self.started = object[&#39;started&#39;]
+        self.final = object[&#39;final&#39;]
+        self.cancellation = object[&#39;cancellation&#39;]
+        self.features = object[&#39;features&#39;]
+        self.notice = object[&#39;notice&#39;]
+        self.score_to_beat = object[&#39;score_to_beat&#39;]
+        self.score_to_beat_pot = object[&#39;score_to_beat_pot&#39;]
+        self.season_long_info = object[&#39;season_long_info&#39;]
+        self.draft_specification = object[&#39;draft_specification&#39;]</code></pre>
 </details>
 </dd>
 <dt id="southpaw.fanduel.Entry"><code class="flex name class">
 <span>class <span class="ident">Entry</span></span>
-<span>(</span><span>entry_json)</span>
+<span>(</span><span>object)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>An entry in a Fanduel contest</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Entry():
-    def __init__(self, entry_json):
-        self.id = entry_json[&#34;id&#34;]
-        self._url = entry_json[&#34;id&#34;]
-        self.entry_currency = entry_json[&#34;entry_currency&#34;]
-        self.cancelable = entry_json[&#34;cancelable&#34;]
-        self.index = entry_json[&#34;index&#34;]
-        self.rank = entry_json[&#34;rank&#34;]
-        self.user = entry_json[&#34;user&#34;]
-        self.has_lineup = entry_json[&#34;has_lineup&#34;]
-        self.fixture_list = entry_json[&#34;fixture_list&#34;]
-        self.contest = entry_json[&#34;contest&#34;]
-        self.prizes = entry_json[&#34;prizes&#34;]
-        self.roster = entry_json[&#34;roster&#34;]
-        self.code = entry_json[&#34;code&#34;]</code></pre>
+    &#39;&#39;&#39;
+    An entry in a Fanduel contest
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;id&#34;]
+        self.entry_currency = object[&#34;entry_currency&#34;]
+        self.cancelable = object[&#34;cancelable&#34;]
+        self.index = object[&#34;index&#34;]
+        self.rank = object[&#34;rank&#34;]
+        self.user_id = object[&#34;user&#34;][&#34;_members&#34;][0]
+        self.has_lineup = object[&#34;has_lineup&#34;]
+        self.fixture_list_id = object[&#34;fixture_list&#34;][&#34;_members&#34;][0]
+        self.contest_id = object[&#34;contest&#34;][&#34;_members&#34;][0]
+        self.prizes = object[&#34;prizes&#34;]
+        self.roster_id = object[&#34;roster&#34;][&#34;_members&#34;][0]
+        self.code = object[&#34;code&#34;]
+
+    def __str__(self):
+        return &#39;Entry: {self.id}&#39;.format(self=self)</code></pre>
 </details>
 </dd>
 <dt id="southpaw.fanduel.Fanduel"><code class="flex name class">
 <span>class <span class="ident">Fanduel</span></span>
-<span>(</span><span>fanduel_email, fanduel_password, basic_auth_token)</span>
+<span>(</span><span>fanduel_email, fanduel_password, basic_auth_token, json_data=None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>The driver for accessing the Fanduel API</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Fanduel():
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
-        self.fanduel_email = fanduel_email
-        self.fanduel_password = fanduel_password
-        self.basic_auth_token = basic_auth_token
-        self.user_auth = None
-        self.fanduel_headers = self.__refresh_fanduel_headers()
+    &#39;&#39;&#39;
+    The driver for accessing the Fanduel API
+    &#39;&#39;&#39;
 
-    def login(self):
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
+        # Use json data instead of fetching data from Fanduel
+        if json_data is not None:
+            self.upcoming = self.__create_upcoming_data_from_json(json_data)
+        else:
+            self.fanduel_email = fanduel_email
+            self.fanduel_password = fanduel_password
+            self.basic_auth_token = basic_auth_token
+            self.user_auth = None
+            self.fanduel_headers = self.__create_fanduel_headers()
+            self.__authenticate()
+            self.upcoming = self.__get_upcoming_data()
+
+    def get_upcoming(self):
+        &#34;&#34;&#34;Retrieve all upcoming data
+        &#34;&#34;&#34;
+        return self.upcoming
+
+    def get_entries(self):
+        &#34;&#34;&#34;Retrieve all upcoming entries
+        &#34;&#34;&#34;
+        return self.upcoming.entries
+
+    def get_entry(self, entry_id):
+        &#34;&#34;&#34;Retrieve entry by id
+        &#34;&#34;&#34;
+        return next((entry for entry in self.upcoming.entries if entry.id == entry_id), None)
+
+    def get_rosters(self):
+        &#34;&#34;&#34;Retrieve all upcoming rosters
+        &#34;&#34;&#34;
+        return self.upcoming.rosters
+
+    def get_roster(self, roster_id):
+        &#34;&#34;&#34;Retrieve roster by id
+        &#34;&#34;&#34;
+        return next((roster for roster in self.upcoming.rosters if roster.id == roster_id), None)
+
+    def get_contests(self):
+        &#34;&#34;&#34;Retrieve all upcoming contests
+        &#34;&#34;&#34;
+        return self.upcoming.contests
+
+    def get_contest(self, contest_id):
+        &#34;&#34;&#34;Retrieve contest by id
+        &#34;&#34;&#34;
+        return next((contest for contest in self.upcoming.contests if contest.id == contest_id), None)
+
+    def get_fixtures(self):
+        &#34;&#34;&#34;Retrieve all upcoming fixtures
+        &#34;&#34;&#34;
+        return self.upcoming.fixtures
+
+    def get_fixture(self, fixture_id):
+        &#34;&#34;&#34;Retrieve fixture by id
+        &#34;&#34;&#34;
+        return next((fixture for fixture in self.upcoming.fixtures if fixture.id == fixture_id), None)
+
+    def get_fixture_lists(self):
+        &#34;&#34;&#34;Retrieve all upcoming fixture lists
+        &#34;&#34;&#34;
+        return self.upcoming.fixture_lists
+
+    def get_fixture_list(self, fixture_list_id):
+        &#34;&#34;&#34;Retrieve fixture list by id
+        &#34;&#34;&#34;
+        return next((fixture_list for fixture_list in self.upcoming.fixture_lists if fixture_list.id == fixture_list_id), None)
+
+    def get_game_descriptions(self):
+        &#34;&#34;&#34;Retrieve all upcoming game descriptions
+        &#34;&#34;&#34;
+        return self.upcoming.game_descriptions
+
+    def get_game_description(self, game_description_id):
+        &#34;&#34;&#34;Retrieve game description by id
+        &#34;&#34;&#34;
+        return next((game_description for game_description in self.upcoming.game_descriptions if game_description.id == game_description_id), None)
+
+    def get_player_lists(self):
+        &#34;&#34;&#34;Retrieve all upcoming player lists
+        &#34;&#34;&#34;
+        return self.upcoming.fixture_lists
+
+    def get_player_list(self, fixture_list_id):
+        &#34;&#34;&#34;Retrieve player list given a fixture list id
+        &#34;&#34;&#34;
+        return next((player_list for player_list in self.upcoming.player_lists if player_list.fixture_list_id == fixture_list_id), None)
+
+    def get_players_in_entry(self, entry_id):
+        &#34;&#34;&#34;Retrieve all players available to use in a given entry
+        &#34;&#34;&#34;
+        entry = self.get_entry(entry_id)
+        fixture_list_id = entry.fixture_list_id
+        return self.get_player_list(fixture_list_id)
+
+    def __authenticate(self):
         &#34;&#34;&#34;Create UserAuth object to use when communicating with Fanduel API
         &#34;&#34;&#34;
         body = {&#34;email&#34;: self.fanduel_email,
@@ -365,17 +688,15 @@ class Fanduel():
             # Succesfully grabbed token from response
             session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
             user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-            self.user_auth = UserAuth(
+            self.user_auth = __UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
-            self.fanduel_headers = self.__refresh_fanduel_headers()
+            self.fanduel_headers = self.__create_fanduel_headers()
         else:
             raise Exception(&#39;Error Logging in: &#39;,
                             sessions_response_json[&#39;error&#39;][&#39;description&#39;])
 
-    def __refresh_fanduel_headers(self):
-        &#34;&#34;&#34;Refreshes headers for the Fanduel API
-        &#34;&#34;&#34;
+    def __create_fanduel_headers(self):
         headers = {&#39;authority&#39;: &#39;api.fanduel.com&#39;,
                    &#39;accept&#39;: &#39;application/json&#39;,
                    &#39;user-agent&#39;: &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36&#39;,
@@ -397,296 +718,542 @@ class Fanduel():
             raise Exception(&#39;Error refreshing fanduel headers&#39;)
         return headers
 
-    def get_players_in_contest(self, contest):
-        &#34;&#34;&#34;Get a list of players that are in a given contest.
-
-        Args:
-            contest: A contest object
-
-        Returns:
-            A list of players in the contest
+    def __get_upcoming_data(self):
+        &#34;&#34;&#34;Retrieve all of user&#39;s upcoming data from Fanduel API
         &#34;&#34;&#34;
-        fixture_list_ids = contest.fixture_list[&#39;_members&#39;]
-
-        if len(fixture_list_ids) &gt; 0:
-            fixture_list_id = fixture_list_ids[0]
-            players_response = requests.get(
-                &#34;https://api.fanduel.com/fixture-lists/&#34; + fixture_list_id + &#34;/players&#34;,
-                headers=self.fanduel_headers).json()
-            return [Player(player) for player in players_response[&#39;players&#39;]]
-
-    def get_upcoming_contests(self, sport=&#39;any&#39;):
-        &#34;&#34;&#34;Get a list of upcoming contests for a given user.
-
-        Args:
-            sport (optional): Specify sport to get contests for. Default is &#39;any&#39;
-
-        Returns:
-            A list of upcoming contests for the user
-        &#34;&#34;&#34;
-
-        # Get all upcoming rosters (duplicate/blank entries are grouped into one roster)
-        rosters_response = requests.get(
-            &#39;https://api.fanduel.com/users/&#39; +
-            self.user_auth.user_id + &#39;/rosters?status=upcoming&#39;,
-            headers=self.fanduel_headers).json()
-        upcoming_contests = []
-        # Dig through rosters to check if it is for correct sport
-        for roster in rosters_response[&#39;rosters&#39;]:
-            roster_fixture_lists = roster[&#39;fixture_list&#39;][&#39;_members&#39;]
-            if len(roster_fixture_lists) &gt; 0:
-                roster_fixture_list_id = roster_fixture_lists[0]
-                for fixture_list in rosters_response[&#39;fixture_lists&#39;]:
-                    if fixture_list[&#39;id&#39;] == roster_fixture_list_id:
-                        if fixture_list[&#39;sport&#39;] == sport or sport == &#39;any&#39;:
-                            # Get all entries belonging to this roster
-                            entries_response = requests.get(
-                                roster[&#39;grouped_entries&#39;][&#39;_url&#39;], headers=self.fanduel_headers).json()
-                            for contest in entries_response[&#39;contests&#39;]:
-                                if not contest in upcoming_contests:
-                                    upcoming_contests.append(Contest(contest))
-        return upcoming_contests
-
-    def get_entries_in_contest(self, contest):
-        &#34;&#34;&#34;Get a list of entries in an upcoming contest
-
-        Args:
-            contest: The contest to get entries for
-
-        Returns:
-            A list of entries
-        &#34;&#34;&#34;
+        # Get all upcoming entries
         entries_response = requests.get(
-            &#34;https://api.fanduel.com/contests/&#34; + contest.id +
-            &#34;/entries?user=&#34; + self.user_auth.user_id + &#34;&amp;page=1&amp;page_size=250&#34;,
+            &#39;https://api.fanduel.com/users/&#39; +
+            self.user_auth.user_id + &#39;/entries?status=upcoming&#39;,
             headers=self.fanduel_headers).json()
-        entries = [Entry(entry) for entry in entries_response[&#39;entries&#39;]]
+        print(&#39;entries response: &#39;, entries_response)
+        # Get list of players for each fixture list
+        player_lists = []
+        for i in entries_response[&#39;fixture_lists&#39;]:
+            players_response = requests.get(
+                i[&#39;players&#39;][&#39;_url&#39;],
+                headers=self.fanduel_headers).json()
+            player_lists.append(PlayerList({&#34;fixture_list_id&#34;: i[&#34;id&#34;], &#34;players&#34;: [Player(player)
+                                                                                    for player in players_response[&#39;players&#39;]]}))
+        return Upcoming({&#34;entries&#34;: [Entry(entry)
+                                     for entry in entries_response[&#39;entries&#39;]],
+                        &#34;contests&#34;: [Contest(contest)
+                                     for contest in entries_response[&#39;contests&#39;]],
+                         &#34;fixtures&#34;: [Fixture(fixture)
+                                      for fixture in entries_response[&#39;fixtures&#39;]],
+                         &#34;rosters&#34;: [Roster(roster)
+                                     for roster in entries_response[&#39;rosters&#39;]],
+                         &#34;game_descriptions&#34;: [GameDescription(game_description)
+                                               for game_description in entries_response[&#39;game_descriptions&#39;]],
+                         &#34;fixture_lists&#34;: [FixtureList(fixture_list)
+                                           for fixture_list in entries_response[&#39;fixture_lists&#39;]],
+                         &#34;player_lists&#34;: player_lists
+                         })
 
-        for entry in entries:
-            try:
-                rosterId = entry[&#39;roster&#39;][&#39;_members&#39;][0]
-            except Exception as e:
-                rosterId = &#39;&#39;
-            if rosterId != &#39;&#39;:
-                roster_response = requests.get(
-                    &#39;https://api.fanduel.com/users/&#39; + self.user_auth.user_id + &#39;/rosters/&#39; + rosterId,
-                    headers=self.fanduel_headers).json()
-                entry.rosterDetails = roster_response[&#39;rosters&#39;][0][&#39;name&#39;]
-        return entries</code></pre>
+    def __create_upcoming_data_from_json(self, json_data):
+        &#34;&#34;&#34;Create Upcoming object from json data
+        &#34;&#34;&#34;
+        return Upcoming({&#34;entries&#34;: [Entry(entry)
+                                     for entry in json_data[&#39;entries&#39;]],
+                        &#34;contests&#34;: [Contest(contest)
+                                     for contest in json_data[&#39;contests&#39;]],
+                         &#34;fixtures&#34;: [Fixture(fixture)
+                                      for fixture in json_data[&#39;fixtures&#39;]],
+                         &#34;rosters&#34;: [Roster(roster)
+                                     for roster in json_data[&#39;rosters&#39;]],
+                         &#34;game_descriptions&#34;: [GameDescription(game_description)
+                                               for game_description in json_data[&#39;game_descriptions&#39;]],
+                         &#34;fixture_lists&#34;: [FixtureList(fixture_list)
+                                           for fixture_list in json_data[&#39;fixture_lists&#39;]],
+                         &#34;player_lists&#34;: [PlayerList(playerList) for playerList in json_data[&#39;player_lists&#39;]]
+                         })</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="southpaw.fanduel.Fanduel.get_entries_in_contest"><code class="name flex">
-<span>def <span class="ident">get_entries_in_contest</span></span>(<span>self, contest)</span>
+<dt id="southpaw.fanduel.Fanduel.get_contest"><code class="name flex">
+<span>def <span class="ident">get_contest</span></span>(<span>self, contest_id)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get a list of entries in an upcoming contest</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>contest</code></strong></dt>
-<dd>The contest to get entries for</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<p>A list of entries</p></div>
+<div class="desc"><p>Retrieve contest by id</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_entries_in_contest(self, contest):
-    &#34;&#34;&#34;Get a list of entries in an upcoming contest
-
-    Args:
-        contest: The contest to get entries for
-
-    Returns:
-        A list of entries
+<pre><code class="python">def get_contest(self, contest_id):
+    &#34;&#34;&#34;Retrieve contest by id
     &#34;&#34;&#34;
-    entries_response = requests.get(
-        &#34;https://api.fanduel.com/contests/&#34; + contest.id +
-        &#34;/entries?user=&#34; + self.user_auth.user_id + &#34;&amp;page=1&amp;page_size=250&#34;,
-        headers=self.fanduel_headers).json()
-    entries = [Entry(entry) for entry in entries_response[&#39;entries&#39;]]
-
-    for entry in entries:
-        try:
-            rosterId = entry[&#39;roster&#39;][&#39;_members&#39;][0]
-        except Exception as e:
-            rosterId = &#39;&#39;
-        if rosterId != &#39;&#39;:
-            roster_response = requests.get(
-                &#39;https://api.fanduel.com/users/&#39; + self.user_auth.user_id + &#39;/rosters/&#39; + rosterId,
-                headers=self.fanduel_headers).json()
-            entry.rosterDetails = roster_response[&#39;rosters&#39;][0][&#39;name&#39;]
-    return entries</code></pre>
+    return next((contest for contest in self.upcoming.contests if contest.id == contest_id), None)</code></pre>
 </details>
 </dd>
-<dt id="southpaw.fanduel.Fanduel.get_players_in_contest"><code class="name flex">
-<span>def <span class="ident">get_players_in_contest</span></span>(<span>self, contest)</span>
+<dt id="southpaw.fanduel.Fanduel.get_contests"><code class="name flex">
+<span>def <span class="ident">get_contests</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get a list of players that are in a given contest.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>contest</code></strong></dt>
-<dd>A contest object</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<p>A list of players in the contest</p></div>
+<div class="desc"><p>Retrieve all upcoming contests</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_players_in_contest(self, contest):
-    &#34;&#34;&#34;Get a list of players that are in a given contest.
-
-    Args:
-        contest: A contest object
-
-    Returns:
-        A list of players in the contest
+<pre><code class="python">def get_contests(self):
+    &#34;&#34;&#34;Retrieve all upcoming contests
     &#34;&#34;&#34;
-    fixture_list_ids = contest.fixture_list[&#39;_members&#39;]
-
-    if len(fixture_list_ids) &gt; 0:
-        fixture_list_id = fixture_list_ids[0]
-        players_response = requests.get(
-            &#34;https://api.fanduel.com/fixture-lists/&#34; + fixture_list_id + &#34;/players&#34;,
-            headers=self.fanduel_headers).json()
-        return [Player(player) for player in players_response[&#39;players&#39;]]</code></pre>
+    return self.upcoming.contests</code></pre>
 </details>
 </dd>
-<dt id="southpaw.fanduel.Fanduel.get_upcoming_contests"><code class="name flex">
-<span>def <span class="ident">get_upcoming_contests</span></span>(<span>self, sport='any')</span>
+<dt id="southpaw.fanduel.Fanduel.get_entries"><code class="name flex">
+<span>def <span class="ident">get_entries</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get a list of upcoming contests for a given user.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>sport</code></strong> :&ensp;<code>optional</code></dt>
-<dd>Specify sport to get contests for. Default is 'any'</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<p>A list of upcoming contests for the user</p></div>
+<div class="desc"><p>Retrieve all upcoming entries</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_upcoming_contests(self, sport=&#39;any&#39;):
-    &#34;&#34;&#34;Get a list of upcoming contests for a given user.
-
-    Args:
-        sport (optional): Specify sport to get contests for. Default is &#39;any&#39;
-
-    Returns:
-        A list of upcoming contests for the user
+<pre><code class="python">def get_entries(self):
+    &#34;&#34;&#34;Retrieve all upcoming entries
     &#34;&#34;&#34;
-
-    # Get all upcoming rosters (duplicate/blank entries are grouped into one roster)
-    rosters_response = requests.get(
-        &#39;https://api.fanduel.com/users/&#39; +
-        self.user_auth.user_id + &#39;/rosters?status=upcoming&#39;,
-        headers=self.fanduel_headers).json()
-    upcoming_contests = []
-    # Dig through rosters to check if it is for correct sport
-    for roster in rosters_response[&#39;rosters&#39;]:
-        roster_fixture_lists = roster[&#39;fixture_list&#39;][&#39;_members&#39;]
-        if len(roster_fixture_lists) &gt; 0:
-            roster_fixture_list_id = roster_fixture_lists[0]
-            for fixture_list in rosters_response[&#39;fixture_lists&#39;]:
-                if fixture_list[&#39;id&#39;] == roster_fixture_list_id:
-                    if fixture_list[&#39;sport&#39;] == sport or sport == &#39;any&#39;:
-                        # Get all entries belonging to this roster
-                        entries_response = requests.get(
-                            roster[&#39;grouped_entries&#39;][&#39;_url&#39;], headers=self.fanduel_headers).json()
-                        for contest in entries_response[&#39;contests&#39;]:
-                            if not contest in upcoming_contests:
-                                upcoming_contests.append(Contest(contest))
-    return upcoming_contests</code></pre>
+    return self.upcoming.entries</code></pre>
 </details>
 </dd>
-<dt id="southpaw.fanduel.Fanduel.login"><code class="name flex">
-<span>def <span class="ident">login</span></span>(<span>self)</span>
+<dt id="southpaw.fanduel.Fanduel.get_entry"><code class="name flex">
+<span>def <span class="ident">get_entry</span></span>(<span>self, entry_id)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Create UserAuth object to use when communicating with Fanduel API</p></div>
+<div class="desc"><p>Retrieve entry by id</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def login(self):
-    &#34;&#34;&#34;Create UserAuth object to use when communicating with Fanduel API
+<pre><code class="python">def get_entry(self, entry_id):
+    &#34;&#34;&#34;Retrieve entry by id
     &#34;&#34;&#34;
-    body = {&#34;email&#34;: self.fanduel_email,
-            &#34;password&#34;: self.fanduel_password, &#34;product&#34;: &#34;DFS&#34;}
-    sessions_response_json = requests.post(
-        &#39;https://api.fanduel.com/sessions&#39;,
-        headers=self.fanduel_headers, json=body).json()
-    if len(sessions_response_json[&#39;sessions&#39;]) &gt; 0:
-        # Succesfully grabbed token from response
-        session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
-        user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-        self.user_auth = UserAuth(
-            user_id, session_token, self.basic_auth_token)
-        # Refresh our headers to include the session token
-        self.fanduel_headers = self.__refresh_fanduel_headers()
-    else:
-        raise Exception(&#39;Error Logging in: &#39;,
-                        sessions_response_json[&#39;error&#39;][&#39;description&#39;])</code></pre>
+    return next((entry for entry in self.upcoming.entries if entry.id == entry_id), None)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_fixture"><code class="name flex">
+<span>def <span class="ident">get_fixture</span></span>(<span>self, fixture_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve fixture by id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fixture(self, fixture_id):
+    &#34;&#34;&#34;Retrieve fixture by id
+    &#34;&#34;&#34;
+    return next((fixture for fixture in self.upcoming.fixtures if fixture.id == fixture_id), None)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_fixture_list"><code class="name flex">
+<span>def <span class="ident">get_fixture_list</span></span>(<span>self, fixture_list_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve fixture list by id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fixture_list(self, fixture_list_id):
+    &#34;&#34;&#34;Retrieve fixture list by id
+    &#34;&#34;&#34;
+    return next((fixture_list for fixture_list in self.upcoming.fixture_lists if fixture_list.id == fixture_list_id), None)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_fixture_lists"><code class="name flex">
+<span>def <span class="ident">get_fixture_lists</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all upcoming fixture lists</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fixture_lists(self):
+    &#34;&#34;&#34;Retrieve all upcoming fixture lists
+    &#34;&#34;&#34;
+    return self.upcoming.fixture_lists</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_fixtures"><code class="name flex">
+<span>def <span class="ident">get_fixtures</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all upcoming fixtures</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fixtures(self):
+    &#34;&#34;&#34;Retrieve all upcoming fixtures
+    &#34;&#34;&#34;
+    return self.upcoming.fixtures</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_game_description"><code class="name flex">
+<span>def <span class="ident">get_game_description</span></span>(<span>self, game_description_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve game description by id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_game_description(self, game_description_id):
+    &#34;&#34;&#34;Retrieve game description by id
+    &#34;&#34;&#34;
+    return next((game_description for game_description in self.upcoming.game_descriptions if game_description.id == game_description_id), None)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_game_descriptions"><code class="name flex">
+<span>def <span class="ident">get_game_descriptions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all upcoming game descriptions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_game_descriptions(self):
+    &#34;&#34;&#34;Retrieve all upcoming game descriptions
+    &#34;&#34;&#34;
+    return self.upcoming.game_descriptions</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_player_list"><code class="name flex">
+<span>def <span class="ident">get_player_list</span></span>(<span>self, fixture_list_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve player list given a fixture list id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_player_list(self, fixture_list_id):
+    &#34;&#34;&#34;Retrieve player list given a fixture list id
+    &#34;&#34;&#34;
+    return next((player_list for player_list in self.upcoming.player_lists if player_list.fixture_list_id == fixture_list_id), None)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_player_lists"><code class="name flex">
+<span>def <span class="ident">get_player_lists</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all upcoming player lists</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_player_lists(self):
+    &#34;&#34;&#34;Retrieve all upcoming player lists
+    &#34;&#34;&#34;
+    return self.upcoming.fixture_lists</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_players_in_entry"><code class="name flex">
+<span>def <span class="ident">get_players_in_entry</span></span>(<span>self, entry_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all players available to use in a given entry</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_players_in_entry(self, entry_id):
+    &#34;&#34;&#34;Retrieve all players available to use in a given entry
+    &#34;&#34;&#34;
+    entry = self.get_entry(entry_id)
+    fixture_list_id = entry.fixture_list_id
+    return self.get_player_list(fixture_list_id)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_roster"><code class="name flex">
+<span>def <span class="ident">get_roster</span></span>(<span>self, roster_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve roster by id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_roster(self, roster_id):
+    &#34;&#34;&#34;Retrieve roster by id
+    &#34;&#34;&#34;
+    return next((roster for roster in self.upcoming.rosters if roster.id == roster_id), None)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_rosters"><code class="name flex">
+<span>def <span class="ident">get_rosters</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all upcoming rosters</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_rosters(self):
+    &#34;&#34;&#34;Retrieve all upcoming rosters
+    &#34;&#34;&#34;
+    return self.upcoming.rosters</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.get_upcoming"><code class="name flex">
+<span>def <span class="ident">get_upcoming</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve all upcoming data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_upcoming(self):
+    &#34;&#34;&#34;Retrieve all upcoming data
+    &#34;&#34;&#34;
+    return self.upcoming</code></pre>
 </details>
 </dd>
 </dl>
+</dd>
+<dt id="southpaw.fanduel.Fixture"><code class="flex name class">
+<span>class <span class="ident">Fixture</span></span>
+<span>(</span><span>object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An individual 'game' in a Fanduel contest (i.e. NFL game, UFC fight)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Fixture():
+    &#39;&#39;&#39;
+    An individual &#39;game&#39; in a Fanduel contest (i.e. NFL game, UFC fight)
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self.start_date = object[&#34;start_date&#34;]
+        self.sport = object[&#34;sport&#34;]
+        self.type = object[&#34;type&#34;]
+        self.home_team = object[&#34;home_team&#34;]
+        self.away_team = object[&#34;away_team&#34;]
+        self.weather = object[&#34;weather&#34;]
+        self.status = object[&#34;status&#34;]
+        self.name = object[&#34;name&#34;]
+        self.target_periods = object[&#34;target_periods&#34;]
+        self.home_player: object = object[&#39;home_player&#39;]
+        self.away_player: object = object[&#39;away_player&#39;]
+
+    def __str__(self):
+        return &#39;Fixture: {self.id}&#39;.format(self=self)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.FixtureList"><code class="flex name class">
+<span>class <span class="ident">FixtureList</span></span>
+<span>(</span><span>object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A list of the individual 'games' that make up a Fanduel contest</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FixtureList():
+    &#39;&#39;&#39;
+    A list of the individual &#39;games&#39; that make up a Fanduel contest
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;_url&#34;]
+        self.sport = object[&#34;sport&#34;]
+        self.salary_cap = object[&#34;salary_cap&#34;]
+        self.start_date = object[&#34;start_date&#34;]
+        self.label = object[&#34;label&#34;]
+        self.status = object[&#34;status&#34;]
+        self.fixture_counts = object[&#34;fixture_counts&#34;]
+        self.players = object[&#34;players&#34;]
+        self.selection_priority = object[&#34;selection_priority&#34;]
+        self.notices = object[&#34;notices&#34;]
+        self.is_season_long = object[&#34;is_season_long&#34;]
+        self.game_description_name = object[&#34;game_description_name&#34;]
+        self.game_description = object[&#34;game_description&#34;]
+        self.late_swap = object[&#34;late_swap&#34;]
+
+    def __str__(self):
+        return &#39;FixtureList: {self.id}&#39;.format(self=self)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.GameDescription"><code class="flex name class">
+<span>class <span class="ident">GameDescription</span></span>
+<span>(</span><span>object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Details associated with a fixture list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GameDescription():
+    &#39;&#39;&#39;
+    Details associated with a fixture list
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self.name = object[&#34;name&#34;]
+        self.short_description = object[&#34;short_description&#34;]
+        self.long_description = object[&#34;long_description&#34;]
+        self.image_url = object[&#34;image_url&#34;]
+        self.display_priority = object[&#34;display_priority&#34;]
+        self.display_label = object[&#34;display_label&#34;]
+        self.roster_format = object[&#34;roster_format&#34;]
+        self.tag = object[&#34;tag&#34;]
+        self.only_score_top = object[&#34;only_score_top&#34;]
+        self.roster_restrictions = object[&#34;roster_restrictions&#34;]
+
+    def __str__(self):
+        return &#39;GameDescription: {self.id}&#39;.format(self=self)</code></pre>
+</details>
 </dd>
 <dt id="southpaw.fanduel.Player"><code class="flex name class">
 <span>class <span class="ident">Player</span></span>
-<span>(</span><span>player_json)</span>
+<span>(</span><span>object)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>A player in a fixture</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Player():
-    def __init__(self, player_json):
-        self.dvp_rank = player_json[&#39;first_name&#39;]
-        self.first_name = player_json[&#39;first_name&#39;]
-        self.fppg = player_json[&#39;fppg&#39;]
-        self.id = player_json[&#39;id&#39;]
-        self.fixture = player_json[&#39;fixture&#39;]
-        self.images = player_json[&#39;images&#39;]
-        self.injured = player_json[&#39;injured&#39;]
-        self.injury_details = player_json[&#39;injury_details&#39;]
-        self.injury_severity = player_json[&#39;injury_severity&#39;]
-        self.injury_status = player_json[&#39;injury_status&#39;]
-        self.jersey_number = player_json[&#39;jersey_number&#39;]
-        self.known_name = player_json[&#39;known_name&#39;]
-        self.last_name = player_json[&#39;last_name&#39;]
-        self.max_rank = player_json[&#39;max_rank&#39;]
-        self.news = player_json[&#39;news&#39;]
-        self.played = player_json[&#39;played&#39;]
-        self.news = player_json[&#39;news&#39;]
-        self.player_card_url = player_json[&#39;player_card_url&#39;]
-        self.player_info = player_json[&#39;player_info&#39;]
-        self.position = player_json[&#39;position&#39;]
-        self.positions = player_json[&#39;positions&#39;]
-        self.projected_fantasy_points = player_json[&#39;projected_fantasy_points&#39;]
-        self.projected_starting_order = player_json[&#39;projected_starting_order&#39;]
-        self.rank = player_json[&#39;rank&#39;]
-        self.recent_games_played_stats = player_json[&#39;recent_games_played_stats&#39;]
-        self.removed = player_json[&#39;removed&#39;]
-        self.roster_position_stats = player_json[&#39;roster_position_stats&#39;]
-        self.salary = player_json[&#39;salary&#39;]
-        self.sport_specific = player_json[&#39;sport_specific&#39;]
-        self.starting_order = player_json[&#39;starting_order&#39;]
-        self.swappable = player_json[&#39;swappable&#39;]
-        self.team = player_json[&#39;team&#39;]
-        self.tier = player_json[&#39;tier&#39;]
-        self.videos = player_json[&#39;videos&#39;]</code></pre>
+    &#39;&#39;&#39;
+    A player in a fixture
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.dvp_rank = object[&#39;first_name&#39;]
+        self.first_name = object[&#39;first_name&#39;]
+        self.fppg = object[&#39;fppg&#39;]
+        self.id = object[&#39;id&#39;]
+        self.fixture = object[&#39;fixture&#39;]
+        self.images = object[&#39;images&#39;]
+        self.injured = object[&#39;injured&#39;]
+        self.injury_details = object[&#39;injury_details&#39;]
+        self.injury_severity = object[&#39;injury_severity&#39;]
+        self.injury_status = object[&#39;injury_status&#39;]
+        self.jersey_number = object[&#39;jersey_number&#39;]
+        self.known_name = object[&#39;known_name&#39;]
+        self.last_name = object[&#39;last_name&#39;]
+        self.max_rank = object[&#39;max_rank&#39;]
+        self.news = object[&#39;news&#39;]
+        self.played = object[&#39;played&#39;]
+        self.news = object[&#39;news&#39;]
+        self.player_card_url = object[&#39;player_card_url&#39;]
+        self.player_info = object[&#39;player_info&#39;]
+        self.position = object[&#39;position&#39;]
+        self.positions = object[&#39;positions&#39;]
+        self.projected_fantasy_points = object[&#39;projected_fantasy_points&#39;]
+        self.projected_starting_order = object[&#39;projected_starting_order&#39;]
+        self.rank = object[&#39;rank&#39;]
+        self.recent_games_played_stats = object[&#39;recent_games_played_stats&#39;]
+        self.removed = object[&#39;removed&#39;]
+        self.roster_position_stats = object[&#39;roster_position_stats&#39;]
+        self.salary = object[&#39;salary&#39;]
+        self.sport_specific = object[&#39;sport_specific&#39;]
+        self.starting_order = object[&#39;starting_order&#39;]
+        self.swappable = object[&#39;swappable&#39;]
+        self.team = object[&#39;team&#39;]
+        self.tier = object[&#39;tier&#39;]
+        self.videos = object[&#39;videos&#39;]</code></pre>
 </details>
 </dd>
-<dt id="southpaw.fanduel.UserAuth"><code class="flex name class">
-<span>class <span class="ident">UserAuth</span></span>
-<span>(</span><span>user_id, session_token, basic_auth_token)</span>
+<dt id="southpaw.fanduel.PlayerList"><code class="flex name class">
+<span>class <span class="ident">PlayerList</span></span>
+<span>(</span><span>object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>List of players mapped to a fixture list id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PlayerList():
+    &#39;&#39;&#39;
+    List of players mapped to a fixture list id
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.fixture_list_id = object[&#39;fixture_list_id&#39;]
+        self.players = object[&#39;players&#39;]</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Roster"><code class="flex name class">
+<span>class <span class="ident">Roster</span></span>
+<span>(</span><span>object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A collection of players as a lineup</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Roster():
+    &#39;&#39;&#39;
+    A collection of players as a lineup
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self._url = object[&#34;_url&#34;]
+        self.score = object[&#34;score&#34;]
+        self.ppr = object[&#34;ppr&#34;]
+        self.total_periods = object[&#34;total_periods&#34;]
+        self.name = object[&#34;name&#34;]
+        self.fixture_list = object[&#34;fixture_list&#34;]
+        self.has_lineup = object[&#34;has_lineup&#34;]
+        self.draft_type = object[&#34;draft_type&#34;]
+        self.season_long_roster_info = object[&#34;season_long_roster_info&#34;]
+        self.last_used = object[&#34;last_used&#34;]
+        self.entries = object[&#34;entries&#34;]
+        self.grouped_entries = object[&#34;grouped_entries&#34;]
+        self.lineup = object[&#34;lineup&#34;]
+        self.best_ball_lineup = object[&#34;best_ball_lineup&#34;]
+
+    def __str__(self):
+        return &#39;Roster: {self.id}&#39;.format(self=self)</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Upcoming"><code class="flex name class">
+<span>class <span class="ident">Upcoming</span></span>
+<span>(</span><span>object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>All of the upcoming data for a user</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Upcoming():
+    &#39;&#39;&#39;
+    All of the upcoming data for a user
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.entries: list[Entry] = object[&#39;entries&#39;]
+        self.rosters: list[Roster] = object[&#39;rosters&#39;]
+        self.contests: list[Contest] = object[&#39;contests&#39;]
+        self.fixtures: list[Fixture] = object[&#39;fixtures&#39;]
+        self.fixture_lists: list[FixtureList] = object[&#39;fixture_lists&#39;]
+        self.game_descriptions: list[GameDescription] = object[&#39;game_descriptions&#39;]
+        self.player_lists: list[PlayerList] = object[&#39;player_lists&#39;]
+
+    def __str__(self):
+        return &#39;Upcoming Summary:\nEntries: {0}\nRosters: {1}\nContests: {2}\nFixtures: {3}\nFixtureLists: {4}\nGameDescriptions: {5}\nPlayer Lists: {6}&#39;.format(len(self.entries), len(self.rosters), len(self.contests), len(self.fixtures), len(self.fixture_lists), len(self.game_descriptions), len(self.player_lists))</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.UpdateEntryInput"><code class="flex name class">
+<span>class <span class="ident">UpdateEntryInput</span></span>
+<span>(</span><span>object)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -694,11 +1261,15 @@ class Fanduel():
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class UserAuth():
-    def __init__(self, user_id, session_token, basic_auth_token):
-        self.user_id = user_id
-        self.session_token = session_token
-        self.basic_auth_token = basic_auth_token</code></pre>
+<pre><code class="python">class UpdateEntryInput():
+    &#39;&#39;&#39;
+    Data to update an entry
+    &#39;&#39;&#39;
+
+    def __init__(self, object):
+        self.id = object[&#34;id&#34;]
+        self.roster = object[&#34;roster&#34;]
+        self.lineup = object[&#34;lineup&#34;]</code></pre>
 </details>
 </dd>
 </dl>
@@ -726,17 +1297,47 @@ class Fanduel():
 <li>
 <h4><code><a title="southpaw.fanduel.Fanduel" href="#southpaw.fanduel.Fanduel">Fanduel</a></code></h4>
 <ul class="">
-<li><code><a title="southpaw.fanduel.Fanduel.get_entries_in_contest" href="#southpaw.fanduel.Fanduel.get_entries_in_contest">get_entries_in_contest</a></code></li>
-<li><code><a title="southpaw.fanduel.Fanduel.get_players_in_contest" href="#southpaw.fanduel.Fanduel.get_players_in_contest">get_players_in_contest</a></code></li>
-<li><code><a title="southpaw.fanduel.Fanduel.get_upcoming_contests" href="#southpaw.fanduel.Fanduel.get_upcoming_contests">get_upcoming_contests</a></code></li>
-<li><code><a title="southpaw.fanduel.Fanduel.login" href="#southpaw.fanduel.Fanduel.login">login</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_contest" href="#southpaw.fanduel.Fanduel.get_contest">get_contest</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_contests" href="#southpaw.fanduel.Fanduel.get_contests">get_contests</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_entries" href="#southpaw.fanduel.Fanduel.get_entries">get_entries</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_entry" href="#southpaw.fanduel.Fanduel.get_entry">get_entry</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_fixture" href="#southpaw.fanduel.Fanduel.get_fixture">get_fixture</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_fixture_list" href="#southpaw.fanduel.Fanduel.get_fixture_list">get_fixture_list</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_fixture_lists" href="#southpaw.fanduel.Fanduel.get_fixture_lists">get_fixture_lists</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_fixtures" href="#southpaw.fanduel.Fanduel.get_fixtures">get_fixtures</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_game_description" href="#southpaw.fanduel.Fanduel.get_game_description">get_game_description</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_game_descriptions" href="#southpaw.fanduel.Fanduel.get_game_descriptions">get_game_descriptions</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_player_list" href="#southpaw.fanduel.Fanduel.get_player_list">get_player_list</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_player_lists" href="#southpaw.fanduel.Fanduel.get_player_lists">get_player_lists</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_players_in_entry" href="#southpaw.fanduel.Fanduel.get_players_in_entry">get_players_in_entry</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_roster" href="#southpaw.fanduel.Fanduel.get_roster">get_roster</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_rosters" href="#southpaw.fanduel.Fanduel.get_rosters">get_rosters</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_upcoming" href="#southpaw.fanduel.Fanduel.get_upcoming">get_upcoming</a></code></li>
 </ul>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.Fixture" href="#southpaw.fanduel.Fixture">Fixture</a></code></h4>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.FixtureList" href="#southpaw.fanduel.FixtureList">FixtureList</a></code></h4>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.GameDescription" href="#southpaw.fanduel.GameDescription">GameDescription</a></code></h4>
 </li>
 <li>
 <h4><code><a title="southpaw.fanduel.Player" href="#southpaw.fanduel.Player">Player</a></code></h4>
 </li>
 <li>
-<h4><code><a title="southpaw.fanduel.UserAuth" href="#southpaw.fanduel.UserAuth">UserAuth</a></code></h4>
+<h4><code><a title="southpaw.fanduel.PlayerList" href="#southpaw.fanduel.PlayerList">PlayerList</a></code></h4>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.Roster" href="#southpaw.fanduel.Roster">Roster</a></code></h4>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.Upcoming" href="#southpaw.fanduel.Upcoming">Upcoming</a></code></h4>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.UpdateEntryInput" href="#southpaw.fanduel.UpdateEntryInput">UpdateEntryInput</a></code></h4>
 </li>
 </ul>
 </li>
