@@ -1,0 +1,3459 @@
+{
+  "player_lists": [
+    {
+      "fixture_list_id": "65522",
+      "players": [
+        {
+          "dvp_rank": 11,
+          "first_name": "Baker",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 15.759999593098959,
+          "id": "65522-41535",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/41535.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "shoulder",
+          "injury_severity": "MEDIUM",
+          "injury_status": "q",
+          "jersey_number": 6,
+          "known_name": null,
+          "last_name": "Mayfield",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T20:11:02Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-41535/",
+          "player_info": null,
+          "position": "QB",
+          "positions": ["QB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 16.82,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 15.76, "played": 6 },
+            "LAST_3": { "fppg": 15.153333333333334, "played": 3 },
+            "LAST_5": { "fppg": 16.184, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 23.639999389648438,
+              "player_position": "QB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 15.759999593098959,
+              "player_position": "QB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 15000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 29,
+          "first_name": "Teddy",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 16.860000610351562,
+          "id": "65522-33259",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/33259.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "foot",
+          "injury_severity": "MEDIUM",
+          "injury_status": "q",
+          "jersey_number": 5,
+          "known_name": null,
+          "last_name": "Bridgewater",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T20:42:11Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-33259/",
+          "player_info": null,
+          "position": "QB",
+          "positions": ["QB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 15.99,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 16.86, "played": 6 },
+            "LAST_3": { "fppg": 15.893333333333333, "played": 3 },
+            "LAST_5": { "fppg": 16.14, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 25.290000915527344,
+              "player_position": "QB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 16.860000610351562,
+              "player_position": "QB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 14500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "Nick",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 16.060000610351562,
+          "id": "65522-53562",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/53562.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "calf",
+          "injury_severity": "HIGH",
+          "injury_status": "o",
+          "jersey_number": 24,
+          "known_name": null,
+          "last_name": "Chubb",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T17:24:39Z" },
+          "played": 5,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-53562/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 16.06, "played": 5 },
+            "LAST_3": { "fppg": 14.299999999999999, "played": 3 },
+            "LAST_5": { "fppg": 16.06, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 24.089999389648437,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 16.060000610351562,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 14000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "Kareem",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 15.699999491373697,
+          "id": "65522-45229",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/45229.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "calf",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 27,
+          "known_name": null,
+          "last_name": "Hunt",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T16:32:33Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-45229/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 15.700000000000001, "played": 6 },
+            "LAST_3": { "fppg": 16.099999999999998, "played": 3 },
+            "LAST_5": { "fppg": 15.719999999999999, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 23.5500005086263,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 15.699999491373697,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 13500,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Courtland",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 12.59999974568685,
+          "id": "65522-57403",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/57403.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 14,
+          "known_name": null,
+          "last_name": "Sutton",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T01:24:37Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-57403/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 10.9,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 12.6, "played": 6 },
+            "LAST_3": { "fppg": 15.700000000000001, "played": 3 },
+            "LAST_5": { "fppg": 14.74, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 18.900000254313152,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 12.59999974568685,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 12500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Jerry",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 10.199999809265137,
+          "id": "65522-90561",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/90561.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "ankle",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 10,
+          "known_name": null,
+          "last_name": "Jeudy",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T17:29:59Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-90561/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 10.2, "played": 1 },
+            "LAST_3": { "fppg": 10.2, "played": 1 },
+            "LAST_5": { "fppg": 10.2, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 15.300000190734863,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 10.199999809265137,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 11500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Tim",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 10.816666920979818,
+          "id": "65522-57091",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/57091.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 81,
+          "known_name": null,
+          "last_name": "Patrick",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T00:07:07Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-57091/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 8.63,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 10.816666666666668, "played": 6 },
+            "LAST_3": { "fppg": 9.833333333333334, "played": 3 },
+            "LAST_5": { "fppg": 10.6, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 16.224999745686848,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 10.816666920979818,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 11000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 9,
+          "first_name": "Melvin",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 10.59999974568685,
+          "id": "65522-28900",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/28900.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 25,
+          "known_name": null,
+          "last_name": "Gordon III",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T20:57:44Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-28900/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 9.39,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 10.6, "played": 6 },
+            "LAST_3": { "fppg": 7.266666666666667, "played": 3 },
+            "LAST_5": { "fppg": 8.86, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 15.90000025431315,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 10.59999974568685,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 10500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Odell",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 7.175000190734863,
+          "id": "65522-31360",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/31360.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "shoulder",
+          "injury_severity": "MEDIUM",
+          "injury_status": "q",
+          "jersey_number": 13,
+          "known_name": null,
+          "last_name": "Beckham Jr.",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T20:17:49Z" },
+          "played": 4,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-31360/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 9.15,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 7.175, "played": 4 },
+            "LAST_3": { "fppg": 5.833333333333333, "played": 3 },
+            "LAST_5": { "fppg": 7.175, "played": 4 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 10.762499809265137,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 7.175000190734863,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 10000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Jarvis",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 9.149999618530273,
+          "id": "65522-31394",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/31394.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "knee - mcl",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 80,
+          "known_name": null,
+          "last_name": "Landry",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T18:11:08Z" },
+          "played": 2,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-31394/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 7.99,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 9.15, "played": 2 },
+            "LAST_3": { "fppg": 9.15, "played": 2 },
+            "LAST_5": { "fppg": 9.15, "played": 2 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 13.725000381469727,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 9.149999618530273,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 10000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "D'Ernest",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 1.149999976158142,
+          "id": "65522-57543",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/57543.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 30,
+          "known_name": null,
+          "last_name": "Johnson",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T18:25:35Z" },
+          "played": 2,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-57543/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 11.83,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 1.15, "played": 2 },
+            "LAST_3": { "fppg": 1.15, "played": 2 },
+            "LAST_5": { "fppg": 1.15, "played": 2 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.725000023841858,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 1.149999976158142,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 10000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 16,
+          "first_name": "Noah",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 10.049999872843424,
+          "id": "65522-71705",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/71705.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "foot",
+          "injury_severity": "MEDIUM",
+          "injury_status": "q",
+          "jersey_number": 87,
+          "known_name": null,
+          "last_name": "Fant",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T21:06:38Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-71705/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 7.8,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 10.049999999999999, "played": 6 },
+            "LAST_3": { "fppg": 12.433333333333332, "played": 3 },
+            "LAST_5": { "fppg": 10.22, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 15.074999491373697,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 10.049999872843424,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 9500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": null,
+          "first_name": "Brandon",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 8.666666666666666,
+          "id": "65522-26247",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/26247.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 8,
+          "known_name": null,
+          "last_name": "McManus",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T17:18:01Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-26247/",
+          "player_info": null,
+          "position": "K",
+          "positions": ["K"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 7.8,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 8.666666666666666, "played": 6 },
+            "LAST_3": { "fppg": 4.666666666666667, "played": 3 },
+            "LAST_5": { "fppg": 8.6, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 13.0,
+              "player_position": "K",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 8.666666666666666,
+              "player_position": "K",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 9000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 9,
+          "first_name": "Javonte",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 8.333333333333334,
+          "id": "65522-93541",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/93541.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 33,
+          "known_name": null,
+          "last_name": "Williams",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T01:10:50Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-93541/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 9.35,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 8.333333333333334, "played": 6 },
+            "LAST_3": { "fppg": 8.6, "played": 3 },
+            "LAST_5": { "fppg": 9.08, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 12.5,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 8.333333333333334,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 9000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Donovan",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 7.8599998474121096,
+          "id": "65522-91426",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/91426.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 11,
+          "known_name": null,
+          "last_name": "Peoples-Jones",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T01:08:44Z" },
+          "played": 5,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-91426/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 3.33,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 7.859999999999999, "played": 5 },
+            "LAST_3": { "fppg": 12.833333333333334, "played": 3 },
+            "LAST_5": { "fppg": 7.859999999999999, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 11.79000015258789,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 7.8599998474121096,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 8500,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": null,
+          "first_name": "Chase",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 8.333333333333334,
+          "id": "65522-60479",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/60479.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 3,
+          "known_name": null,
+          "last_name": "McLaughlin",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T13:15:05Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-60479/",
+          "player_info": null,
+          "position": "K",
+          "positions": ["K"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 7.3,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 8.333333333333334, "played": 6 },
+            "LAST_3": { "fppg": 7.0, "played": 3 },
+            "LAST_5": { "fppg": 9.4, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 12.5,
+              "player_position": "K",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 8.333333333333334,
+              "player_position": "K",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 8500,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "Demetric",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 3.1666666666666665,
+          "id": "65522-70282",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/70282.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 25,
+          "known_name": null,
+          "last_name": "Felton",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T12:15:05Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-70282/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 7.21,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 3.1666666666666665, "played": 6 },
+            "LAST_3": { "fppg": 1.5333333333333332, "played": 3 },
+            "LAST_5": { "fppg": 3.8, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 4.75,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 3.1666666666666665,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 8000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Rashard",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 5.159999847412109,
+          "id": "65522-45791",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/45791.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 82,
+          "known_name": null,
+          "last_name": "Higgins",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T12:41:57Z" },
+          "played": 5,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-45791/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 4.82,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 5.16, "played": 5 },
+            "LAST_3": { "fppg": 6.233333333333333, "played": 3 },
+            "LAST_5": { "fppg": 5.16, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 7.740000152587891,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 5.159999847412109,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 7500,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "David",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 8.019999694824218,
+          "id": "65522-55335",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/55335.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "knee",
+          "injury_severity": "MEDIUM",
+          "injury_status": "q",
+          "jersey_number": 85,
+          "known_name": null,
+          "last_name": "Njoku",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T20:30:31Z" },
+          "played": 5,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-55335/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 2.46,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 8.02, "played": 5 },
+            "LAST_3": { "fppg": 9.4, "played": 3 },
+            "LAST_5": { "fppg": 8.02, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 12.030000305175781,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 8.019999694824218,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 7000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "Austin",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 4.016666730244954,
+          "id": "65522-40126",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/40126.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 81,
+          "known_name": null,
+          "last_name": "Hooper",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T12:48:20Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-40126/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 4.97,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 4.016666666666667, "played": 6 },
+            "LAST_3": { "fppg": 1.5, "played": 3 },
+            "LAST_5": { "fppg": 3.9799999999999995, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 6.025000254313151,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 4.016666730244954,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 6500,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Ja'Marcus",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 4.25,
+          "id": "65522-64949",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/64949.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 84,
+          "known_name": null,
+          "last_name": "Bradley",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T17:20:11Z" },
+          "played": 2,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-64949/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 8.5, "played": 1 },
+            "LAST_3": { "fppg": 8.5, "played": 1 },
+            "LAST_5": { "fppg": 8.5, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 6.375,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 4.25,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 6000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "Harrison",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 2.4749999046325684,
+          "id": "65522-70601",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/70601.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 88,
+          "known_name": null,
+          "last_name": "Bryant",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T12:59:26Z" },
+          "played": 4,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-70601/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 0.89,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 2.475, "played": 4 },
+            "LAST_3": { "fppg": 2.566666666666667, "played": 3 },
+            "LAST_5": { "fppg": 2.475, "played": 4 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 3.7125000953674316,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 2.4749999046325684,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 6000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 16,
+          "first_name": "Albert",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 3.549999952316284,
+          "id": "65522-70859",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/70859.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "hamstring",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 85,
+          "known_name": null,
+          "last_name": "Okwuegbunam",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-09T20:36:47Z" },
+          "played": 4,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-70859/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 1.74,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 3.55, "played": 4 },
+            "LAST_3": { "fppg": 2.3666666666666667, "played": 3 },
+            "LAST_5": { "fppg": 3.55, "played": 4 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 5.324999809265137,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 3.549999952316284,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "John",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 7.825000127156575,
+          "id": "65522-54606",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/54606.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 17,
+          "known_name": null,
+          "last_name": "Brown",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T23:53:08Z" },
+          "played": 12,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-54606/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 2.07,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 6.17, "played": 10 },
+            "LAST_3": { "fppg": 4.533333333333333, "played": 3 },
+            "LAST_5": { "fppg": 7.8, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 11.737500508626303,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 7.825000127156575,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 16,
+          "first_name": "Eric",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 2.066666603088379,
+          "id": "65522-79980",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/79980.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 82,
+          "known_name": null,
+          "last_name": "Saubert",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T16:41:32Z" },
+          "played": 3,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-79980/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 1.11,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 2.066666666666667, "played": 3 },
+            "LAST_3": { "fppg": 2.066666666666667, "played": 3 },
+            "LAST_5": { "fppg": 2.066666666666667, "played": 3 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 3.1000000635782876,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 2.066666603088379,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Kendall",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 4.875,
+          "id": "65522-61042",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/61042.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 9,
+          "known_name": null,
+          "last_name": "Hinton",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T14:30:03Z" },
+          "played": 4,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-61042/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 2.96,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 4.875, "played": 4 },
+            "LAST_3": { "fppg": 5.833333333333333, "played": 3 },
+            "LAST_5": { "fppg": 4.875, "played": 4 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 7.3125,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 4.875,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5500,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "Andy",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 2.6666666666666665,
+          "id": "65522-27273",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/27273.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "hamstring",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 31,
+          "known_name": null,
+          "last_name": "Janovich",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-12T20:29:17Z" },
+          "played": 3,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-27273/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 1.44,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 2.6666666666666665, "played": 3 },
+            "LAST_3": { "fppg": 2.6666666666666665, "played": 3 },
+            "LAST_5": { "fppg": 2.6666666666666665, "played": 3 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 4.0,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 2.6666666666666665,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "DaeSean",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 4.233333269755046,
+          "id": "65522-41741",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/41741.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "knee - acl",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 17,
+          "known_name": null,
+          "last_name": "Hamilton",
+          "max_rank": 32,
+          "news": { "latest": "2021-05-19T20:34:10Z" },
+          "played": 12,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-41741/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 4.75, "played": 10 },
+            "LAST_3": { "fppg": 4.933333333333334, "played": 3 },
+            "LAST_5": { "fppg": 4.82, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 6.349999745686849,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 4.233333269755046,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Amara",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-28055",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/28055.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 17,
+          "known_name": null,
+          "last_name": "Darboh",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-06T18:09:11Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-28055/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "Kyle",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-64023",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/64023.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 86,
+          "known_name": null,
+          "last_name": "Markway",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-31T04:21:12Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-64023/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 16,
+          "first_name": "Andrew",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-54426",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/54426.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 83,
+          "known_name": null,
+          "last_name": "Beck",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-12T19:11:33Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-54426/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 1 },
+            "LAST_3": { "fppg": 0.0, "played": 1 },
+            "LAST_5": { "fppg": 0.0, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Lawrence",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 1.5,
+          "id": "65522-63646",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/63646.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 83,
+          "known_name": null,
+          "last_name": "Cager",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-04T15:29:58Z" },
+          "played": 3,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-63646/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 2.25, "played": 2 },
+            "LAST_3": { "fppg": 2.25, "played": 2 },
+            "LAST_5": { "fppg": 2.25, "played": 2 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 2.25,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 1.5,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Diontae",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.033333333830038704,
+          "id": "65522-54817",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/54817.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 11,
+          "known_name": null,
+          "last_name": "Spencer",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-12T04:12:30Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-54817/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 0.83,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.03333333333333333, "played": 6 },
+            "LAST_3": { "fppg": 0.0, "played": 3 },
+            "LAST_5": { "fppg": 0.04, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.050000001986821495,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.033333333830038704,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "KJ",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 3.2999998728434243,
+          "id": "65522-86192",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/86192.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "knee - acl",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 1,
+          "known_name": null,
+          "last_name": "Hamler",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-28T20:49:38Z" },
+          "played": 3,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-86192/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 3.3000000000000003, "played": 3 },
+            "LAST_3": { "fppg": 3.3000000000000003, "played": 3 },
+            "LAST_5": { "fppg": 3.3000000000000003, "played": 3 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 4.950000127156575,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 3.2999998728434243,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 29,
+          "first_name": "Drew",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 3.5199999809265137,
+          "id": "65522-64051",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/64051.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 3,
+          "known_name": null,
+          "last_name": "Lock",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-04T02:09:15Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-64051/",
+          "player_info": null,
+          "position": "QB",
+          "positions": ["QB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 3.52, "played": 1 },
+            "LAST_3": { "fppg": 3.52, "played": 1 },
+            "LAST_5": { "fppg": 3.52, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 5.28000020980835,
+              "player_position": "QB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 3.5199999809265137,
+              "player_position": "QB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 9,
+          "first_name": "Mike",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.800000011920929,
+          "id": "65522-58041",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/58041.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 26,
+          "known_name": null,
+          "last_name": "Boone",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T13:58:57Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-58041/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 1.21,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.8, "played": 1 },
+            "LAST_3": { "fppg": 0.8, "played": 1 },
+            "LAST_5": { "fppg": 0.8, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.2000000476837158,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.800000011920929,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Josh",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 1.2000000476837158,
+          "id": "65522-52410",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/52410.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 84,
+          "known_name": null,
+          "last_name": "Malone",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-13T02:59:35Z" },
+          "played": 4,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-52410/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 1.5999999999999999, "played": 3 },
+            "LAST_3": { "fppg": 1.5999999999999999, "played": 3 },
+            "LAST_5": { "fppg": 1.5999999999999999, "played": 3 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.7999999523162842,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 1.2000000476837158,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "Connor",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-138552",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/138552.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": "shoulder",
+          "injury_severity": "MEDIUM",
+          "injury_status": "q",
+          "jersey_number": 86,
+          "known_name": null,
+          "last_name": "Davis",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-17T00:11:39Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-138552/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "Johnny",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 1.100000023841858,
+          "id": "65522-38721",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/38721.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 40,
+          "known_name": null,
+          "last_name": "Stanton IV",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T13:03:19Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-38721/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 1.44,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 1.1, "played": 1 },
+            "LAST_3": { "fppg": 1.1, "played": 1 },
+            "LAST_5": { "fppg": 1.1, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.649999976158142,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 1.100000023841858,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 9,
+          "first_name": "LeVante",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.6999999682108561,
+          "id": "65522-64962",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/64962.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "ankle",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 32,
+          "known_name": null,
+          "last_name": "Bellamy",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-19T01:09:36Z" },
+          "played": 3,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-64962/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 1.05, "played": 2 },
+            "LAST_3": { "fppg": 1.05, "played": 2 },
+            "LAST_5": { "fppg": 1.05, "played": 2 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.0500000317891438,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.6999999682108561,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "De'Mornay",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": null,
+          "id": "65522-52553",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/52553.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 15,
+          "known_name": null,
+          "last_name": "Pierson-El",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-31T17:34:16Z" },
+          "played": null,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-52553/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "Stephen",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.44999998807907104,
+          "id": "65522-104008",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/104008.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "knee",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 89,
+          "known_name": null,
+          "last_name": "Carlson",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-18T00:09:41Z" },
+          "played": 8,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-104008/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.72, "played": 5 },
+            "LAST_3": { "fppg": 0.5333333333333333, "played": 3 },
+            "LAST_5": { "fppg": 0.72, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.675000011920929,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.44999998807907104,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "Tyrie",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 1.3285714558192663,
+          "id": "65522-71372",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/71372.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 16,
+          "known_name": null,
+          "last_name": "Cleveland",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T00:04:50Z" },
+          "played": 7,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-71372/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 1.3285714285714287, "played": 7 },
+            "LAST_3": { "fppg": 2.6999999999999997, "played": 3 },
+            "LAST_5": { "fppg": 1.6199999999999999, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.9928571156093053,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 1.3285714558192663,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 11,
+          "first_name": "Case",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.11999999731779099,
+          "id": "65522-22994",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/22994.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 5,
+          "known_name": null,
+          "last_name": "Keenum",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T00:44:27Z" },
+          "played": 2,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-22994/",
+          "player_info": null,
+          "position": "QB",
+          "positions": ["QB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.12, "played": 2 },
+            "LAST_3": { "fppg": 0.12, "played": 2 },
+            "LAST_5": { "fppg": 0.12, "played": 2 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.18000000715255737,
+              "player_position": "QB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.11999999731779099,
+              "player_position": "QB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 9,
+          "first_name": "Damarea",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.699999988079071,
+          "id": "65522-70868",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/70868.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 28,
+          "known_name": null,
+          "last_name": "Crockett",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-22T17:54:59Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-70868/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.7, "played": 1 },
+            "LAST_3": { "fppg": 0.7, "played": 1 },
+            "LAST_5": { "fppg": 0.7, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 1.0499999523162842,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.699999988079071,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 11,
+          "first_name": "Nick",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 11.66181807084517,
+          "id": "65522-41562",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/41562.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 9,
+          "known_name": null,
+          "last_name": "Mullens",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-02T01:18:02Z" },
+          "played": 11,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-41562/",
+          "player_info": null,
+          "position": "QB",
+          "positions": ["QB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 12.828, "played": 10 },
+            "LAST_3": { "fppg": 16.5, "played": 3 },
+            "LAST_5": { "fppg": 14.152000000000001, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 17.492727106267754,
+              "player_position": "QB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 11.66181807084517,
+              "player_position": "QB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Alexander",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": null,
+          "id": "65522-103902",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/103902.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 83,
+          "known_name": null,
+          "last_name": "Hollins",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-23T23:07:59Z" },
+          "played": null,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-103902/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 29,
+          "first_name": "Brett",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 5.100000063578288,
+          "id": "65522-61157",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/61157.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 4,
+          "known_name": null,
+          "last_name": "Rypien",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-28T20:06:41Z" },
+          "played": 3,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-61157/",
+          "player_info": null,
+          "position": "QB",
+          "positions": ["QB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 7.65, "played": 2 },
+            "LAST_3": { "fppg": 7.65, "played": 2 },
+            "LAST_5": { "fppg": 7.65, "played": 2 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 7.650000254313151,
+              "player_position": "QB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 5.100000063578288,
+              "player_position": "QB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Ryan",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-38634",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/38634.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "foot",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 15,
+          "known_name": null,
+          "last_name": "Switzer",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-18T00:05:22Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-38634/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 10,
+          "first_name": "Jordan",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-57325",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/57325.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 87,
+          "known_name": null,
+          "last_name": "Franks",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-28T17:11:57Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-57325/",
+          "player_info": null,
+          "position": "TE",
+          "positions": ["TE"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 1 },
+            "LAST_3": { "fppg": 0.0, "played": 1 },
+            "LAST_5": { "fppg": 0.0, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "TE",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "Anthony",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 1.9833332697550456,
+          "id": "65522-87662",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/87662.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 10,
+          "known_name": null,
+          "last_name": "Schwartz",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-18T12:21:26Z" },
+          "played": 6,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-87662/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 1.26,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 1.9833333333333334, "played": 6 },
+            "LAST_3": { "fppg": 0.6, "played": 3 },
+            "LAST_5": { "fppg": 0.36, "played": 5 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 2.9750000635782876,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 1.9833332697550456,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 28,
+          "first_name": "David",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-79987",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/79987.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 89,
+          "known_name": null,
+          "last_name": "Moore",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T22:27:50Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-79987/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": 0.88,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 1 },
+            "LAST_3": { "fppg": 0.0, "played": 1 },
+            "LAST_5": { "fppg": 0.0, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 9,
+          "first_name": "Adrian",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": -0.25,
+          "id": "65522-72693",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/72693.png",
+              "width": 200
+            }
+          },
+          "injured": true,
+          "injury_details": "ankle",
+          "injury_severity": "HIGH",
+          "injury_status": "ir",
+          "jersey_number": 17,
+          "known_name": null,
+          "last_name": "Killins",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-24T21:56:57Z" },
+          "played": 2,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-72693/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": -0.5, "played": 1 },
+            "LAST_3": { "fppg": -0.5, "played": 1 },
+            "LAST_5": { "fppg": -0.5, "played": 1 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": -0.375,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": -0.25,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [11],
+            "opposing_team": { "_members": ["7"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["13"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 12,
+          "first_name": "John",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-63479",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/63479.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 49,
+          "known_name": null,
+          "last_name": "Kelly",
+          "max_rank": 32,
+          "news": { "latest": "2021-10-19T16:55:58Z" },
+          "played": 1,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-63479/",
+          "player_info": null,
+          "position": "RB",
+          "positions": ["RB"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "RB",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "RB",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "JoJo",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.07500000298023224,
+          "id": "65522-44280",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/44280.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 19,
+          "known_name": null,
+          "last_name": "Natson",
+          "max_rank": 32,
+          "news": { "latest": "2021-09-02T01:31:59Z" },
+          "played": 4,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-44280/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.09999999999999999, "played": 3 },
+            "LAST_3": { "fppg": 0.09999999999999999, "played": 3 },
+            "LAST_5": { "fppg": 0.09999999999999999, "played": 3 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.11249999701976776,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.07500000298023224,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        },
+        {
+          "dvp_rank": 22,
+          "first_name": "JoJo",
+          "fixture": { "_members": ["228143"], "_ref": "fixtures.id" },
+          "fppg": 0.0,
+          "id": "65522-88186",
+          "images": {
+            "default": {
+              "height": 200,
+              "url": "https://d17odppiik753x.cloudfront.net/playerimages/nfl/88186.png",
+              "width": 200
+            }
+          },
+          "injured": false,
+          "injury_details": null,
+          "injury_severity": null,
+          "injury_status": null,
+          "jersey_number": 14,
+          "known_name": null,
+          "last_name": "Ward",
+          "max_rank": 32,
+          "news": { "latest": "2021-08-21T03:35:24Z" },
+          "played": 2,
+          "player_card_url": "https://www.fanduel.com/mobile/games/65522/players/65522-88186/",
+          "player_info": null,
+          "position": "WR",
+          "positions": ["WR"],
+          "projected_fantasy_points": {
+            "projected_fantasy_points": null,
+            "supported": true
+          },
+          "projected_starting_order": null,
+          "rank": 1000,
+          "recent_games_played_stats": {
+            "LAST_10": { "fppg": 0.0, "played": 0 },
+            "LAST_3": { "fppg": 0.0, "played": 0 },
+            "LAST_5": { "fppg": 0.0, "played": 0 }
+          },
+          "removed": false,
+          "roster_position_stats": [
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "MVP - 1.5X Points"
+            },
+            {
+              "fppg": 0.0,
+              "player_position": "WR",
+              "roster_position": "AnyFLEX"
+            }
+          ],
+          "salary": 5000,
+          "sport_specific": {
+            "bye_weeks": [13],
+            "opposing_team": { "_members": ["13"], "_ref": "opponents.id" }
+          },
+          "starting_order": null,
+          "swappable": true,
+          "team": { "_members": ["7"], "_ref": "teams.id" },
+          "tier": null,
+          "videos": { "latest": null }
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.0.2'
-DESCRIPTION = 'MMA DFS Toolkit'
-LONG_DESCRIPTION = 'MMA DFS Toolkit written in Python'
+VERSION = '1.1.0'
+DESCRIPTION = 'Python Fanduel API'
+LONG_DESCRIPTION = 'Automate your DFS experience with this Python Fanduel API'
 
 # Setting up
 setup(

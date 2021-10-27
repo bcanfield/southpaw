@@ -1,0 +1,322 @@
+{
+  "_meta": {
+    "_primary_document": "entries",
+    "entries": {
+      "type": "upcoming",
+      "count": 1
+    }
+  },
+  "entries": [
+    {
+      "id": "2612985703",
+      "_url": "https://api.fanduel.com/entries/2612985703",
+      "entry_currency": "USD",
+      "cancelable": {
+        "status": true,
+        "message": "Entry can be canceled"
+      },
+      "index": "None",
+      "rank": "None",
+      "user": {
+        "_members": ["9141719"],
+        "_ref": "users.id"
+      },
+      "has_lineup": true,
+      "fixture_list": {
+        "_members": ["65522"],
+        "_ref": "fixture_lists.id"
+      },
+      "contest": {
+        "_members": ["65522-249978904"],
+        "_ref": "contests.id"
+      },
+      "prizes": {
+        "summary": "None",
+        "total": "None"
+      },
+      "roster": {
+        "_members": ["65522-2455503473"],
+        "_ref": "rosters.id"
+      },
+      "code": "EXSICWMWH"
+    }
+  ],
+  "contests": [
+    {
+      "id": "65522-249978904",
+      "_url": "https://api.fanduel.com/contests/65522-249978904",
+      "invite_url": "https://www.fanduel.com/entry/65522-249978904",
+      "sport": "NFL",
+      "name": "$15K Thu NFL Pooch Punt (150 Entries Max)",
+      "display_name": {
+        "_object_type": "string_formatter",
+        "format": "$15K Thu NFL Pooch Punt (150 Entries Max)",
+        "placeholders": []
+      },
+      "label": "None",
+      "salary_cap": 60000,
+      "start_date": "2021-10-22T00:20:00Z",
+      "entry_fee": 0.05,
+      "entry_fee_fdp": 120,
+      "guaranteed": true,
+      "max_entries_per_user": 150,
+      "private": false,
+      "made_free": false,
+      "prizes": {
+        "summary": "$15,000",
+        "count": 110000,
+        "total": 15000.0
+      },
+      "fixture_list": {
+        "ref": "fixture_lists.id",
+        "ids": ["65522"],
+        "_ref": "fixture_lists.id",
+        "_members": ["65522"]
+      },
+      "entries": {
+        "_url": "https://api.fanduel.com/contests/65522-249978904/entries",
+        "count": 13821
+      },
+      "size": {
+        "min": 2,
+        "max": 359281
+      },
+      "user_created": false,
+      "h2h": "None",
+      "started": false,
+      "final": false,
+      "cancellation": "None",
+      "features": "None",
+      "notice": "None",
+      "score_to_beat": "None",
+      "score_to_beat_pot": "None",
+      "season_long_info": "None",
+      "draft_specification": {
+        "type": "TRADITIONAL",
+        "start_time": "None",
+        "start_on_filled": "None",
+        "pick_ordering": "None",
+        "max_pick_time": "None"
+      }
+    }
+  ],
+  "fixture_lists": [
+    {
+      "id": "65522",
+      "_url": "https://api.fanduel.com/fixture-lists/65522",
+      "sport": "NFL",
+      "salary_cap": 60000,
+      "start_date": "2021-10-22T00:20:00Z",
+      "label": "DEN @ CLE",
+      "status": {
+        "started": false,
+        "final": false
+      },
+      "fixture_counts": {
+        "pending": 1,
+        "live": 0,
+        "completed": 0
+      },
+      "players": {
+        "_url": "https://api.fanduel.com/fixture-lists/65522/players"
+      },
+      "selection_priority": 100,
+      "notices": "None",
+      "is_season_long": false,
+      "game_description_name": "NFL Single Game",
+      "game_description": {
+        "_members": ["3040"],
+        "_ref": "game_descriptions.id"
+      },
+      "late_swap": false,
+      "fixtures": {
+        "_members": ["228143"],
+        "_ref": "fixtures.id"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "228143",
+      "start_date": "2021-10-22T00:20:00Z",
+      "sport": "NFL",
+      "type": "REGULAR_SEASON",
+      "home_team": {
+        "team": {
+          "_members": ["7"],
+          "_ref": "teams.id"
+        },
+        "score": "None",
+        "sport_specific": {}
+      },
+      "away_team": {
+        "team": {
+          "_members": ["13"],
+          "_ref": "teams.id"
+        },
+        "score": "None",
+        "sport_specific": {}
+      },
+      "weather": "None",
+      "status": {
+        "started": false,
+        "final": false,
+        "label": "PENDING",
+        "total_periods": 4,
+        "period_labels": {
+          "singular": "quarter",
+          "plural": "quarters"
+        }
+      },
+      "name": "None",
+      "target_periods": "None",
+      "home_player": "None",
+      "away_player": "None",
+      "fixture_info": "None"
+    }
+  ],
+  "rosters": [
+    {
+      "id": "65522-2455503473",
+      "_url": "https://api.fanduel.com/users/9141719/rosters/65522-2455503473",
+      "score": 0.0,
+      "ppr": 20,
+      "total_periods": 20,
+      "name": "Roster 65522-2455503473",
+      "fixture_list": {
+        "_members": ["65522"],
+        "_ref": "fixture_lists.id"
+      },
+      "has_lineup": true,
+      "draft_type": "TRADITIONAL",
+      "season_long_roster_info": "None",
+      "last_used": "2021-10-20T00:31:48Z",
+      "entries": {
+        "count": 1
+      },
+      "grouped_entries": {
+        "_url": "https://api.fanduel.com/users/9141719/grouped-entries?roster=65522-2455503473",
+        "count": 1
+      },
+      "lineup": [],
+      "best_ball_lineup": "None"
+    }
+  ],
+  "users": [
+    {
+      "id": "9141719",
+      "_url": "https://api.fanduel.com/users/9141719",
+      "username": "killswych",
+      "display_username": {
+        "_object_type": "string_formatter",
+        "format": "hep-badge killswych",
+        "placeholders": [
+          {
+            "name": "experience",
+            "indices": [0, 9],
+            "formatters": [
+              {
+                "content_type": "image",
+                "uri": "https://d2avoc1xjbdrch.cloudfront.net/images/svgs/hep-restricted",
+                "formats": ["svg", "png"]
+              },
+              {
+                "_members": ["9141719"],
+                "_ref": "users.id",
+                "content_type": "reference"
+              }
+            ]
+          }
+        ]
+      },
+      "full_avatar": "https://d18p5673etxe4f.cloudfront.net/9/5/f/c6cb8e12ea0d71d5b832628fd62cb1ed66ab1a7ec15ad21e1da29.jpeg",
+      "avatar": "https://d18p5673etxe4f.cloudfront.net/9/5/f/c6cb8e12ea0d71d5b832628fd62cb1ed66ab1a7ec15ad21e1da29.jpeg?maxWidth=88&maxHeight=88",
+      "experience": "EXPERT",
+      "expert_level": "HIGHLY_EXPERIENCED",
+      "expert_reasons": [
+        {
+          "description": "More than 500 contests",
+          "fulfilled": true
+        },
+        {
+          "description": "More than 1,000 contests",
+          "fulfilled": true
+        },
+        {
+          "description": "$2.5k+ won across 6+ contests",
+          "fulfilled": true
+        },
+        {
+          "description": "$1k+ won in 4+ contests",
+          "fulfilled": false
+        }
+      ]
+    }
+  ],
+  "game_descriptions": [
+    {
+      "id": "3040",
+      "name": "Single Game",
+      "short_description": "5 AnyFLEX positions including K. MVP scores 1.5x.",
+      "long_description": "None",
+      "image_url": "None",
+      "display_priority": 3,
+      "display_label": "Single Game",
+      "roster_format": [
+        {
+          "id": "3236",
+          "name": "MVP - 1.5X Points",
+          "player_positions": ["WR", "RB", "TE", "K", "QB"],
+          "order": 0,
+          "tier": "None",
+          "best_ball_enabled": false
+        },
+        {
+          "id": "3237",
+          "name": "AnyFLEX",
+          "player_positions": ["WR", "RB", "TE", "K", "QB"],
+          "order": 1,
+          "tier": "None",
+          "best_ball_enabled": false
+        },
+        {
+          "id": "3238",
+          "name": "AnyFLEX",
+          "player_positions": ["WR", "RB", "TE", "K", "QB"],
+          "order": 2,
+          "tier": "None",
+          "best_ball_enabled": false
+        },
+        {
+          "id": "3239",
+          "name": "AnyFLEX",
+          "player_positions": ["WR", "RB", "TE", "K", "QB"],
+          "order": 3,
+          "tier": "None",
+          "best_ball_enabled": false
+        },
+        {
+          "id": "3240",
+          "name": "AnyFLEX",
+          "player_positions": ["WR", "RB", "TE", "K", "QB"],
+          "order": 4,
+          "tier": "None",
+          "best_ball_enabled": false
+        }
+      ],
+      "tag": "None",
+      "only_score_top": "None",
+      "roster_restrictions": {
+        "min_players": 5,
+        "max_players": 5,
+        "max_players_from_team": 2147483647,
+        "min_fixtures": 1,
+        "min_teams": 2,
+        "player_position_restrictions": []
+      },
+      "is_snake_draft": false,
+      "is_season_long": false,
+      "is_free_only": false
+    }
+  ]
+}
