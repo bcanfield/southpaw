@@ -213,7 +213,7 @@ class Roster():
         return 'Roster: {self.id}'.format(self=self)
 
 
-class UserAuth():
+class __UserAuth():
     def __init__(self, user_id, session_token, basic_auth_token):
         self.user_id = user_id
         self.session_token = session_token
@@ -255,6 +255,10 @@ class Upcoming():
 
 
 class Fanduel():
+    '''
+    The driver for accessing the Fanduel API
+    '''
+
     def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
         # Use json data instead of fetching data from Fanduel
         if json_data is not None:
@@ -362,7 +366,7 @@ class Fanduel():
             # Succesfully grabbed token from response
             session_token = sessions_response_json['sessions'][0]['id']
             user_id = sessions_response_json['sessions'][0]['user']['_members'][0]
-            self.user_auth = UserAuth(
+            self.user_auth = __UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
             self.fanduel_headers = self.__create_fanduel_headers()
@@ -441,31 +445,3 @@ class Fanduel():
                                            for fixture_list in json_data['fixture_lists']],
                          "player_lists": [PlayerList(playerList) for playerList in json_data['player_lists']]
                          })
-
-    def get_entries_in_contest(self, contest):
-        """Get a list of entries in an upcoming contest
-
-        Args:
-            contest: The contest to get entries for
-
-        Returns:
-            A list of entries
-        """
-        entries_response = requests.get(
-            "https://api.fanduel.com/contests/" + contest.id +
-            "/entries?user=" + self.user_auth.user_id + "&page=1&page_size=250",
-            headers=self.fanduel_headers).json()
-        entries = [Entry(entry) for entry in entries_response['entries']]
-
-        for entry in entries:
-            try:
-                roster_id = entry['roster']['_members'][0]
-            except Exception as e:
-                roster_id = ''
-            if roster_id != '':
-                roster_response = requests.get(
-                    'https://api.fanduel.com/users/' +
-                    self.user_auth.user_id + '/rosters/' + roster_id,
-                    headers=self.fanduel_headers).json()
-                entry.rosterDetails = roster_response['rosters'][0]['name']
-        return entries
