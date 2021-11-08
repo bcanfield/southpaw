@@ -1,7 +1,7 @@
 amply==0.1.4
 certifi==2021.5.30
 docutils==0.17.1
-numpy==1.19.5
+numpy==1.21.4
 PuLP==2.4
 pyparsing==2.4.7
 python-dateutil==2.8.1
