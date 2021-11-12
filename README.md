@@ -3,7 +3,11 @@
 
   
 
+  
+
 ![southpawgithub](https://user-images.githubusercontent.com/12603953/126020923-ea260184-ac3c-4960-bec3-0e68e3b89136.png)
+
+  
 
   
 
@@ -13,7 +17,11 @@
 
   
 
+  
+
 [![PyPI pyversions](https://img.shields.io/pypi/v/southpaw)](https://pypi.python.org/pypi/southpaw/) [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-360/)
+
+  
 
   
 
@@ -23,13 +31,19 @@
 
   
 
-Whether you are looking to optimize your betting experience or simply experiment with the features Fanduel offers, this is the perfect place to start.
+  
+
+Optimize your DFS experience by programmatically updating your lineups, analyzing your data, and more.
+
+  
 
   
 
   
 
 [Full Documentation](https://bcanfield.github.io/southpaw/)
+
+  
 
   
 
@@ -41,15 +55,25 @@ Whether you are looking to optimize your betting experience or simply experiment
 
   
 
+  
+
 Install via [PyPi](https://pypi.org/project/southpaw/)
+
+  
 
   
 
 ```
 
+  
+
 python -m pip install southpaw
 
+  
+
 ```
+
+  
 
   
 
@@ -59,7 +83,11 @@ python -m pip install southpaw
 
   
 
+  
+
 Retrieve your basic auth token by logging into the Fanduel UI and copying the authorization header from the dev console.
+
+  
 
   
 
@@ -67,49 +95,65 @@ Initialize your Fanduel object using your Fanduel email, password, and auth toke
 
   
 
+  
+
 ```
+
+  
 
 import southpaw
 
   
 
+  
+
 basic_auth_token = 'Basic GBGskzdmGLKOP5EwMDNkNGUaLkFdM2VjKJHDNmY1Mjc6'
 
+  
+
 fanduel_email = 'fakeFanduelEmail@gmail.com'
+
+  
 
 fanduel_password = 'fakeFanduelPassword'
 
   
 
+  
+
 fd = southpaw.Fanduel(fanduel_email, fanduel_password, basic_auth_token)
 
+  
+
 ```
+
+  
 
 Next you need to get your upcoming data. This is the most important step. This will retrieve all entries that the current user has, along with the whole load of info that is available from Fanduel's API.
 
- 
+  
+
 ```
+
+  
 
 fd.get_upcoming()
 
+  
+
 ```
+
+  
 
 Once you call this function, you now have access to all of the data that Fanduel offers by using a rich set of helper functions that Southpaw provides.
+
   
 
-## Example Fanduel Functions
+## Examples
+
+  
 
 [Full Documentation](https://bcanfield.github.io/southpaw/)
-
-Get all of the current user's upcoming data
-
-  
-
-```
-
-fd.get_upcoming()
-
-```
 
   
 
@@ -117,11 +161,19 @@ Get all upcoming entries
 
   
 
+  
+
 ```
+
+  
 
 fd.get_entries()
 
+  
+
 ```
+
+  
 
   
 
@@ -129,26 +181,45 @@ Get all upcoming contests
 
   
 
-```
-
-fd.get_contest()
+  
 
 ```
 
-Get all players in a given entry
+  
+
+fd.get_contests()
 
   
 
 ```
 
-fd.get_players_in_entry(entry_id)
-
+  Update a Fanduel Entry
 ```
+# Get an entry
+entry = fd.get_entry('entry_id')
+
+available_players = fd.get_players_in_entry(this_entry.id)
+
+# Decide what players to use. Here we are just grabbing the first 5 in the list as an example
+players_to_use = available_players[:5]
+
+update_entry_input = [UpdateEntryInput({'id': entry.id, 'lineup': players_to_use})]
+
+fd.update_entries(update_entry_input)
+```
+
+  
 
 ## Disclaimer
 
+  
+
 This project is for educational use only.
 
+  
+
 Accumulating Fanduel points or prizes through unauthorized methods such as unauthorized scripts or other automated means is against the Fanduel terms and may result in account disqualification.
+
+  
 
 The contributors of Southpaw shall not be held responsible for any actions taken using this tool.
