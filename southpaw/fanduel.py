@@ -264,18 +264,14 @@ class Fanduel():
     The driver for accessing the Fanduel API
     '''
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
-        # Use json data instead of fetching data from Fanduel
-        if json_data is not None:
-            self.upcoming = self.__create_upcoming_data_from_json(json_data)
-        else:
-            self.fanduel_email = fanduel_email
-            self.fanduel_password = fanduel_password
-            self.basic_auth_token = basic_auth_token
-            self.user_auth = None
-            self.fanduel_headers = self.__create_fanduel_headers()
-            self.__authenticate()
-            self.upcoming = self.__get_upcoming_data()
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+        self.fanduel_email = fanduel_email
+        self.fanduel_password = fanduel_password
+        self.basic_auth_token = basic_auth_token
+        self.user_auth = None
+        self.fanduel_headers = self.__create_fanduel_headers()
+        self.__authenticate()
+        self.upcoming = self.__get_upcoming_data()
 
     def get_upcoming(self):
         """Retrieve all upcoming data
@@ -415,6 +411,7 @@ class Fanduel():
         failure_count = update_entries_response['_meta']['operations']['failure_count']
         print('Update Entries Result:\nSuccess Count:{0}\nFailure Count:{1}'.format(
             success_count, failure_count))
+        return update_entries_response
 
     def __authenticate(self):
         """Create UserAuth object to use when communicating with Fanduel API
@@ -488,22 +485,4 @@ class Fanduel():
                          "fixture_lists": [FixtureList(fixture_list)
                                            for fixture_list in entries_response['fixture_lists']],
                          "player_lists": player_lists
-                         })
-
-    def __create_upcoming_data_from_json(self, json_data):
-        """Create Upcoming object from json data
-        """
-        return Upcoming({"entries": [Entry(entry)
-                                     for entry in json_data['entries']],
-                        "contests": [Contest(contest)
-                                     for contest in json_data['contests']],
-                         "fixtures": [Fixture(fixture)
-                                      for fixture in json_data['fixtures']],
-                         "rosters": [Roster(roster)
-                                     for roster in json_data['rosters']],
-                         "game_descriptions": [GameDescription(game_description)
-                                               for game_description in json_data['game_descriptions']],
-                         "fixture_lists": [FixtureList(fixture_list)
-                                           for fixture_list in json_data['fixture_lists']],
-                         "player_lists": [PlayerList(playerList) for playerList in json_data['player_lists']]
                          })
