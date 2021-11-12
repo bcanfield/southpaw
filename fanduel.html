@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="generator" content="pdoc 0.10.0" />
 <title>southpaw.fanduel API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
@@ -27,6 +27,7 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">import requests
+import json
 
 
 class Player():
@@ -111,13 +112,23 @@ class Contest():
 
 class UpdateEntryInput():
     &#39;&#39;&#39;
-    Data to update an entry
+    User input required to update a set Fanduel entries
+
+    Attributes
+    ----------
+    id : str
+        the id of the entry which you are modifying
+    lineup : list[Player]
+        list of Player Objects to populate this entry&#39;s lineup
     &#39;&#39;&#39;
 
     def __init__(self, object):
         self.id = object[&#34;id&#34;]
-        self.roster = object[&#34;roster&#34;]
-        self.lineup = object[&#34;lineup&#34;]
+        self.lineup: list[Player] = object[&#34;lineup&#34;]
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__,
+                          sort_keys=True, indent=4)
 
 
 class Entry():
@@ -241,17 +252,11 @@ class Roster():
         return &#39;Roster: {self.id}&#39;.format(self=self)
 
 
-class __UserAuth():
+class UserAuth():
     def __init__(self, user_id, session_token, basic_auth_token):
         self.user_id = user_id
         self.session_token = session_token
         self.basic_auth_token = basic_auth_token
-
-
-class UpdateEntryInput():
-    def __init__(self, object):
-        self.id = object.id
-        self.roster = {&#34;lineup&#34;: object.lineup}
 
 
 class PlayerList():
@@ -261,7 +266,7 @@ class PlayerList():
 
     def __init__(self, object):
         self.fixture_list_id = object[&#39;fixture_list_id&#39;]
-        self.players = object[&#39;players&#39;]
+        self.players: list[Player] = object[&#39;players&#39;]
 
 
 class Upcoming():
@@ -287,18 +292,14 @@ class Fanduel():
     The driver for accessing the Fanduel API
     &#39;&#39;&#39;
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
-        # Use json data instead of fetching data from Fanduel
-        if json_data is not None:
-            self.upcoming = self.__create_upcoming_data_from_json(json_data)
-        else:
-            self.fanduel_email = fanduel_email
-            self.fanduel_password = fanduel_password
-            self.basic_auth_token = basic_auth_token
-            self.user_auth = None
-            self.fanduel_headers = self.__create_fanduel_headers()
-            self.__authenticate()
-            self.upcoming = self.__get_upcoming_data()
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+        self.fanduel_email = fanduel_email
+        self.fanduel_password = fanduel_password
+        self.basic_auth_token = basic_auth_token
+        self.user_auth = None
+        self.fanduel_headers = self.__create_fanduel_headers()
+        self.__authenticate()
+        self.upcoming = self.__get_upcoming_data()
 
     def get_upcoming(self):
         &#34;&#34;&#34;Retrieve all upcoming data
@@ -368,7 +369,7 @@ class Fanduel():
     def get_player_lists(self):
         &#34;&#34;&#34;Retrieve all upcoming player lists
         &#34;&#34;&#34;
-        return self.upcoming.fixture_lists
+        return self.upcoming.player_lists
 
     def get_player_list(self, fixture_list_id):
         &#34;&#34;&#34;Retrieve player list given a fixture list id
@@ -382,6 +383,64 @@ class Fanduel():
         fixture_list_id = entry.fixture_list_id
         return self.get_player_list(fixture_list_id)
 
+    def get_roster_format_in_entry(self, entry_id):
+        &#34;&#34;&#34;Retrieve roster format of given entry
+
+        Parameters
+        ----------
+        entry_id : str
+            id of entry to get roster format for
+        &#34;&#34;&#34;
+        entry = self.get_entry(entry_id)
+        print(entry)
+        fixture_list = self.get_fixture_list(entry.fixture_list_id)
+        print(fixture_list)
+        game_description_id = fixture_list.game_description[&#39;_members&#39;][0]
+        game_description = self.get_game_description(game_description_id)
+        return game_description.roster_format
+
+    def update_entries(self, update_entry_inputs):
+        &#34;&#34;&#34;Update a given set of Fanduel entries with new rosters
+
+        Parameters
+        ----------
+        update_entry_inputs : list[UpdateEntryInput]
+            Required input to update a set of entries
+        &#34;&#34;&#34;
+        entries = []
+        for entry_input in update_entry_inputs:
+            entry_id = entry_input.id
+            roster_format = self.get_roster_format_in_entry(entry_id)
+
+            # Ensure lineup length == length of game description slots
+            if (len(entry_input.lineup) != len(roster_format)):
+                raise Exception(
+                    &#39;Given lineup does not have the same amount of slots as the selected entry&#39;)
+
+            # Match up each roster slot with the player in the lineup
+            slot_counter = 0
+            lineup = []
+            for roster_slot in roster_format:
+                corresponding_player = entry_input.lineup[slot_counter]
+                # Make sure the player&#39;s position matches up
+                if corresponding_player.position in roster_slot[&#34;player_positions&#34;]:
+                    lineup.append({&#34;position&#34;: roster_slot[&#34;name&#34;], &#34;player&#34;: {
+                                  &#34;id&#34;: corresponding_player.id}})
+                else:
+                    raise Exception(
+                        &#39;Selected player has invalid position&#39;)
+                slot_counter += 1
+            entries.append({&#34;id&#34;: entry_id, &#34;roster&#34;: {&#34;lineup&#34;: lineup}})
+        update_entries_json = {&#34;entries&#34;: entries}
+        update_entries_response = requests.put(
+            &#39;https://api.fanduel.com/users/&#39; + self.user_auth.user_id + &#39;/entries&#39;,
+            headers=self.fanduel_headers, json=update_entries_json).json()
+        success_count = update_entries_response[&#39;_meta&#39;][&#39;operations&#39;][&#39;success_count&#39;]
+        failure_count = update_entries_response[&#39;_meta&#39;][&#39;operations&#39;][&#39;failure_count&#39;]
+        print(&#39;Update Entries Result:\nSuccess Count:{0}\nFailure Count:{1}&#39;.format(
+            success_count, failure_count))
+        return update_entries_response
+
     def __authenticate(self):
         &#34;&#34;&#34;Create UserAuth object to use when communicating with Fanduel API
         &#34;&#34;&#34;
@@ -394,7 +453,7 @@ class Fanduel():
             # Succesfully grabbed token from response
             session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
             user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-            self.user_auth = __UserAuth(
+            self.user_auth = UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
             self.fanduel_headers = self.__create_fanduel_headers()
@@ -454,24 +513,6 @@ class Fanduel():
                          &#34;fixture_lists&#34;: [FixtureList(fixture_list)
                                            for fixture_list in entries_response[&#39;fixture_lists&#39;]],
                          &#34;player_lists&#34;: player_lists
-                         })
-
-    def __create_upcoming_data_from_json(self, json_data):
-        &#34;&#34;&#34;Create Upcoming object from json data
-        &#34;&#34;&#34;
-        return Upcoming({&#34;entries&#34;: [Entry(entry)
-                                     for entry in json_data[&#39;entries&#39;]],
-                        &#34;contests&#34;: [Contest(contest)
-                                     for contest in json_data[&#39;contests&#39;]],
-                         &#34;fixtures&#34;: [Fixture(fixture)
-                                      for fixture in json_data[&#39;fixtures&#39;]],
-                         &#34;rosters&#34;: [Roster(roster)
-                                     for roster in json_data[&#39;rosters&#39;]],
-                         &#34;game_descriptions&#34;: [GameDescription(game_description)
-                                               for game_description in json_data[&#39;game_descriptions&#39;]],
-                         &#34;fixture_lists&#34;: [FixtureList(fixture_list)
-                                           for fixture_list in json_data[&#39;fixture_lists&#39;]],
-                         &#34;player_lists&#34;: [PlayerList(playerList) for playerList in json_data[&#39;player_lists&#39;]]
                          })</code></pre>
 </details>
 </section>
@@ -568,7 +609,7 @@ class Fanduel():
 </dd>
 <dt id="southpaw.fanduel.Fanduel"><code class="flex name class">
 <span>class <span class="ident">Fanduel</span></span>
-<span>(</span><span>fanduel_email, fanduel_password, basic_auth_token, json_data=None)</span>
+<span>(</span><span>fanduel_email, fanduel_password, basic_auth_token)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The driver for accessing the Fanduel API</p></div>
@@ -581,18 +622,14 @@ class Fanduel():
     The driver for accessing the Fanduel API
     &#39;&#39;&#39;
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
-        # Use json data instead of fetching data from Fanduel
-        if json_data is not None:
-            self.upcoming = self.__create_upcoming_data_from_json(json_data)
-        else:
-            self.fanduel_email = fanduel_email
-            self.fanduel_password = fanduel_password
-            self.basic_auth_token = basic_auth_token
-            self.user_auth = None
-            self.fanduel_headers = self.__create_fanduel_headers()
-            self.__authenticate()
-            self.upcoming = self.__get_upcoming_data()
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+        self.fanduel_email = fanduel_email
+        self.fanduel_password = fanduel_password
+        self.basic_auth_token = basic_auth_token
+        self.user_auth = None
+        self.fanduel_headers = self.__create_fanduel_headers()
+        self.__authenticate()
+        self.upcoming = self.__get_upcoming_data()
 
     def get_upcoming(self):
         &#34;&#34;&#34;Retrieve all upcoming data
@@ -662,7 +699,7 @@ class Fanduel():
     def get_player_lists(self):
         &#34;&#34;&#34;Retrieve all upcoming player lists
         &#34;&#34;&#34;
-        return self.upcoming.fixture_lists
+        return self.upcoming.player_lists
 
     def get_player_list(self, fixture_list_id):
         &#34;&#34;&#34;Retrieve player list given a fixture list id
@@ -676,6 +713,64 @@ class Fanduel():
         fixture_list_id = entry.fixture_list_id
         return self.get_player_list(fixture_list_id)
 
+    def get_roster_format_in_entry(self, entry_id):
+        &#34;&#34;&#34;Retrieve roster format of given entry
+
+        Parameters
+        ----------
+        entry_id : str
+            id of entry to get roster format for
+        &#34;&#34;&#34;
+        entry = self.get_entry(entry_id)
+        print(entry)
+        fixture_list = self.get_fixture_list(entry.fixture_list_id)
+        print(fixture_list)
+        game_description_id = fixture_list.game_description[&#39;_members&#39;][0]
+        game_description = self.get_game_description(game_description_id)
+        return game_description.roster_format
+
+    def update_entries(self, update_entry_inputs):
+        &#34;&#34;&#34;Update a given set of Fanduel entries with new rosters
+
+        Parameters
+        ----------
+        update_entry_inputs : list[UpdateEntryInput]
+            Required input to update a set of entries
+        &#34;&#34;&#34;
+        entries = []
+        for entry_input in update_entry_inputs:
+            entry_id = entry_input.id
+            roster_format = self.get_roster_format_in_entry(entry_id)
+
+            # Ensure lineup length == length of game description slots
+            if (len(entry_input.lineup) != len(roster_format)):
+                raise Exception(
+                    &#39;Given lineup does not have the same amount of slots as the selected entry&#39;)
+
+            # Match up each roster slot with the player in the lineup
+            slot_counter = 0
+            lineup = []
+            for roster_slot in roster_format:
+                corresponding_player = entry_input.lineup[slot_counter]
+                # Make sure the player&#39;s position matches up
+                if corresponding_player.position in roster_slot[&#34;player_positions&#34;]:
+                    lineup.append({&#34;position&#34;: roster_slot[&#34;name&#34;], &#34;player&#34;: {
+                                  &#34;id&#34;: corresponding_player.id}})
+                else:
+                    raise Exception(
+                        &#39;Selected player has invalid position&#39;)
+                slot_counter += 1
+            entries.append({&#34;id&#34;: entry_id, &#34;roster&#34;: {&#34;lineup&#34;: lineup}})
+        update_entries_json = {&#34;entries&#34;: entries}
+        update_entries_response = requests.put(
+            &#39;https://api.fanduel.com/users/&#39; + self.user_auth.user_id + &#39;/entries&#39;,
+            headers=self.fanduel_headers, json=update_entries_json).json()
+        success_count = update_entries_response[&#39;_meta&#39;][&#39;operations&#39;][&#39;success_count&#39;]
+        failure_count = update_entries_response[&#39;_meta&#39;][&#39;operations&#39;][&#39;failure_count&#39;]
+        print(&#39;Update Entries Result:\nSuccess Count:{0}\nFailure Count:{1}&#39;.format(
+            success_count, failure_count))
+        return update_entries_response
+
     def __authenticate(self):
         &#34;&#34;&#34;Create UserAuth object to use when communicating with Fanduel API
         &#34;&#34;&#34;
@@ -688,7 +783,7 @@ class Fanduel():
             # Succesfully grabbed token from response
             session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
             user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-            self.user_auth = __UserAuth(
+            self.user_auth = UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
             self.fanduel_headers = self.__create_fanduel_headers()
@@ -748,24 +843,6 @@ class Fanduel():
                          &#34;fixture_lists&#34;: [FixtureList(fixture_list)
                                            for fixture_list in entries_response[&#39;fixture_lists&#39;]],
                          &#34;player_lists&#34;: player_lists
-                         })
-
-    def __create_upcoming_data_from_json(self, json_data):
-        &#34;&#34;&#34;Create Upcoming object from json data
-        &#34;&#34;&#34;
-        return Upcoming({&#34;entries&#34;: [Entry(entry)
-                                     for entry in json_data[&#39;entries&#39;]],
-                        &#34;contests&#34;: [Contest(contest)
-                                     for contest in json_data[&#39;contests&#39;]],
-                         &#34;fixtures&#34;: [Fixture(fixture)
-                                      for fixture in json_data[&#39;fixtures&#39;]],
-                         &#34;rosters&#34;: [Roster(roster)
-                                     for roster in json_data[&#39;rosters&#39;]],
-                         &#34;game_descriptions&#34;: [GameDescription(game_description)
-                                               for game_description in json_data[&#39;game_descriptions&#39;]],
-                         &#34;fixture_lists&#34;: [FixtureList(fixture_list)
-                                           for fixture_list in json_data[&#39;fixture_lists&#39;]],
-                         &#34;player_lists&#34;: [PlayerList(playerList) for playerList in json_data[&#39;player_lists&#39;]]
                          })</code></pre>
 </details>
 <h3>Methods</h3>
@@ -947,7 +1024,7 @@ class Fanduel():
 <pre><code class="python">def get_player_lists(self):
     &#34;&#34;&#34;Retrieve all upcoming player lists
     &#34;&#34;&#34;
-    return self.upcoming.fixture_lists</code></pre>
+    return self.upcoming.player_lists</code></pre>
 </details>
 </dd>
 <dt id="southpaw.fanduel.Fanduel.get_players_in_entry"><code class="name flex">
@@ -982,6 +1059,37 @@ class Fanduel():
     return next((roster for roster in self.upcoming.rosters if roster.id == roster_id), None)</code></pre>
 </details>
 </dd>
+<dt id="southpaw.fanduel.Fanduel.get_roster_format_in_entry"><code class="name flex">
+<span>def <span class="ident">get_roster_format_in_entry</span></span>(<span>self, entry_id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve roster format of given entry</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>entry_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>id of entry to get roster format for</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_roster_format_in_entry(self, entry_id):
+    &#34;&#34;&#34;Retrieve roster format of given entry
+
+    Parameters
+    ----------
+    entry_id : str
+        id of entry to get roster format for
+    &#34;&#34;&#34;
+    entry = self.get_entry(entry_id)
+    print(entry)
+    fixture_list = self.get_fixture_list(entry.fixture_list_id)
+    print(fixture_list)
+    game_description_id = fixture_list.game_description[&#39;_members&#39;][0]
+    game_description = self.get_game_description(game_description_id)
+    return game_description.roster_format</code></pre>
+</details>
+</dd>
 <dt id="southpaw.fanduel.Fanduel.get_rosters"><code class="name flex">
 <span>def <span class="ident">get_rosters</span></span>(<span>self)</span>
 </code></dt>
@@ -1010,6 +1118,63 @@ class Fanduel():
     &#34;&#34;&#34;Retrieve all upcoming data
     &#34;&#34;&#34;
     return self.upcoming</code></pre>
+</details>
+</dd>
+<dt id="southpaw.fanduel.Fanduel.update_entries"><code class="name flex">
+<span>def <span class="ident">update_entries</span></span>(<span>self, update_entry_inputs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update a given set of Fanduel entries with new rosters</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>update_entry_inputs</code></strong> :&ensp;<code>list[<a title="southpaw.fanduel.UpdateEntryInput" href="#southpaw.fanduel.UpdateEntryInput">UpdateEntryInput</a>]</code></dt>
+<dd>Required input to update a set of entries</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_entries(self, update_entry_inputs):
+    &#34;&#34;&#34;Update a given set of Fanduel entries with new rosters
+
+    Parameters
+    ----------
+    update_entry_inputs : list[UpdateEntryInput]
+        Required input to update a set of entries
+    &#34;&#34;&#34;
+    entries = []
+    for entry_input in update_entry_inputs:
+        entry_id = entry_input.id
+        roster_format = self.get_roster_format_in_entry(entry_id)
+
+        # Ensure lineup length == length of game description slots
+        if (len(entry_input.lineup) != len(roster_format)):
+            raise Exception(
+                &#39;Given lineup does not have the same amount of slots as the selected entry&#39;)
+
+        # Match up each roster slot with the player in the lineup
+        slot_counter = 0
+        lineup = []
+        for roster_slot in roster_format:
+            corresponding_player = entry_input.lineup[slot_counter]
+            # Make sure the player&#39;s position matches up
+            if corresponding_player.position in roster_slot[&#34;player_positions&#34;]:
+                lineup.append({&#34;position&#34;: roster_slot[&#34;name&#34;], &#34;player&#34;: {
+                              &#34;id&#34;: corresponding_player.id}})
+            else:
+                raise Exception(
+                    &#39;Selected player has invalid position&#39;)
+            slot_counter += 1
+        entries.append({&#34;id&#34;: entry_id, &#34;roster&#34;: {&#34;lineup&#34;: lineup}})
+    update_entries_json = {&#34;entries&#34;: entries}
+    update_entries_response = requests.put(
+        &#39;https://api.fanduel.com/users/&#39; + self.user_auth.user_id + &#39;/entries&#39;,
+        headers=self.fanduel_headers, json=update_entries_json).json()
+    success_count = update_entries_response[&#39;_meta&#39;][&#39;operations&#39;][&#39;success_count&#39;]
+    failure_count = update_entries_response[&#39;_meta&#39;][&#39;operations&#39;][&#39;failure_count&#39;]
+    print(&#39;Update Entries Result:\nSuccess Count:{0}\nFailure Count:{1}&#39;.format(
+        success_count, failure_count))
+    return update_entries_response</code></pre>
 </details>
 </dd>
 </dl>
@@ -1184,7 +1349,7 @@ class Fanduel():
 
     def __init__(self, object):
         self.fixture_list_id = object[&#39;fixture_list_id&#39;]
-        self.players = object[&#39;players&#39;]</code></pre>
+        self.players: list[Player] = object[&#39;players&#39;]</code></pre>
 </details>
 </dd>
 <dt id="southpaw.fanduel.Roster"><code class="flex name class">
@@ -1256,20 +1421,71 @@ class Fanduel():
 <span>(</span><span>object)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>User input required to update a set Fanduel entries</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>id</code></strong> :&ensp;<code>str</code></dt>
+<dd>the id of the entry which you are modifying</dd>
+<dt><strong><code>lineup</code></strong> :&ensp;<code>list[<a title="southpaw.fanduel.Player" href="#southpaw.fanduel.Player">Player</a>]</code></dt>
+<dd>list of Player Objects to populate this entry's lineup</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class UpdateEntryInput():
     &#39;&#39;&#39;
-    Data to update an entry
+    User input required to update a set Fanduel entries
+
+    Attributes
+    ----------
+    id : str
+        the id of the entry which you are modifying
+    lineup : list[Player]
+        list of Player Objects to populate this entry&#39;s lineup
     &#39;&#39;&#39;
 
     def __init__(self, object):
         self.id = object[&#34;id&#34;]
-        self.roster = object[&#34;roster&#34;]
-        self.lineup = object[&#34;lineup&#34;]</code></pre>
+        self.lineup: list[Player] = object[&#34;lineup&#34;]
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__,
+                          sort_keys=True, indent=4)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="southpaw.fanduel.UpdateEntryInput.to_json"><code class="name flex">
+<span>def <span class="ident">to_json</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_json(self):
+    return json.dumps(self, default=lambda o: o.__dict__,
+                      sort_keys=True, indent=4)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="southpaw.fanduel.UserAuth"><code class="flex name class">
+<span>class <span class="ident">UserAuth</span></span>
+<span>(</span><span>user_id, session_token, basic_auth_token)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UserAuth():
+    def __init__(self, user_id, session_token, basic_auth_token):
+        self.user_id = user_id
+        self.session_token = session_token
+        self.basic_auth_token = basic_auth_token</code></pre>
 </details>
 </dd>
 </dl>
@@ -1311,8 +1527,10 @@ class Fanduel():
 <li><code><a title="southpaw.fanduel.Fanduel.get_player_lists" href="#southpaw.fanduel.Fanduel.get_player_lists">get_player_lists</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_players_in_entry" href="#southpaw.fanduel.Fanduel.get_players_in_entry">get_players_in_entry</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_roster" href="#southpaw.fanduel.Fanduel.get_roster">get_roster</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.get_roster_format_in_entry" href="#southpaw.fanduel.Fanduel.get_roster_format_in_entry">get_roster_format_in_entry</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_rosters" href="#southpaw.fanduel.Fanduel.get_rosters">get_rosters</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_upcoming" href="#southpaw.fanduel.Fanduel.get_upcoming">get_upcoming</a></code></li>
+<li><code><a title="southpaw.fanduel.Fanduel.update_entries" href="#southpaw.fanduel.Fanduel.update_entries">update_entries</a></code></li>
 </ul>
 </li>
 <li>
@@ -1338,6 +1556,12 @@ class Fanduel():
 </li>
 <li>
 <h4><code><a title="southpaw.fanduel.UpdateEntryInput" href="#southpaw.fanduel.UpdateEntryInput">UpdateEntryInput</a></code></h4>
+<ul class="">
+<li><code><a title="southpaw.fanduel.UpdateEntryInput.to_json" href="#southpaw.fanduel.UpdateEntryInput.to_json">to_json</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="southpaw.fanduel.UserAuth" href="#southpaw.fanduel.UserAuth">UserAuth</a></code></h4>
 </li>
 </ul>
 </li>
@@ -1345,7 +1569,7 @@ class Fanduel():
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
 </footer>
 </body>
 </html>
