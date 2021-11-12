@@ -1,4 +1,5 @@
 import requests
+import json
 
 
 class Player():
@@ -83,13 +84,23 @@ class Contest():
 
 class UpdateEntryInput():
     '''
-    Data to update an entry
+    User input required to update a set Fanduel entries
+
+    Attributes
+    ----------
+    id : str
+        the id of the entry which you are modifying
+    lineup : list[Player]
+        list of Player Objects to populate this entry's lineup
     '''
 
     def __init__(self, object):
         self.id = object["id"]
-        self.roster = object["roster"]
-        self.lineup = object["lineup"]
+        self.lineup: list[Player] = object["lineup"]
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__,
+                          sort_keys=True, indent=4)
 
 
 class Entry():
@@ -213,17 +224,11 @@ class Roster():
         return 'Roster: {self.id}'.format(self=self)
 
 
-class __UserAuth():
+class UserAuth():
     def __init__(self, user_id, session_token, basic_auth_token):
         self.user_id = user_id
         self.session_token = session_token
         self.basic_auth_token = basic_auth_token
-
-
-class UpdateEntryInput():
-    def __init__(self, object):
-        self.id = object.id
-        self.roster = {"lineup": object.lineup}
 
 
 class PlayerList():
@@ -233,7 +238,7 @@ class PlayerList():
 
     def __init__(self, object):
         self.fixture_list_id = object['fixture_list_id']
-        self.players = object['players']
+        self.players: list[Player] = object['players']
 
 
 class Upcoming():
@@ -259,18 +264,14 @@ class Fanduel():
     The driver for accessing the Fanduel API
     '''
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, json_data=None):
-        # Use json data instead of fetching data from Fanduel
-        if json_data is not None:
-            self.upcoming = self.__create_upcoming_data_from_json(json_data)
-        else:
-            self.fanduel_email = fanduel_email
-            self.fanduel_password = fanduel_password
-            self.basic_auth_token = basic_auth_token
-            self.user_auth = None
-            self.fanduel_headers = self.__create_fanduel_headers()
-            self.__authenticate()
-            self.upcoming = self.__get_upcoming_data()
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+        self.fanduel_email = fanduel_email
+        self.fanduel_password = fanduel_password
+        self.basic_auth_token = basic_auth_token
+        self.user_auth = None
+        self.fanduel_headers = self.__create_fanduel_headers()
+        self.__authenticate()
+        self.upcoming = self.__get_upcoming_data()
 
     def get_upcoming(self):
         """Retrieve all upcoming data
@@ -340,7 +341,7 @@ class Fanduel():
     def get_player_lists(self):
         """Retrieve all upcoming player lists
         """
-        return self.upcoming.fixture_lists
+        return self.upcoming.player_lists
 
     def get_player_list(self, fixture_list_id):
         """Retrieve player list given a fixture list id
@@ -354,6 +355,64 @@ class Fanduel():
         fixture_list_id = entry.fixture_list_id
         return self.get_player_list(fixture_list_id)
 
+    def get_roster_format_in_entry(self, entry_id):
+        """Retrieve roster format of given entry
+
+        Parameters
+        ----------
+        entry_id : str
+            id of entry to get roster format for
+        """
+        entry = self.get_entry(entry_id)
+        print(entry)
+        fixture_list = self.get_fixture_list(entry.fixture_list_id)
+        print(fixture_list)
+        game_description_id = fixture_list.game_description['_members'][0]
+        game_description = self.get_game_description(game_description_id)
+        return game_description.roster_format
+
+    def update_entries(self, update_entry_inputs):
+        """Update a given set of Fanduel entries with new rosters
+
+        Parameters
+        ----------
+        update_entry_inputs : list[UpdateEntryInput]
+            Required input to update a set of entries
+        """
+        entries = []
+        for entry_input in update_entry_inputs:
+            entry_id = entry_input.id
+            roster_format = self.get_roster_format_in_entry(entry_id)
+
+            # Ensure lineup length == length of game description slots
+            if (len(entry_input.lineup) != len(roster_format)):
+                raise Exception(
+                    'Given lineup does not have the same amount of slots as the selected entry')
+
+            # Match up each roster slot with the player in the lineup
+            slot_counter = 0
+            lineup = []
+            for roster_slot in roster_format:
+                corresponding_player = entry_input.lineup[slot_counter]
+                # Make sure the player's position matches up
+                if corresponding_player.position in roster_slot["player_positions"]:
+                    lineup.append({"position": roster_slot["name"], "player": {
+                                  "id": corresponding_player.id}})
+                else:
+                    raise Exception(
+                        'Selected player has invalid position')
+                slot_counter += 1
+            entries.append({"id": entry_id, "roster": {"lineup": lineup}})
+        update_entries_json = {"entries": entries}
+        update_entries_response = requests.put(
+            'https://api.fanduel.com/users/' + self.user_auth.user_id + '/entries',
+            headers=self.fanduel_headers, json=update_entries_json).json()
+        success_count = update_entries_response['_meta']['operations']['success_count']
+        failure_count = update_entries_response['_meta']['operations']['failure_count']
+        print('Update Entries Result:\nSuccess Count:{0}\nFailure Count:{1}'.format(
+            success_count, failure_count))
+        return update_entries_response
+
     def __authenticate(self):
         """Create UserAuth object to use when communicating with Fanduel API
         """
@@ -366,7 +425,7 @@ class Fanduel():
             # Succesfully grabbed token from response
             session_token = sessions_response_json['sessions'][0]['id']
             user_id = sessions_response_json['sessions'][0]['user']['_members'][0]
-            self.user_auth = __UserAuth(
+            self.user_auth = UserAuth(
                 user_id, session_token, self.basic_auth_token)
             # Refresh our headers to include the session token
             self.fanduel_headers = self.__create_fanduel_headers()
@@ -426,22 +485,4 @@ class Fanduel():
                          "fixture_lists": [FixtureList(fixture_list)
                                            for fixture_list in entries_response['fixture_lists']],
                          "player_lists": player_lists
-                         })
-
-    def __create_upcoming_data_from_json(self, json_data):
-        """Create Upcoming object from json data
-        """
-        return Upcoming({"entries": [Entry(entry)
-                                     for entry in json_data['entries']],
-                        "contests": [Contest(contest)
-                                     for contest in json_data['contests']],
-                         "fixtures": [Fixture(fixture)
-                                      for fixture in json_data['fixtures']],
-                         "rosters": [Roster(roster)
-                                     for roster in json_data['rosters']],
-                         "game_descriptions": [GameDescription(game_description)
-                                               for game_description in json_data['game_descriptions']],
-                         "fixture_lists": [FixtureList(fixture_list)
-                                           for fixture_list in json_data['fixture_lists']],
-                         "player_lists": [PlayerList(playerList) for playerList in json_data['player_lists']]
                          })

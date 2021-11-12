@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.1.0'
+VERSION = '1.2.0'
 DESCRIPTION = 'Python Fanduel API'
 LONG_DESCRIPTION = 'Automate your DFS experience with this Python Fanduel API'
 
@@ -13,7 +13,6 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    install_requires=['PuLP==2.4'],
     keywords=['fanduel', 'api', 'mma', 'dfs',
               'lineup', 'optimizer', 'generator'],
     classifiers=[
