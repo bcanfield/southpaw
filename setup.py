@@ -13,7 +13,6 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    install_requires=['PuLP==2.4'],
     keywords=['fanduel', 'api', 'mma', 'dfs',
               'lineup', 'optimizer', 'generator'],
     classifiers=[
