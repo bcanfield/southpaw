@@ -85,7 +85,7 @@ python -m pip install southpaw
 
   
 
-Retrieve your basic auth token by logging into the Fanduel UI and copying the authorization header from the dev console.
+Retrieve your basic auth token by logging into fanduel.com and copying the authorization header from the dev console.
 
 
 <img src="https://user-images.githubusercontent.com/12603953/140830477-51768a98-ae97-4fad-b449-ea26e168f25b.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="600" height="450" />
