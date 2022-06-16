@@ -1,24 +1,24 @@
 version: 2.1
 jobs:
-  build_test:
-    docker:
-      - image: circleci/python:3.9.5
-    steps:
-      - checkout # checkout source code to working directory
-      - run:
-          command: | # create whl and use pipenv to install dependencies
-            python setup.py sdist bdist_wheel
-            pip install pipenv
-            pip install pytest
-            pip install -r requirements.txt
-            pipenv install dist/southpaw-1.2.0-py3-none-any.whl
-            pipenv install pytest
-            python -m pytest
-            pip install pdoc3   
-            mkdir /tmp/documentation
-            pdoc --html southpaw --force -o  /tmp/documentation
-      - store_artifacts:
-          path: /tmp/documentation
+  # build_test:
+  #   docker:
+  #     - image: circleci/python:3.9.5
+  #   steps:
+  #     - checkout # checkout source code to working directory
+  #     - run:
+  #         command: | # create whl and use pipenv to install dependencies
+  #           python setup.py sdist bdist_wheel
+  #           pip install pipenv
+  #           pip install pytest
+  #           pip install -r requirements.txt
+  #           pipenv install dist/southpaw-1.2.0-py3-none-any.whl
+  #           pipenv install pytest
+  #           python -m pytest
+  #           pip install pdoc3
+  #           mkdir /tmp/documentation
+  #           pdoc --html southpaw --force -o  /tmp/documentation
+  #     - store_artifacts:
+  #         path: /tmp/documentation
   pypi_publish:
     docker:
       - image: circleci/python:3.9.5
@@ -33,10 +33,10 @@ jobs:
 workflows:
   build_test_publish:
     jobs:
-      - build_test
+      # - build_test
       - pypi_publish:
-          requires:
-            - build_test
+          # requires:
+          #   - build_test
           filters:
             branches:
               only:
