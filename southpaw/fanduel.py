@@ -264,11 +264,13 @@ class Fanduel():
     The driver for accessing the Fanduel API
     '''
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, session_auth_token):
         self.fanduel_email = fanduel_email
         self.fanduel_password = fanduel_password
         self.basic_auth_token = basic_auth_token
-        self.user_auth = None
+        self.session_auth_token = session_auth_token
+        self.user_auth = UserAuth(
+            None, self.session_auth_token, self.basic_auth_token)
         self.fanduel_headers = self.__create_fanduel_headers()
         self.__authenticate()
         self.upcoming = self.__get_upcoming_data()
@@ -281,6 +283,7 @@ class Fanduel():
     def get_entries(self):
         """Retrieve all upcoming entries
         """
+        print('##################BRANDIN')
         return self.upcoming.entries
 
     def get_entry(self, entry_id):
@@ -418,20 +421,16 @@ class Fanduel():
         """
         body = {"email": self.fanduel_email,
                 "password": self.fanduel_password, "product": "DFS"}
-        sessions_response_json = requests.post(
-            'https://api.fanduel.com/sessions',
-            headers=self.fanduel_headers, json=body).json()
-        if len(sessions_response_json['sessions']) > 0:
-            # Succesfully grabbed token from response
-            session_token = sessions_response_json['sessions'][0]['id']
-            user_id = sessions_response_json['sessions'][0]['user']['_members'][0]
-            self.user_auth = UserAuth(
-                user_id, session_token, self.basic_auth_token)
-            # Refresh our headers to include the session token
-            self.fanduel_headers = self.__create_fanduel_headers()
+        current_response_json = requests.get(
+            'https://api.fanduel.com/users/current',
+            headers=self.fanduel_headers).json()
+        if current_response_json and len(current_response_json['users']) > 0:
+            # Succesfully sent off a request with the given credentials
+            user = current_response_json['users'][0]
+            self.user_auth.user_id = user['id']
+            print("Logged in Fanduel user: ", user['username'])
         else:
-            raise Exception('Error Logging in: ',
-                            sessions_response_json['error']['description'])
+            raise Exception('Error Fetching User Info From Response')
 
     def __create_fanduel_headers(self):
         headers = {'authority': 'api.fanduel.com',
@@ -449,8 +448,6 @@ class Fanduel():
         if(self.user_auth):
             headers['x-auth-token'] = self.user_auth.session_token
             headers['authorization'] = self.user_auth.basic_auth_token
-        elif(self.basic_auth_token):
-            headers['authorization'] = self.basic_auth_token
         else:
             raise Exception('Error refreshing fanduel headers')
         return headers
