@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.2.0'
+VERSION = '2.0.0'
 DESCRIPTION = 'Python Fanduel API'
 LONG_DESCRIPTION = 'Automate your DFS experience with this Python Fanduel API'
 
