@@ -82,17 +82,16 @@ python -m pip install southpaw
 ## Initial Setup
 
   
-
+**UPDATE (2022): Fanduel has cracked down on automated methods of logging in - so this process takes an extra initial step now to retrieve the necessary headers.**
   
 
-Retrieve your basic auth token by logging into fanduel.com and copying the authorization header from the dev console.
+Retrieve your basic auth token by logging into fanduel.com and copying the authorization header and x-auth-header from the dev console. (Green boxes)
 
 
-<img src="https://user-images.githubusercontent.com/12603953/140830477-51768a98-ae97-4fad-b449-ea26e168f25b.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="600" height="450" />
+<img width="798" alt="Screen Shot 2022-06-16 at 2 58 17 PM" src="https://user-images.githubusercontent.com/12603953/174152698-d48f4b07-5b81-48d2-a8ab-daceb59ecb07.png"  width="600" height="450">
 
-  
 
-Initialize your Fanduel object using your Fanduel email, password, and auth token.
+Initialize your Fanduel object using your Fanduel email, password, and auth token. Initializing the Fanduel object will send off a test request to ensure that you can succesfully authenticate.
 
   
 
@@ -110,6 +109,8 @@ import southpaw
 
 basic_auth_token = 'Basic GBGskzdmGLKOP5EwMDNkNGUaLkFdM2VjKJHDNmY1Mjc6'
 
+
+x_auth_token = 'eyasdffdsaasjhkdfbfkhdsbakjbasdkjfbnfkjdsaetgdffgdfdgs'
   
 
 fanduel_email = 'fakeFanduelEmail@gmail.com'
@@ -122,7 +123,7 @@ fanduel_password = 'fakeFanduelPassword'
 
   
 
-fd = southpaw.Fanduel(fanduel_email, fanduel_password, basic_auth_token)
+fd = southpaw.Fanduel(fanduel_email, fanduel_password, basic_auth_token, x_auth_token)
 
   
 
