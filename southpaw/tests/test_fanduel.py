@@ -1,52 +1,30 @@
-import json
-from southpaw.fanduel import Fanduel, UpdateEntryInput
-import unittest
-from unittest import mock
-import responses
+import southpaw
 
 
-@responses.activate
 def test_get_upcoming():
-    entries_file = open(
-        'southpaw/tests/testData/testEntries.json',)
-    entries_data = json.load(entries_file)
+    basic_auth_token = ''
+    x_auth_token = ''
+    fanduel_email = ''
 
-    players_file = open(
-        'southpaw/tests/testData/testPlayers.json',)
-    players_data = json.load(players_file)
+    fanduel_password = ''
 
-    entries_data['player_lists'] = players_data['player_lists']
-    responses.add(responses.POST, 'https://api.fanduel.com/sessions',
-                  json={"sessions": [{"id": "testSessionToken", "user": {
-                      "_members": [
-                          "testUserId"
-                      ]
-                  }}]}, status=200)
-    responses.add(responses.GET, 'https://api.fanduel.com/users/testUserId/entries?status=upcoming',
-                  json=entries_data, status=200)
-    responses.add(responses.GET, 'https://api.fanduel.com/fixture-lists/65522/players',
-                  json=players_data['player_lists'][0], status=200)
+    fd = southpaw.Fanduel(
+        fanduel_email, fanduel_password, basic_auth_token, x_auth_token)
 
-    fd = Fanduel('fakeEmail', 'fakePassword',
-                 'fakeAuthToken')
-
-    fd.get_upcoming()
-    assert len(fd.get_entries()) == 1
-    assert len(fd.get_rosters()) == 1
-    assert len(fd.get_contests()) == 1
-    assert len(fd.get_fixtures()) == 1
-    assert len(fd.get_fixture_lists()) == 1
-    assert len(fd.get_game_descriptions()) == 1
-    assert len(fd.get_player_lists()) == 1
-
-    responses.add(responses.PUT, 'https://api.fanduel.com/users/testUserId/entries',
-                  json={"_meta": {"operations": {"success_count": 1, "failure_count": 0}}}, status=200)
-
-    first_entry = fd.get_entries()[0]
-    available_players = fd.get_players_in_entry(first_entry.id)
-    blh = UpdateEntryInput(
-        {'id': first_entry.id, 'lineup': available_players.players[-5:]})
-    print(blh.to_json())
-    update_entries_response = fd.update_entries([UpdateEntryInput(
-        {'id': first_entry.id, 'lineup': available_players.players[-5:]})])
-    assert update_entries_response is not None
+    print(fd.get_upcoming())
+    print(fd.get_entries())
+    print(fd.get_entry(fd.get_entries()[0].id))
+    print(fd.get_rosters())
+    print(fd.get_roster(fd.get_rosters()[0].id))
+    print(fd.get_contests())
+    print(fd.get_contest(fd.get_contests()[0].id))
+    print(fd.get_fixtures())
+    print(fd.get_fixture(fd.get_fixtures()[0].id))
+    print(fd.get_fixture_lists())
+    print(fd.get_fixture_list(fd.get_fixture_lists()[0].id))
+    print(fd.get_game_descriptions())
+    print(fd.get_game_description(fd.get_game_descriptions()[0].id))
+    print(fd.get_player_lists())
+    print(fd.get_player_list(fd.get_fixture_lists()[0].id))
+    print(fd.get_players_in_entry(fd.get_entries()[0].id))
+    print(fd.get_roster_format_in_entry(fd.get_entries()[0].id))

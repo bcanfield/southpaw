@@ -283,7 +283,6 @@ class Fanduel():
     def get_entries(self):
         """Retrieve all upcoming entries
         """
-        print('##################BRANDIN')
         return self.upcoming.entries
 
     def get_entry(self, entry_id):
@@ -428,9 +427,11 @@ class Fanduel():
             # Succesfully sent off a request with the given credentials
             user = current_response_json['users'][0]
             self.user_auth.user_id = user['id']
-            print("Logged in Fanduel user: ", user['username'])
+            print("#######################\nLogged in Fanduel user: ",
+                  user['username'], "\n#######################\n")
         else:
-            raise Exception('Error Fetching User Info From Response')
+            raise Exception(
+                '#######################\nError Authenticating Fanduel User\n#######################\n')
 
     def __create_fanduel_headers(self):
         headers = {'authority': 'api.fanduel.com',
@@ -460,7 +461,6 @@ class Fanduel():
             'https://api.fanduel.com/users/' +
             self.user_auth.user_id + '/entries?status=upcoming',
             headers=self.fanduel_headers).json()
-        print('entries response: ', entries_response)
         # Get list of players for each fixture list
         player_lists = []
         for i in entries_response['fixture_lists']:
