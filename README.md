@@ -131,7 +131,7 @@ fd = southpaw.Fanduel(fanduel_email, fanduel_password, basic_auth_token, x_auth_
 
   
 
-Next you need to get your upcoming data. This is the most important step. This will retrieve all entries that the current user has, along with the whole load of info that is available from Fanduel's API.
+Next you need to initialize your Fanduel API Object. This is the most important step. This will authenticate you with the Fanduel API and pull back all of the data related to your upcoming entries.
 
   
 
@@ -139,8 +139,8 @@ Next you need to get your upcoming data. This is the most important step. This w
 
   
 
-fd.get_upcoming()
-
+fd = southpaw.Fanduel(
+    fanduel_email, fanduel_password, basic_auth_token, x_auth_token)
   
 
 ```
