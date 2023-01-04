@@ -275,6 +275,24 @@ class Fanduel():
         self.__authenticate()
         self.upcoming = self.__get_upcoming_data()
 
+    def easy_get_contests(self):
+        """Easy Mode for getting currently entered contests and basic relevant info
+        
+        :return: An array of contests in the following heirarchy: 
+            contests [
+                ...contest details
+                entries [
+                    ...entry details
+                    available_players [
+                        ...player details
+                    ]
+                ]
+            ]
+        """        
+        contests = [{"id": contest.id, "name": contest.name, "sport": contest.sport, "entries": [{"id": entry.id, "has_lineup": entry.has_lineup, "available_players": [player.__dict__ for player in self.get_player_list(entry.fixture_list_id).players]} for entry in self.upcoming.entries if entry.contest_id == contest.id]} for contest in self.upcoming.contests]
+        print("Southpaw: Contests Fetched:", len(contests))
+        return contests
+
     def get_upcoming(self):
         """Retrieve all upcoming data
         """
