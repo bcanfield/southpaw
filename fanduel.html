@@ -292,14 +292,34 @@ class Fanduel():
     The driver for accessing the Fanduel API
     &#39;&#39;&#39;
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, session_auth_token):
         self.fanduel_email = fanduel_email
         self.fanduel_password = fanduel_password
         self.basic_auth_token = basic_auth_token
-        self.user_auth = None
+        self.session_auth_token = session_auth_token
+        self.user_auth = UserAuth(
+            None, self.session_auth_token, self.basic_auth_token)
         self.fanduel_headers = self.__create_fanduel_headers()
         self.__authenticate()
         self.upcoming = self.__get_upcoming_data()
+
+    def easy_get_contests(self):
+        &#34;&#34;&#34;Easy Mode for getting currently entered contests and basic relevant info
+        
+        :return: An array of contests in the following heirarchy: 
+            contests [
+                ...contest details
+                entries [
+                    ...entry details
+                    available_players [
+                        ...player details
+                    ]
+                ]
+            ]
+        &#34;&#34;&#34;        
+        contests = [{&#34;id&#34;: contest.id, &#34;name&#34;: contest.name, &#34;sport&#34;: contest.sport, &#34;entries&#34;: [{&#34;id&#34;: entry.id, &#34;has_lineup&#34;: entry.has_lineup, &#34;available_players&#34;: [player.__dict__ for player in self.get_player_list(entry.fixture_list_id).players]} for entry in self.upcoming.entries if entry.contest_id == contest.id]} for contest in self.upcoming.contests]
+        print(&#34;Southpaw: Contests Fetched:&#34;, len(contests))
+        return contests
 
     def get_upcoming(self):
         &#34;&#34;&#34;Retrieve all upcoming data
@@ -446,20 +466,18 @@ class Fanduel():
         &#34;&#34;&#34;
         body = {&#34;email&#34;: self.fanduel_email,
                 &#34;password&#34;: self.fanduel_password, &#34;product&#34;: &#34;DFS&#34;}
-        sessions_response_json = requests.post(
-            &#39;https://api.fanduel.com/sessions&#39;,
-            headers=self.fanduel_headers, json=body).json()
-        if len(sessions_response_json[&#39;sessions&#39;]) &gt; 0:
-            # Succesfully grabbed token from response
-            session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
-            user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-            self.user_auth = UserAuth(
-                user_id, session_token, self.basic_auth_token)
-            # Refresh our headers to include the session token
-            self.fanduel_headers = self.__create_fanduel_headers()
+        current_response_json = requests.get(
+            &#39;https://api.fanduel.com/users/current&#39;,
+            headers=self.fanduel_headers).json()
+        if current_response_json and len(current_response_json[&#39;users&#39;]) &gt; 0:
+            # Succesfully sent off a request with the given credentials
+            user = current_response_json[&#39;users&#39;][0]
+            self.user_auth.user_id = user[&#39;id&#39;]
+            print(&#34;#######################\nLogged in Fanduel user: &#34;,
+                  user[&#39;username&#39;], &#34;\n#######################\n&#34;)
         else:
-            raise Exception(&#39;Error Logging in: &#39;,
-                            sessions_response_json[&#39;error&#39;][&#39;description&#39;])
+            raise Exception(
+                &#39;#######################\nError Authenticating Fanduel User\n#######################\n&#39;)
 
     def __create_fanduel_headers(self):
         headers = {&#39;authority&#39;: &#39;api.fanduel.com&#39;,
@@ -477,8 +495,6 @@ class Fanduel():
         if(self.user_auth):
             headers[&#39;x-auth-token&#39;] = self.user_auth.session_token
             headers[&#39;authorization&#39;] = self.user_auth.basic_auth_token
-        elif(self.basic_auth_token):
-            headers[&#39;authorization&#39;] = self.basic_auth_token
         else:
             raise Exception(&#39;Error refreshing fanduel headers&#39;)
         return headers
@@ -491,7 +507,6 @@ class Fanduel():
             &#39;https://api.fanduel.com/users/&#39; +
             self.user_auth.user_id + &#39;/entries?status=upcoming&#39;,
             headers=self.fanduel_headers).json()
-        print(&#39;entries response: &#39;, entries_response)
         # Get list of players for each fixture list
         player_lists = []
         for i in entries_response[&#39;fixture_lists&#39;]:
@@ -609,7 +624,7 @@ class Fanduel():
 </dd>
 <dt id="southpaw.fanduel.Fanduel"><code class="flex name class">
 <span>class <span class="ident">Fanduel</span></span>
-<span>(</span><span>fanduel_email, fanduel_password, basic_auth_token)</span>
+<span>(</span><span>fanduel_email, fanduel_password, basic_auth_token, session_auth_token)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The driver for accessing the Fanduel API</p></div>
@@ -622,14 +637,34 @@ class Fanduel():
     The driver for accessing the Fanduel API
     &#39;&#39;&#39;
 
-    def __init__(self, fanduel_email, fanduel_password, basic_auth_token):
+    def __init__(self, fanduel_email, fanduel_password, basic_auth_token, session_auth_token):
         self.fanduel_email = fanduel_email
         self.fanduel_password = fanduel_password
         self.basic_auth_token = basic_auth_token
-        self.user_auth = None
+        self.session_auth_token = session_auth_token
+        self.user_auth = UserAuth(
+            None, self.session_auth_token, self.basic_auth_token)
         self.fanduel_headers = self.__create_fanduel_headers()
         self.__authenticate()
         self.upcoming = self.__get_upcoming_data()
+
+    def easy_get_contests(self):
+        &#34;&#34;&#34;Easy Mode for getting currently entered contests and basic relevant info
+        
+        :return: An array of contests in the following heirarchy: 
+            contests [
+                ...contest details
+                entries [
+                    ...entry details
+                    available_players [
+                        ...player details
+                    ]
+                ]
+            ]
+        &#34;&#34;&#34;        
+        contests = [{&#34;id&#34;: contest.id, &#34;name&#34;: contest.name, &#34;sport&#34;: contest.sport, &#34;entries&#34;: [{&#34;id&#34;: entry.id, &#34;has_lineup&#34;: entry.has_lineup, &#34;available_players&#34;: [player.__dict__ for player in self.get_player_list(entry.fixture_list_id).players]} for entry in self.upcoming.entries if entry.contest_id == contest.id]} for contest in self.upcoming.contests]
+        print(&#34;Southpaw: Contests Fetched:&#34;, len(contests))
+        return contests
 
     def get_upcoming(self):
         &#34;&#34;&#34;Retrieve all upcoming data
@@ -776,20 +811,18 @@ class Fanduel():
         &#34;&#34;&#34;
         body = {&#34;email&#34;: self.fanduel_email,
                 &#34;password&#34;: self.fanduel_password, &#34;product&#34;: &#34;DFS&#34;}
-        sessions_response_json = requests.post(
-            &#39;https://api.fanduel.com/sessions&#39;,
-            headers=self.fanduel_headers, json=body).json()
-        if len(sessions_response_json[&#39;sessions&#39;]) &gt; 0:
-            # Succesfully grabbed token from response
-            session_token = sessions_response_json[&#39;sessions&#39;][0][&#39;id&#39;]
-            user_id = sessions_response_json[&#39;sessions&#39;][0][&#39;user&#39;][&#39;_members&#39;][0]
-            self.user_auth = UserAuth(
-                user_id, session_token, self.basic_auth_token)
-            # Refresh our headers to include the session token
-            self.fanduel_headers = self.__create_fanduel_headers()
+        current_response_json = requests.get(
+            &#39;https://api.fanduel.com/users/current&#39;,
+            headers=self.fanduel_headers).json()
+        if current_response_json and len(current_response_json[&#39;users&#39;]) &gt; 0:
+            # Succesfully sent off a request with the given credentials
+            user = current_response_json[&#39;users&#39;][0]
+            self.user_auth.user_id = user[&#39;id&#39;]
+            print(&#34;#######################\nLogged in Fanduel user: &#34;,
+                  user[&#39;username&#39;], &#34;\n#######################\n&#34;)
         else:
-            raise Exception(&#39;Error Logging in: &#39;,
-                            sessions_response_json[&#39;error&#39;][&#39;description&#39;])
+            raise Exception(
+                &#39;#######################\nError Authenticating Fanduel User\n#######################\n&#39;)
 
     def __create_fanduel_headers(self):
         headers = {&#39;authority&#39;: &#39;api.fanduel.com&#39;,
@@ -807,8 +840,6 @@ class Fanduel():
         if(self.user_auth):
             headers[&#39;x-auth-token&#39;] = self.user_auth.session_token
             headers[&#39;authorization&#39;] = self.user_auth.basic_auth_token
-        elif(self.basic_auth_token):
-            headers[&#39;authorization&#39;] = self.basic_auth_token
         else:
             raise Exception(&#39;Error refreshing fanduel headers&#39;)
         return headers
@@ -821,7 +852,6 @@ class Fanduel():
             &#39;https://api.fanduel.com/users/&#39; +
             self.user_auth.user_id + &#39;/entries?status=upcoming&#39;,
             headers=self.fanduel_headers).json()
-        print(&#39;entries response: &#39;, entries_response)
         # Get list of players for each fixture list
         player_lists = []
         for i in entries_response[&#39;fixture_lists&#39;]:
@@ -847,6 +877,44 @@ class Fanduel():
 </details>
 <h3>Methods</h3>
 <dl>
+<dt id="southpaw.fanduel.Fanduel.easy_get_contests"><code class="name flex">
+<span>def <span class="ident">easy_get_contests</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Easy Mode for getting currently entered contests and basic relevant info</p>
+<p>:return: An array of contests in the following heirarchy:
+contests [
+&hellip;contest details
+entries [
+&hellip;entry details
+available_players [
+&hellip;player details
+]
+]
+]</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def easy_get_contests(self):
+    &#34;&#34;&#34;Easy Mode for getting currently entered contests and basic relevant info
+    
+    :return: An array of contests in the following heirarchy: 
+        contests [
+            ...contest details
+            entries [
+                ...entry details
+                available_players [
+                    ...player details
+                ]
+            ]
+        ]
+    &#34;&#34;&#34;        
+    contests = [{&#34;id&#34;: contest.id, &#34;name&#34;: contest.name, &#34;sport&#34;: contest.sport, &#34;entries&#34;: [{&#34;id&#34;: entry.id, &#34;has_lineup&#34;: entry.has_lineup, &#34;available_players&#34;: [player.__dict__ for player in self.get_player_list(entry.fixture_list_id).players]} for entry in self.upcoming.entries if entry.contest_id == contest.id]} for contest in self.upcoming.contests]
+    print(&#34;Southpaw: Contests Fetched:&#34;, len(contests))
+    return contests</code></pre>
+</details>
+</dd>
 <dt id="southpaw.fanduel.Fanduel.get_contest"><code class="name flex">
 <span>def <span class="ident">get_contest</span></span>(<span>self, contest_id)</span>
 </code></dt>
@@ -1513,6 +1581,7 @@ class Fanduel():
 <li>
 <h4><code><a title="southpaw.fanduel.Fanduel" href="#southpaw.fanduel.Fanduel">Fanduel</a></code></h4>
 <ul class="">
+<li><code><a title="southpaw.fanduel.Fanduel.easy_get_contests" href="#southpaw.fanduel.Fanduel.easy_get_contests">easy_get_contests</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_contest" href="#southpaw.fanduel.Fanduel.get_contest">get_contest</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_contests" href="#southpaw.fanduel.Fanduel.get_contests">get_contests</a></code></li>
 <li><code><a title="southpaw.fanduel.Fanduel.get_entries" href="#southpaw.fanduel.Fanduel.get_entries">get_entries</a></code></li>
