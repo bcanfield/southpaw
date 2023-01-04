@@ -129,7 +129,9 @@ See the **'Quick Start'** section below to get you up and running as quickly as 
 
 
 ## Quick Start
-Get a list of all currently entered contests and all relevant info
+Get a list of all currently entered contests and all relevant info.
+
+*FYI: If you are not entered into any Fanduel contests you will not get any back*
 ```
 
 # Get a list of all currently entered contests
