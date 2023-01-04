@@ -33,7 +33,7 @@
 
   
 
-Optimize your DFS experience by programmatically updating your lineups, analyzing your data, and more.
+Optimize your DFS experience by programmatically retrieving and updating your lineups, analyzing your data, and more.
 
   
 
@@ -82,7 +82,7 @@ python -m pip install southpaw
 ## Initial Setup
 
   
-**UPDATE (2022): Fanduel has cracked down on automated methods of logging in - so this process takes an extra initial step now to retrieve the necessary headers.**
+**UPDATE (2023): Fanduel has cracked down on automated methods of logging in - so this process takes an extra initial step now to retrieve the necessary headers.**
   
 
 Retrieve your basic auth token by logging into fanduel.com and copying the authorization header and x-auth-header from the dev console. (Green boxes)
@@ -91,59 +91,27 @@ Retrieve your basic auth token by logging into fanduel.com and copying the autho
 <img width="798" alt="Screen Shot 2022-06-16 at 2 58 17 PM" src="https://user-images.githubusercontent.com/12603953/174152698-d48f4b07-5b81-48d2-a8ab-daceb59ecb07.png"  width="600" height="450">
 
 
-Initialize your Fanduel object using your Fanduel email, password, and auth token. Initializing the Fanduel object will send off a test request to ensure that you can succesfully authenticate.
-
-  
-
-  
+<br></br>
+Initialize your Fanduel object using your Fanduel email, password, and auth tokens. Initializing the Fanduel object will send off a test request to ensure that you can succesfully authenticate.  
 
 ```
-
-  
 
 import southpaw
 
   
-
-  
-
 basic_auth_token = 'Basic GBGskzdmGLKOP5EwMDNkNGUaLkFdM2VjKJHDNmY1Mjc6'
-
 
 x_auth_token = 'eyasdffdsaasjhkdfbfkhdsbakjbasdkjfbnfkjdsaetgdffgdfdgs'
   
-
 fanduel_email = 'fakeFanduelEmail@gmail.com'
-
-  
 
 fanduel_password = 'fakeFanduelPassword'
 
-  
-
-  
-
 fd = southpaw.Fanduel(fanduel_email, fanduel_password, basic_auth_token, x_auth_token)
 
-  
-
 ```
 
-  
 
-Next you need to initialize your Fanduel API Object. This is the most important step. This will authenticate you with the Fanduel API and pull back all of the data related to your upcoming entries.
-
-  
-
-```
-
-  
-
-fd = southpaw.Fanduel(
-    fanduel_email, fanduel_password, basic_auth_token, x_auth_token)
-  
-
-```
 
   
 
@@ -153,61 +121,44 @@ Once you call this function, you now have access to all of the data that Fanduel
 
 ## Examples
 
-  
-
 [Full Documentation](https://bcanfield.github.io/southpaw/)
 
-  
+It's easy to get overwhelmed with the amount of helper functions available and how to use them effectively.
 
-Get all upcoming entries
+See the **'Quick Start'** section below to get you up and running as quickly as possible.
 
-  
 
-  
-
+## Quick Start
+Get a list of all currently entered contests and all relevant info
 ```
 
-  
+# Get a list of all currently entered contests
+contests = fd.easy_get_contests()
 
-fd.get_entries()
+# Are we entered in any contests?
+if len(contests) > 0:
+    # Grab the first contest for now
+    # You could filter by sport or name
+    contest = contests[0]
+    print("Contest: ", contest["name"], contest["sport"], contest["salary_cap"])
+    
+    # Get entries in this contest
+    entries = contests[0]["entries"]
+    
+    for entry in entries:
+        print("Entry: ", entry["id"])
+        print("Entry Required Lineup Format:", fd.get_roster_format_in_entry(entry["id"]))
+        
+        # Get players available to choose for this entry
+        print("Available Players: ", len(entry["available_players"]))
 
-  
+# From here we have the contest info, required lineup format, and available players.
+# We have everything we need to smartly update some entries
 
-```
-
-  
-
-  
-
-Get all upcoming contests
-
-  
-
-  
-
-```
-
-  
-
-fd.get_contests()
-
-  
-
-```
-
-  Update a Fanduel Entry
-```
-# Get an entry
-entry = fd.get_entry('entry_id')
-
-available_players = fd.get_players_in_entry(this_entry.id)
-
-# Decide what players to use. Here we are just grabbing the first 5 in the list as an example
+# Just blindly taking first 5 players as an example
 players_to_use = available_players[:5]
+update_entry_input = [UpdateEntryInput({'id': entry["id"], 'lineup': players_to_use})]
 
-update_entry_input = [UpdateEntryInput({'id': entry.id, 'lineup': players_to_use})]
-
-fd.update_entries(update_entry_input)
 ```
 
   
