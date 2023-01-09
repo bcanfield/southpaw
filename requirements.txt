@@ -3,7 +3,7 @@ certifi==2021.10.8
 charset-normalizer==2.0.7
 idna==3.3
 iniconfig==1.1.1
-packaging==21.2
+packaging==23.0
 pluggy==1.0.0
 py==1.11.0
 pyparsing==2.4.7
