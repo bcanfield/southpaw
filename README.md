@@ -13,8 +13,6 @@
 
   
 
-[![Build Status](https://circleci.com/gh/bcanfield/southpaw/tree/main.svg?style=shield)](https://circleci.com/gh/bcanfield/southpaw/?branch=main)
-
   
 
   
