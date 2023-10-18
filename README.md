@@ -93,3 +93,10 @@ This project is for educational use only.
 Accumulating Fanduel points or prizes through unauthorized methods such as unauthorized scripts or other automated means is against the Fanduel terms and may result in account disqualification.
 
 The contributors of Southpaw shall not be held responsible for any actions taken using this tool.
+
+## Developing
+Build package locally:
+`python setup.py bdist_wheel`
+
+Install package locally:
+`pip install dist/southpaw-<...>.whl --force-reinstall`
