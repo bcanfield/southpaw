@@ -2,11 +2,18 @@
 
 
 
-## v3.0.0 (2023-10-18)
+## v3.0.2 (2023-10-18)
+
+### Fix
+
+* fix: Semantic ([`84c2af8`](https://github.com/bcanfield/southpaw/commit/84c2af850192cb8056f6888e4a65010e59a5f9fe))
+
+
+## v3.0.1 (2023-10-18)
 
 ### Unknown
 
-* Set up Semantic Release ([`9743432`](https://github.com/bcanfield/southpaw/commit/9743432a22d6d27961bb1e4fae23433053a305dc))
+* Semantic Release ([`0b754c2`](https://github.com/bcanfield/southpaw/commit/0b754c2222ead7d0c15ccdf51522d713f92ca1e3))
 
 * Update README ([`2c474ae`](https://github.com/bcanfield/southpaw/commit/2c474ae144eefc174b27bd3483d16919fa6fffbe))
 
