@@ -2,6 +2,15 @@
 
 
 
+## v3.0.0 (2023-10-18)
+
+### Breaking
+
+* major: Semanticc Release
+
+BREAKING CHANGE: Semantic Release ([`d377604`](https://github.com/bcanfield/southpaw/commit/d3776040ef529fb2408d74f003c1a44a0336b645))
+
+
 ## v2.0.0 (2023-10-18)
 
 ### Breaking
