@@ -1,9 +1,16 @@
 # CHANGELOG
 
 
-## Unreleased
+
+## v0.0.1 (2023-10-18)
+
+### Fix
+
+* fix: Clean up dependencies and release ([`01a98fc`](https://github.com/bcanfield/southpaw/commit/01a98fc131313d1c8f1d6a1bc28ab225292fcd3b))
 
 ### Unknown
+
+* Semantic Release ([`78fc0c2`](https://github.com/bcanfield/southpaw/commit/78fc0c2409fd49651f1c76fad3ecfa6458c38057))
 
 * Update README.md ([`19720fa`](https://github.com/bcanfield/southpaw/commit/19720fa655e2c116f0aa5666cd018e383c0ef892))
 
@@ -260,4 +267,3 @@ Develop ([`9394794`](https://github.com/bcanfield/southpaw/commit/93947941f2a1a8
 * Initial pipeline setup ([`b7a4230`](https://github.com/bcanfield/southpaw/commit/b7a423006823fbfd45bfa0f071bb53afb502d753))
 
 * first commit ([`027bdb4`](https://github.com/bcanfield/southpaw/commit/027bdb4d65693e6c1550207c702f7622cbce48da))
-
