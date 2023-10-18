@@ -1,6 +1,6 @@
 import requests
 import json
-
+import colorful as cf
 
 class Player():
     '''
@@ -445,8 +445,7 @@ class Fanduel():
             # Succesfully sent off a request with the given credentials
             user = current_response_json['users'][0]
             self.user_auth.user_id = user['id']
-            print("#######################\nLogged in Fanduel user: ",
-                  user['username'], "\n#######################\n")
+            print(cf.green("Successfully logged in Fanduel user: "),user['username'])
         else:
             raise Exception(
                 '#######################\nError Authenticating Fanduel User\n#######################\n')
