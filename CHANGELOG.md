@@ -2,52 +2,11 @@
 
 
 
-## v2.0.0 (2023-10-18)
-
-### Breaking
-
-* major: Semanticc Release
-
-BREAKING CHANGE: Semantic ([`71da3de`](https://github.com/bcanfield/southpaw/commit/71da3de4cd101e78ebedf0cf893b7533fdf8fcc4))
-
-
-## v1.0.0 (2023-10-18)
-
-### Breaking
-
-* major: Semanticc Release
-
-BREAKING CHANGE: Semantic ([`0ba3eb2`](https://github.com/bcanfield/southpaw/commit/0ba3eb2af592c2343dea52a08b5d2577152633d0))
-
-### Major
-
-* major: Semantic Release ([`517ab0d`](https://github.com/bcanfield/southpaw/commit/517ab0d54fb67f80386fdbb8ea70a64b8667ed04))
+## v0.0.0 (2023-10-18)
 
 ### Unknown
 
-* semantice-release-1 (#58)
-
-BREAKING CHANGE: semantic release ([`5b4cd33`](https://github.com/bcanfield/southpaw/commit/5b4cd336601859d6f671cfb076ec1b3c1b45f672))
-
-
-## v0.0.2 (2023-10-18)
-
-### Fix
-
-* fix: Semantic Release ([`b134ec8`](https://github.com/bcanfield/southpaw/commit/b134ec801ab59d063497d7a7aa26df576807a829))
-
-
-## v0.0.1 (2023-10-18)
-
-### Fix
-
-* fix: Clean up dependencies and release ([`01a98fc`](https://github.com/bcanfield/southpaw/commit/01a98fc131313d1c8f1d6a1bc28ab225292fcd3b))
-
-### Unknown
-
-* Semantic Release ([`78fc0c2`](https://github.com/bcanfield/southpaw/commit/78fc0c2409fd49651f1c76fad3ecfa6458c38057))
-
-* Update README.md ([`19720fa`](https://github.com/bcanfield/southpaw/commit/19720fa655e2c116f0aa5666cd018e383c0ef892))
+* Set up Semantic Release ([`9743432`](https://github.com/bcanfield/southpaw/commit/9743432a22d6d27961bb1e4fae23433053a305dc))
 
 * Update README ([`2c474ae`](https://github.com/bcanfield/southpaw/commit/2c474ae144eefc174b27bd3483d16919fa6fffbe))
 
