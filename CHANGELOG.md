@@ -2,16 +2,11 @@
 
 
 
-## v0.0.2 (2023-10-18)
+## v0.0.1 (2023-10-18)
 
 ### Fix
 
 * fix: Semantic Release ([`b134ec8`](https://github.com/bcanfield/southpaw/commit/b134ec801ab59d063497d7a7aa26df576807a829))
-
-
-## v0.0.1 (2023-10-18)
-
-### Fix
 
 * fix: Clean up dependencies and release ([`01a98fc`](https://github.com/bcanfield/southpaw/commit/01a98fc131313d1c8f1d6a1bc28ab225292fcd3b))
 
